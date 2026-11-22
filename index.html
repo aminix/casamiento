@@ -441,7 +441,7 @@ legend.fl { margin-bottom: 10px; }
 }
 /* Al abrir, deja sitio arriba para la tarjeta que sale del sobre */
 .env-zone.is-open { padding-top: calc(var(--env-w) * .5 + 24px); }
-.envelope { position: relative; width: var(--env-w); aspect-ratio: 3 / 2; perspective: 1200px; filter: drop-shadow(0 14px 22px rgba(158,13,18,.16)); }
+.envelope { --r0: -88%; --r1: -91%; --r2: -93.5%; position: relative; width: var(--env-w); aspect-ratio: 3 / 2; perspective: 1200px; filter: drop-shadow(0 14px 22px rgba(158,13,18,.16)); }
 .env-back { position: absolute; inset: 0; background: #E9B9B2; border-radius: 10px; z-index: 1; }
 .env-front { position: absolute; inset: 0; z-index: 6; pointer-events: none; }
 .env-front svg, .env-flap svg { width: 100%; height: 100%; display: block; }
@@ -468,18 +468,18 @@ legend.fl { margin-bottom: 10px; }
 .paper[data-pos="0"] { z-index: 5; }
 .paper[data-pos="1"] { z-index: 4; }
 .paper[data-pos="2"] { z-index: 3; }
-.envelope.open .paper[data-pos="0"] { transform: translate(0, -88%); }
-.envelope.open .paper[data-pos="1"] { transform: translate(9px, -91%) rotate(2.4deg); background: #FFFCFB; }
-.envelope.open .paper[data-pos="2"] { transform: translate(-9px, -93.5%) rotate(-2deg); background: #FFF8F7; }
+.envelope.open .paper[data-pos="0"] { transform: translate(0, var(--r0)); }
+.envelope.open .paper[data-pos="1"] { transform: translate(9px, var(--r1)) rotate(2.4deg); background: #FFFCFB; }
+.envelope.open .paper[data-pos="2"] { transform: translate(-9px, var(--r2)) rotate(-2deg); background: #FFF8F7; }
 .envelope:not(.open) .paper { transition-delay: 0s; }
 .envelope.shuffling .paper { transition: transform .45s cubic-bezier(.2,.8,.2,1) 0s; }
 /* La de delante sale por la derecha y vuelve al fondo del montón */
 .paper.to-back { animation: to-back .7s cubic-bezier(.45,.05,.35,1) both; }
 @keyframes to-back {
-  0%   { transform: translate(0, -88%) rotate(0); z-index: 6; }
+  0%   { transform: translate(0, var(--r0)) rotate(0); z-index: 6; }
   45%  { transform: translate(72%, -97%) rotate(9deg); z-index: 6; }
   55%  { z-index: 2; }
-  100% { transform: translate(-9px, -93.5%) rotate(-2deg); z-index: 2; }
+  100% { transform: translate(-9px, var(--r2)) rotate(-2deg); z-index: 2; }
 }
 @media (prefers-reduced-motion: reduce) { .paper, .env-flap, .env-zone { transition-duration: .01s !important; } .paper.to-back { animation: none; } }
 .paper-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
@@ -492,7 +492,7 @@ legend.fl { margin-bottom: 10px; }
 .paper-rows { margin: 0; display: grid; gap: 6px; }
 .paper-rows dt { font-size: 11px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); line-height: 1.3; }
 .paper-rows dd { margin: 0; display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 28px; }
-.paper-rows .val { font-size: clamp(15px, 2.4vw, 17px); font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.paper-rows .val { font-size: clamp(14px, 3.9vw, 17px); font-weight: 600; line-height: 1.3; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
 .paper-rows .val.small { font-size: 14px; }
 .copy { flex: none; width: 28px; height: 28px; display: grid; place-items: center; border: 0; border-radius: 8px; background: var(--blush); color: var(--red-mid); cursor: pointer; padding: 0; position: relative; transition: background .15s ease; }
 .copy::after { content: ""; position: absolute; inset: -8px; } /* zona táctil más grande */
@@ -503,11 +503,22 @@ legend.fl { margin-bottom: 10px; }
 .env-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
 .copied { font-weight: 700; color: var(--red); font-size: 15px; min-height: 1.2em; text-align: center; }
 @media (max-width: 760px) { .regalo .wrap { grid-template-columns: 1fr; } }
-/* En el móvil el sobre es algo más alto, para que quepan tres datos por tarjeta */
+/* En el móvil el sobre mantiene la forma 3:2; las tarjetas ocupan casi toda su altura
+   y salen un poco más, para que quepan los tres datos de cada una */
 @media (max-width: 520px) {
-  .envelope { aspect-ratio: 5 / 4; }
-  .env-zone.is-open { padding-top: calc(var(--env-w) * .6 + 24px); }
-  .paper { padding: 12px 14px; }
+  .envelope { --r0: -90%; --r1: -93%; --r2: -95.5%; }
+  .paper { top: 1%; height: 98%; padding: 12px 14px; }
+  .env-zone.is-open { padding-top: calc(var(--env-w) * .6 + 26px); }
+}
+/* Móviles estrechos (≤ 400 px): un poco menos de aire dentro de la tarjeta */
+@media (max-width: 400px) {
+  .envelope { --r0: -91%; --r1: -94%; --r2: -96.5%; }
+  .paper { gap: 6px; padding: 10px 12px 12px; }
+  .paper-title { font-size: 17px; line-height: 1.05; }
+  .paper-rows { gap: 4px; }
+  .paper-rows dd { min-height: 26px; }
+  .copy { width: 26px; height: 26px; }
+  .env-zone.is-open { padding-top: calc(var(--env-w) * .61 + 26px); }
 }
 
 /* Dudas */
