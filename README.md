@@ -29,6 +29,14 @@ Deploy → Manage deployments → ✏️ Edit → Version: **New version** → D
 
 Si creas una implementación nueva en vez de editar la existente, la URL cambia y hay que actualizar `SCRIPT_URL` en `index.html`.
 
+## Idiomas (español / inglés)
+
+- La web elige el idioma según el navegador: si alguna de sus lenguas preferidas empieza por `es`, sale en español; si no, en inglés.
+- Arriba a la derecha hay dos banderas (España / Reino Unido) para cambiarlo. La elección se recuerda en ese navegador.
+- Se puede forzar con un enlace: `?lang=es` o `?lang=en` (por ejemplo, `https://resume.aminix.io/casamiento/?lang=en`).
+- El español está escrito directamente en el HTML. Cada texto traducible lleva `data-i18n="kN"`, y su versión en inglés está en `I18N_EN` dentro del `<script>` final. Los mensajes que genera el JavaScript (errores del formulario, "gracias", etc.) están en `I18N_JS`.
+- Si cambias un texto en español, cambia también su `kN` en `I18N_EN`.
+
 ## Editar la web
 
 Todo está en `index.html`. Los colores de la invitación están en el bloque `:root` del principio del `<style>`, y los de la guía andaluza en `body.in-guia`. Haz el cambio, súbelo a `main` y GitHub Pages lo publica en uno o dos minutos.

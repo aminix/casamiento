@@ -5,6 +5,24 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Nuria & Amina · 04.09.2027</title>
+<script>
+  (function () {
+    function pick() {
+      try { var q = new URLSearchParams(location.search).get('lang'); if (q === 'es' || q === 'en') return q; } catch (e) {}
+      try { var s = localStorage.getItem('lang'); if (s === 'es' || s === 'en') return s; } catch (e) {}
+      var ls = (navigator.languages && navigator.languages.length) ? navigator.languages : [navigator.language || 'es'];
+      for (var i = 0; i < ls.length; i++) {
+        var l = String(ls[i]).toLowerCase();
+        if (l.indexOf('es') === 0) return 'es';
+        if (l.indexOf('en') === 0) return 'en';
+      }
+      return 'en';
+    }
+    window.__lang = pick();
+    document.documentElement.lang = window.__lang;
+    if (window.__lang === 'en') document.documentElement.classList.add('i18n-pending');
+  })();
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
@@ -357,6 +375,18 @@ body.in-guia .mono { color: var(--orange); }
 .prov.here { background: var(--orange); border-color: var(--orange); color: var(--white); }
 .prov.here span { font-weight: 400; opacity: .9; }
 
+/* Idioma */
+html.i18n-pending body { visibility: hidden; animation: i18n-reveal 0s 1.2s forwards; }
+@keyframes i18n-reveal { to { visibility: visible; } }
+.nav ul { margin-left: auto; }
+.langs { display: flex; gap: 8px; margin-left: 22px; }
+.flag { width: 30px; height: 20px; padding: 0; border: 0; border-radius: 4px; overflow: hidden; cursor: pointer; background: none; opacity: .45; outline: 2px solid transparent; outline-offset: 2px; transition: opacity .15s ease; }
+.flag svg { display: block; width: 100%; height: 100%; }
+.flag:hover { opacity: .8; }
+.flag[aria-pressed="true"] { opacity: 1; outline-color: var(--red); }
+.flag:focus-visible { outline-color: var(--ink); }
+@media (max-width: 720px) { .langs { margin-left: auto; } }
+
 /* RSVP placeholder */
 .rsvp { background: var(--ink); color: var(--white); }
 .rsvp .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
@@ -461,17 +491,21 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
   </defs>
 </svg>
 
-<nav class="nav" aria-label="Secciones">
+<nav class="nav" aria-label="Secciones" data-i18n-attr="aria-label:navLabel">
   <div class="wrap">
     <a class="mono" href="#inicio">N &amp; A</a>
     <ul>
-      <li><a href="#colores">Dress code</a></li>
-      <li><a href="#lugar">El sitio</a></li>
-      <li><a href="#guia">Los de afuera</a></li>
-      <li><a href="#rsvp">Confirmar</a></li>
-      <li><a href="#regalo">Regalo</a></li>
-      <li><a href="#contacto">Dudas</a></li>
+      <li><a data-i18n="k2" href="#colores">Dress code</a></li>
+      <li><a data-i18n="k3" href="#lugar">El sitio</a></li>
+      <li><a data-i18n="k4" href="#guia">Los de afuera</a></li>
+      <li><a data-i18n="k5" href="#rsvp">Confirmar</a></li>
+      <li><a data-i18n="k6" href="#regalo">Regalo</a></li>
+      <li><a data-i18n="k7" href="#contacto">Dudas</a></li>
     </ul>
+    <div class="langs" role="group" aria-label="Idioma / Language">
+      <button type="button" class="flag" data-lang="es" aria-label="Español" title="Español"><svg viewBox="0 0 3 2" aria-hidden="true"><rect width="3" height="2" fill="#AA151B"/><rect y=".5" width="3" height="1" fill="#F1BF00"/></svg></button>
+      <button type="button" class="flag" data-lang="en" aria-label="English" title="English"><svg viewBox="0 0 60 30" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><rect width="60" height="30" fill="#012169"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" stroke-width="6"/><path d="M0,0 L60,30 M60,0 L0,30" stroke="#C8102E" stroke-width="2"/><path d="M30,0 V30 M0,15 H60" stroke="#fff" stroke-width="10"/><path d="M30,0 V30 M0,15 H60" stroke="#C8102E" stroke-width="6"/></svg></button>
+    </div>
   </div>
 </nav>
 
@@ -483,7 +517,7 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
         <circle cx="100" cy="100" r="98" fill="#E3161E"/>
         <g class="ring">
           <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
-          <text><textPath href="#circ">¡Nos casamos! ♥ ¡Nos casamos! ♥ </textPath></text>
+          <text><textPath data-i18n="k8" href="#circ">¡Nos casamos! ♥ ¡Nos casamos! ♥ </textPath></text>
         </g>
         <path transform="translate(100 104)" d="M0 22 C -30 0, -34 -22, -17 -28 C -6 -32, 0 -22, 0 -16 C 0 -22, 6 -32, 17 -28 C 34 -22, 30 0, 0 22 Z" fill="#FFFFFF"/>
       </svg>
@@ -495,10 +529,10 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
         <span class="amp">&amp;</span>
         <span>Amina</span>
       </h1>
-      <p class="invite">Nos casamos y queremos que estés. Trae ganas de disfrutar y nosotras ponemos el resto.</p>
+      <p data-i18n="k12" class="invite">Nos casamos y queremos que estés. Trae ganas de disfrutar y nosotras ponemos el resto.</p>
       <span class="date-num">04 · 09 · 2027</span>
       <div class="when">
-        <span>Sábado</span><span class="dot"></span><span>Las Aguas del Arbuniel</span><span class="dot"></span><span>Jaén, España</span>
+        <span data-i18n="k14">Sábado</span><span class="dot"></span><span>Las Aguas del Arbuniel</span><span class="dot"></span><span data-i18n="k16">Jaén, España</span>
       </div>
     </div>
   </div>
@@ -507,17 +541,17 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <section class="intro">
   <div class="wrap">
     <div>
-      <span class="kicker">Guarda la fecha</span>
-      <h2 class="h2">Una fiesta <span class="it">en</span> Jaén</h2>
-      <p class="lead">Un sábado para juntar a nuestra gente de todos lados.</p>
+      <span data-i18n="k17" class="kicker">Guarda la fecha</span>
+      <h2 data-i18n="k18" class="h2">Una fiesta <span class="it">en</span> Jaén</h2>
+      <p data-i18n="k19" class="lead">Un sábado para juntar a nuestra gente de todos lados.</p>
       <div class="btns">
-        <a class="btn solid-r" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Nuria%20%26%20Amina&amp;dates=20270904%2F20270905&amp;location=Las%20Aguas%20del%20Arbuniel%2C%20Ctra.%20Arbuniel-Cambil%20km%201%2C%2023193%20Arbuniel%2C%20Ja%C3%A9n" target="_blank" rel="noopener">Añadir a Google Calendar</a>
+        <a data-i18n="k20" class="btn solid-r" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Nuria%20%26%20Amina&amp;dates=20270904%2F20270905&amp;location=Las%20Aguas%20del%20Arbuniel%2C%20Ctra.%20Arbuniel-Cambil%20km%201%2C%2023193%20Arbuniel%2C%20Ja%C3%A9n" target="_blank" rel="noopener">Añadir a Google Calendar</a>
       </div>
     </div>
-    <div class="count" role="group" aria-label="Cuenta atrás">
+    <div class="count" role="group" aria-label="Cuenta atrás" data-i18n-attr="aria-label:countLabel">
       <span class="n" id="days">308</span>
-      <span class="lbl it">días</span>
-      <span class="sub">para el 4 de septiembre de 2027</span>
+      <span data-i18n="k22" class="lbl it">días</span>
+      <span data-i18n="k23" class="sub">para el 4 de septiembre de 2027</span>
     </div>
   </div>
 </section>
@@ -544,8 +578,8 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
     </div>
     <div class="text">
       <span class="kicker">Dress code</span>
-      <h2 class="h2">Rojo <span class="it">y</span> blanco</h2>
-      <p class="lead">Rojo y blanco son nuestros colores de ese día. Tú ven como más te guste… pero esos dos ya están pillados 😉</p>
+      <h2 data-i18n="k27" class="h2">Rojo <span class="it">y</span> blanco</h2>
+      <p data-i18n="k28" class="lead">Rojo y blanco son nuestros colores de ese día. Tú ven como más te guste… pero esos dos ya están pillados 😉</p>
     </div>
   </div>
 </section>
@@ -554,21 +588,21 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
   <div class="wrap">
     <div class="lugar-grid">
       <div>
-        <span class="kicker">El sitio</span>
+        <span data-i18n="k29" class="kicker">El sitio</span>
         <h2 class="h2">Las Aguas <span class="it">del</span> Arbuniel</h2>
-        <div class="address">
+        <div data-i18n="k31" class="address">
           <strong>Las Aguas del Arbuniel</strong>
           Ctra. Arbuniel–Cambil, km 1<br>
           23193 Arbuniel (Cambil), Jaén, España
         </div>
         <div class="btns">
-          <a class="btn solid-r" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Aguas+del+Arbuniel%2C+Arbuniel%2C+Ja%C3%A9n" target="_blank" rel="noopener">Abrir en Google Maps →</a>
+          <a data-i18n="k32" class="btn solid-r" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Aguas+del+Arbuniel%2C+Arbuniel%2C+Ja%C3%A9n" target="_blank" rel="noopener">Abrir en Google Maps →</a>
         </div>
       </div>
       <div>
-        <span class="kicker">De Jaén a la finca</span>
-        <p class="bus-title it"><b>Hay bus</b> de ida y vuelta</p>
-        <p class="bus-sub">Desde el centro de Jaén hasta la finca, y de vuelta al final de la fiesta.</p>
+        <span data-i18n="k33" class="kicker">De Jaén a la finca</span>
+        <p data-i18n="k34" class="bus-title it"><b>Hay bus</b> de ida y vuelta</p>
+        <p data-i18n="k35" class="bus-sub">Desde el centro de Jaén hasta la finca, y de vuelta al final de la fiesta.</p>
         <div class="road" aria-hidden="true">
           <span class="pin l"></span><span class="pin r"></span>
           <div class="busmove">
@@ -584,13 +618,13 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
               <circle cx="102" cy="58" r="10" fill="#2A0A0B"/><circle cx="102" cy="58" r="4" fill="#FFFFFF"/>
             </svg>
           </div>
-          <span class="stop l">Jaén centro</span>
+          <span data-i18n="k36" class="stop l">Jaén centro</span>
           <span class="stop r">Las Aguas del Arbuniel</span>
         </div>
 
         <div class="note">
           <span aria-hidden="true">📍</span>
-          <p>El punto exacto de salida y los horarios del bus os los mandaremos más cerca de la fecha. <b>Cuando confirméis, decidnos si vais a usarlo</b> para reservar plazas.</p>
+          <p data-i18n="k39">El punto exacto de salida y los horarios del bus os los mandaremos más cerca de la fecha. <b>Cuando confirméis, decidnos si vais a usarlo</b> para reservar plazas.</p>
         </div>
       </div>
     </div>
@@ -612,50 +646,50 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <section class="afuera" id="afuera">
   <div class="wrap afuera-teaser">
     <div>
-      <span class="kicker">Para los de afuera</span>
-      <h2 class="h2">¿Vienes <span class="it">de</span> lejos?</h2>
-      <p class="lead">Os hemos preparado una guía con todo lo práctico para venir a Jaén.</p>
+      <span data-i18n="k40" class="kicker">Para los de afuera</span>
+      <h2 data-i18n="k41" class="h2">¿Vienes <span class="it">de</span> lejos?</h2>
+      <p data-i18n="k42" class="lead">Os hemos preparado una guía con todo lo práctico para venir a Jaén.</p>
     </div>
-    <a class="btn solid-r" href="#guia">Ver la guía →</a>
+    <a data-i18n="k43" class="btn solid-r" href="#guia">Ver la guía →</a>
   </div>
 </section>
 
 <section class="rsvp" id="rsvp">
   <div class="wrap">
     <div>
-      <span class="kicker">Confirmación</span>
-      <h2 class="h2">¿Vienes? <span class="it">Di que sí</span></h2>
+      <span data-i18n="k44" class="kicker">Confirmación</span>
+      <h2 data-i18n="k45" class="h2">¿Vienes? <span class="it">Di que sí</span></h2>
     </div>
     <div class="rsvp-card">
       <form class="rsvp-form" id="rsvpForm" novalidate>
         <div class="field">
-          <label class="fl" for="f-nombre">Nombre y apellido</label>
-          <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="200" placeholder="Ej.: Ana López y Pablo Ruiz">
-          <span class="hint">Si venís varios, poned todos los nombres.</span>
+          <label data-i18n="k46" class="fl" for="f-nombre">Nombre y apellido</label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="200" placeholder="Ej.: Ana López y Pablo Ruiz" data-i18n-attr="placeholder:namePh">
+          <span data-i18n="k47" class="hint">Si venís varios, poned todos los nombres.</span>
         </div>
         <fieldset class="field choice">
-          <legend class="fl">¿Vienes?</legend>
+          <legend data-i18n="k48" class="fl">¿Vienes?</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="asiste" value="si" id="f-si"><span>Sí, allí estaré</span></label>
-            <label class="opt"><input type="radio" name="asiste" value="no" id="f-no"><span>No puedo</span></label>
+            <label class="opt"><input type="radio" name="asiste" value="si" id="f-si"><span data-i18n="k49">Sí, allí estaré</span></label>
+            <label class="opt"><input type="radio" name="asiste" value="no" id="f-no"><span data-i18n="k50">No puedo</span></label>
           </div>
         </fieldset>
         <fieldset class="field choice" id="busRow" hidden>
-          <legend class="fl">¿Necesitas bus ese sábado?</legend>
+          <legend data-i18n="k51" class="fl">¿Necesitas bus ese sábado?</legend>
           <div class="opts">
-            <label class="opt"><input type="radio" name="bus" value="si" id="f-bus-si"><span>Sí</span></label>
+            <label class="opt"><input type="radio" name="bus" value="si" id="f-bus-si"><span data-i18n="k52">Sí</span></label>
             <label class="opt"><input type="radio" name="bus" value="no" id="f-bus-no"><span>No</span></label>
           </div>
-          <span class="hint">Ida y vuelta desde el centro de Jaén.</span>
+          <span data-i18n="k54" class="hint">Ida y vuelta desde el centro de Jaén.</span>
         </fieldset>
         <input class="hp" type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn solid-r" type="submit" id="f-send">Enviar</button>
+        <button data-i18n="k55" class="btn solid-r" type="submit" id="f-send">Enviar</button>
         <p class="fmsg" id="f-msg" role="status"></p>
       </form>
       <div class="thanks" id="thanks" hidden>
         <b class="it" id="thanksTitle"></b>
         <p id="thanksText"></p>
-        <button type="button" class="again" id="again">Enviar otra respuesta</button>
+        <button data-i18n="k56" type="button" class="again" id="again">Enviar otra respuesta</button>
       </div>
     </div>
   </div>
@@ -664,17 +698,17 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <section class="regalo" id="regalo">
   <div class="wrap">
     <div>
-      <span class="kicker">Regalo</span>
-      <h2 class="h2">Tu regalo <span class="it">es</span> venir</h2>
-      <p class="lead">Con que vengas ya nos haces felices. Y si además te apetece tener un detalle con nosotras, te dejamos el sobre por aquí.</p>
+      <span data-i18n="k57" class="kicker">Regalo</span>
+      <h2 data-i18n="k58" class="h2">Tu regalo <span class="it">es</span> venir</h2>
+      <p data-i18n="k59" class="lead">Con que vengas ya nos haces felices. Y si además te apetece tener un detalle con nosotras, te dejamos el sobre por aquí.</p>
     </div>
     <div class="env-zone">
       <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="envCard" aria-label="Abrir el sobre">
         <span class="env-back"></span>
         <span class="env-card" id="envCard">
-          <span class="for">Para lo que venga</span>
+          <span data-i18n="k60" class="for">Para lo que venga</span>
           <dl>
-            <div><dt>Titulares</dt><dd>Nuria · Amina</dd></div>
+            <div><dt data-i18n="k61">Titulares</dt><dd>Nuria · Amina</dd></div>
             <div><dt>IBAN</dt><dd id="iban">ES00 0000 0000 0000 0000 0000</dd></div>
           </dl>
         </span>
@@ -695,19 +729,19 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
         </span>
       </button>
       <div class="env-actions">
-        <button class="btn small solid-r" id="toggleEnv" type="button">Abrir el sobre</button>
-        <button class="btn small outline-r" id="copyIban" type="button">Copiar IBAN</button>
+        <button data-i18n="k66" class="btn small solid-r" id="toggleEnv" type="button">Abrir el sobre</button>
+        <button data-i18n="k67" class="btn small outline-r" id="copyIban" type="button">Copiar IBAN</button>
         <span class="copied" id="copied" role="status"></span>
       </div>
-      <span class="placeholder-tag">IBAN de ejemplo</span>
+      <span data-i18n="k68" class="placeholder-tag">IBAN de ejemplo</span>
     </div>
   </div>
 </section>
 
 <section class="contacto" id="contacto">
   <div class="wrap">
-    <h2 class="h2">¿Alguna duda?</h2>
-    <p class="where">Ya sabes dónde encontrarnos.</p>
+    <h2 data-i18n="k69" class="h2">¿Alguna duda?</h2>
+    <p data-i18n="k70" class="where">Ya sabes dónde encontrarnos.</p>
   </div>
 </section>
 
@@ -718,16 +752,16 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
   <svg class="tilebg" viewBox="0 0 1600 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#t-circulo" x="0" y="0" width="80" height="80" transform="rotate(0 40.0 40.0)"/><use href="#t-cruz" x="80" y="0" width="80" height="80" transform="rotate(90 120.0 40.0)"/><use href="#t-cuadrifolio" x="160" y="0" width="80" height="80" transform="rotate(180 200.0 40.0)"/><use href="#t-circulo" x="240" y="0" width="80" height="80" transform="rotate(270 280.0 40.0)"/><use href="#t-cruz" x="320" y="0" width="80" height="80" transform="rotate(0 360.0 40.0)"/><use href="#t-cuadrifolio" x="400" y="0" width="80" height="80" transform="rotate(90 440.0 40.0)"/><use href="#t-circulo" x="480" y="0" width="80" height="80" transform="rotate(180 520.0 40.0)"/><use href="#t-cruz" x="560" y="0" width="80" height="80" transform="rotate(270 600.0 40.0)"/><use href="#t-cuadrifolio" x="640" y="0" width="80" height="80" transform="rotate(0 680.0 40.0)"/><use href="#t-circulo" x="720" y="0" width="80" height="80" transform="rotate(90 760.0 40.0)"/><use href="#t-cruz" x="800" y="0" width="80" height="80" transform="rotate(180 840.0 40.0)"/><use href="#t-cuadrifolio" x="880" y="0" width="80" height="80" transform="rotate(270 920.0 40.0)"/><use href="#t-circulo" x="960" y="0" width="80" height="80" transform="rotate(0 1000.0 40.0)"/><use href="#t-cruz" x="1040" y="0" width="80" height="80" transform="rotate(90 1080.0 40.0)"/><use href="#t-cuadrifolio" x="1120" y="0" width="80" height="80" transform="rotate(180 1160.0 40.0)"/><use href="#t-circulo" x="1200" y="0" width="80" height="80" transform="rotate(270 1240.0 40.0)"/><use href="#t-cruz" x="1280" y="0" width="80" height="80" transform="rotate(0 1320.0 40.0)"/><use href="#t-cuadrifolio" x="1360" y="0" width="80" height="80" transform="rotate(90 1400.0 40.0)"/><use href="#t-circulo" x="1440" y="0" width="80" height="80" transform="rotate(180 1480.0 40.0)"/><use href="#t-cruz" x="1520" y="0" width="80" height="80" transform="rotate(270 1560.0 40.0)"/><use href="#t-arcos" x="0" y="80" width="80" height="80" transform="rotate(90 40.0 120.0)"/><use href="#t-estrella" x="80" y="80" width="80" height="80" transform="rotate(180 120.0 120.0)"/><use href="#t-triangulos" x="160" y="80" width="80" height="80" transform="rotate(270 200.0 120.0)"/><use href="#t-arcos" x="240" y="80" width="80" height="80" transform="rotate(0 280.0 120.0)"/><use href="#t-estrella" x="320" y="80" width="80" height="80" transform="rotate(90 360.0 120.0)"/><use href="#t-triangulos" x="400" y="80" width="80" height="80" transform="rotate(180 440.0 120.0)"/><use href="#t-arcos" x="480" y="80" width="80" height="80" transform="rotate(270 520.0 120.0)"/><use href="#t-estrella" x="560" y="80" width="80" height="80" transform="rotate(0 600.0 120.0)"/><use href="#t-triangulos" x="640" y="80" width="80" height="80" transform="rotate(90 680.0 120.0)"/><use href="#t-arcos" x="720" y="80" width="80" height="80" transform="rotate(180 760.0 120.0)"/><use href="#t-estrella" x="800" y="80" width="80" height="80" transform="rotate(270 840.0 120.0)"/><use href="#t-triangulos" x="880" y="80" width="80" height="80" transform="rotate(0 920.0 120.0)"/><use href="#t-arcos" x="960" y="80" width="80" height="80" transform="rotate(90 1000.0 120.0)"/><use href="#t-estrella" x="1040" y="80" width="80" height="80" transform="rotate(180 1080.0 120.0)"/><use href="#t-triangulos" x="1120" y="80" width="80" height="80" transform="rotate(270 1160.0 120.0)"/><use href="#t-arcos" x="1200" y="80" width="80" height="80" transform="rotate(0 1240.0 120.0)"/><use href="#t-estrella" x="1280" y="80" width="80" height="80" transform="rotate(90 1320.0 120.0)"/><use href="#t-triangulos" x="1360" y="80" width="80" height="80" transform="rotate(180 1400.0 120.0)"/><use href="#t-arcos" x="1440" y="80" width="80" height="80" transform="rotate(270 1480.0 120.0)"/><use href="#t-estrella" x="1520" y="80" width="80" height="80" transform="rotate(0 1560.0 120.0)"/><use href="#t-circulo" x="0" y="160" width="80" height="80" transform="rotate(180 40.0 200.0)"/><use href="#t-cruz" x="80" y="160" width="80" height="80" transform="rotate(270 120.0 200.0)"/><use href="#t-cuadrifolio" x="160" y="160" width="80" height="80" transform="rotate(0 200.0 200.0)"/><use href="#t-circulo" x="240" y="160" width="80" height="80" transform="rotate(90 280.0 200.0)"/><use href="#t-cruz" x="320" y="160" width="80" height="80" transform="rotate(180 360.0 200.0)"/><use href="#t-cuadrifolio" x="400" y="160" width="80" height="80" transform="rotate(270 440.0 200.0)"/><use href="#t-circulo" x="480" y="160" width="80" height="80" transform="rotate(0 520.0 200.0)"/><use href="#t-cruz" x="560" y="160" width="80" height="80" transform="rotate(90 600.0 200.0)"/><use href="#t-cuadrifolio" x="640" y="160" width="80" height="80" transform="rotate(180 680.0 200.0)"/><use href="#t-circulo" x="720" y="160" width="80" height="80" transform="rotate(270 760.0 200.0)"/><use href="#t-cruz" x="800" y="160" width="80" height="80" transform="rotate(0 840.0 200.0)"/><use href="#t-cuadrifolio" x="880" y="160" width="80" height="80" transform="rotate(90 920.0 200.0)"/><use href="#t-circulo" x="960" y="160" width="80" height="80" transform="rotate(180 1000.0 200.0)"/><use href="#t-cruz" x="1040" y="160" width="80" height="80" transform="rotate(270 1080.0 200.0)"/><use href="#t-cuadrifolio" x="1120" y="160" width="80" height="80" transform="rotate(0 1160.0 200.0)"/><use href="#t-circulo" x="1200" y="160" width="80" height="80" transform="rotate(90 1240.0 200.0)"/><use href="#t-cruz" x="1280" y="160" width="80" height="80" transform="rotate(180 1320.0 200.0)"/><use href="#t-cuadrifolio" x="1360" y="160" width="80" height="80" transform="rotate(270 1400.0 200.0)"/><use href="#t-circulo" x="1440" y="160" width="80" height="80" transform="rotate(0 1480.0 200.0)"/><use href="#t-cruz" x="1520" y="160" width="80" height="80" transform="rotate(90 1560.0 200.0)"/><use href="#t-arcos" x="0" y="240" width="80" height="80" transform="rotate(270 40.0 280.0)"/><use href="#t-estrella" x="80" y="240" width="80" height="80" transform="rotate(0 120.0 280.0)"/><use href="#t-triangulos" x="160" y="240" width="80" height="80" transform="rotate(90 200.0 280.0)"/><use href="#t-arcos" x="240" y="240" width="80" height="80" transform="rotate(180 280.0 280.0)"/><use href="#t-estrella" x="320" y="240" width="80" height="80" transform="rotate(270 360.0 280.0)"/><use href="#t-triangulos" x="400" y="240" width="80" height="80" transform="rotate(0 440.0 280.0)"/><use href="#t-arcos" x="480" y="240" width="80" height="80" transform="rotate(90 520.0 280.0)"/><use href="#t-estrella" x="560" y="240" width="80" height="80" transform="rotate(180 600.0 280.0)"/><use href="#t-triangulos" x="640" y="240" width="80" height="80" transform="rotate(270 680.0 280.0)"/><use href="#t-arcos" x="720" y="240" width="80" height="80" transform="rotate(0 760.0 280.0)"/><use href="#t-estrella" x="800" y="240" width="80" height="80" transform="rotate(90 840.0 280.0)"/><use href="#t-triangulos" x="880" y="240" width="80" height="80" transform="rotate(180 920.0 280.0)"/><use href="#t-arcos" x="960" y="240" width="80" height="80" transform="rotate(270 1000.0 280.0)"/><use href="#t-estrella" x="1040" y="240" width="80" height="80" transform="rotate(0 1080.0 280.0)"/><use href="#t-triangulos" x="1120" y="240" width="80" height="80" transform="rotate(90 1160.0 280.0)"/><use href="#t-arcos" x="1200" y="240" width="80" height="80" transform="rotate(180 1240.0 280.0)"/><use href="#t-estrella" x="1280" y="240" width="80" height="80" transform="rotate(270 1320.0 280.0)"/><use href="#t-triangulos" x="1360" y="240" width="80" height="80" transform="rotate(0 1400.0 280.0)"/><use href="#t-arcos" x="1440" y="240" width="80" height="80" transform="rotate(90 1480.0 280.0)"/><use href="#t-estrella" x="1520" y="240" width="80" height="80" transform="rotate(180 1560.0 280.0)"/><use href="#t-circulo" x="0" y="320" width="80" height="80" transform="rotate(0 40.0 360.0)"/><use href="#t-cruz" x="80" y="320" width="80" height="80" transform="rotate(90 120.0 360.0)"/><use href="#t-cuadrifolio" x="160" y="320" width="80" height="80" transform="rotate(180 200.0 360.0)"/><use href="#t-circulo" x="240" y="320" width="80" height="80" transform="rotate(270 280.0 360.0)"/><use href="#t-cruz" x="320" y="320" width="80" height="80" transform="rotate(0 360.0 360.0)"/><use href="#t-cuadrifolio" x="400" y="320" width="80" height="80" transform="rotate(90 440.0 360.0)"/><use href="#t-circulo" x="480" y="320" width="80" height="80" transform="rotate(180 520.0 360.0)"/><use href="#t-cruz" x="560" y="320" width="80" height="80" transform="rotate(270 600.0 360.0)"/><use href="#t-cuadrifolio" x="640" y="320" width="80" height="80" transform="rotate(0 680.0 360.0)"/><use href="#t-circulo" x="720" y="320" width="80" height="80" transform="rotate(90 760.0 360.0)"/><use href="#t-cruz" x="800" y="320" width="80" height="80" transform="rotate(180 840.0 360.0)"/><use href="#t-cuadrifolio" x="880" y="320" width="80" height="80" transform="rotate(270 920.0 360.0)"/><use href="#t-circulo" x="960" y="320" width="80" height="80" transform="rotate(0 1000.0 360.0)"/><use href="#t-cruz" x="1040" y="320" width="80" height="80" transform="rotate(90 1080.0 360.0)"/><use href="#t-cuadrifolio" x="1120" y="320" width="80" height="80" transform="rotate(180 1160.0 360.0)"/><use href="#t-circulo" x="1200" y="320" width="80" height="80" transform="rotate(270 1240.0 360.0)"/><use href="#t-cruz" x="1280" y="320" width="80" height="80" transform="rotate(0 1320.0 360.0)"/><use href="#t-cuadrifolio" x="1360" y="320" width="80" height="80" transform="rotate(90 1400.0 360.0)"/><use href="#t-circulo" x="1440" y="320" width="80" height="80" transform="rotate(180 1480.0 360.0)"/><use href="#t-cruz" x="1520" y="320" width="80" height="80" transform="rotate(270 1560.0 360.0)"/><use href="#t-arcos" x="0" y="400" width="80" height="80" transform="rotate(90 40.0 440.0)"/><use href="#t-estrella" x="80" y="400" width="80" height="80" transform="rotate(180 120.0 440.0)"/><use href="#t-triangulos" x="160" y="400" width="80" height="80" transform="rotate(270 200.0 440.0)"/><use href="#t-arcos" x="240" y="400" width="80" height="80" transform="rotate(0 280.0 440.0)"/><use href="#t-estrella" x="320" y="400" width="80" height="80" transform="rotate(90 360.0 440.0)"/><use href="#t-triangulos" x="400" y="400" width="80" height="80" transform="rotate(180 440.0 440.0)"/><use href="#t-arcos" x="480" y="400" width="80" height="80" transform="rotate(270 520.0 440.0)"/><use href="#t-estrella" x="560" y="400" width="80" height="80" transform="rotate(0 600.0 440.0)"/><use href="#t-triangulos" x="640" y="400" width="80" height="80" transform="rotate(90 680.0 440.0)"/><use href="#t-arcos" x="720" y="400" width="80" height="80" transform="rotate(180 760.0 440.0)"/><use href="#t-estrella" x="800" y="400" width="80" height="80" transform="rotate(270 840.0 440.0)"/><use href="#t-triangulos" x="880" y="400" width="80" height="80" transform="rotate(0 920.0 440.0)"/><use href="#t-arcos" x="960" y="400" width="80" height="80" transform="rotate(90 1000.0 440.0)"/><use href="#t-estrella" x="1040" y="400" width="80" height="80" transform="rotate(180 1080.0 440.0)"/><use href="#t-triangulos" x="1120" y="400" width="80" height="80" transform="rotate(270 1160.0 440.0)"/><use href="#t-arcos" x="1200" y="400" width="80" height="80" transform="rotate(0 1240.0 440.0)"/><use href="#t-estrella" x="1280" y="400" width="80" height="80" transform="rotate(90 1320.0 440.0)"/><use href="#t-triangulos" x="1360" y="400" width="80" height="80" transform="rotate(180 1400.0 440.0)"/><use href="#t-arcos" x="1440" y="400" width="80" height="80" transform="rotate(270 1480.0 440.0)"/><use href="#t-estrella" x="1520" y="400" width="80" height="80" transform="rotate(0 1560.0 440.0)"/><use href="#t-circulo" x="0" y="480" width="80" height="80" transform="rotate(180 40.0 520.0)"/><use href="#t-cruz" x="80" y="480" width="80" height="80" transform="rotate(270 120.0 520.0)"/><use href="#t-cuadrifolio" x="160" y="480" width="80" height="80" transform="rotate(0 200.0 520.0)"/><use href="#t-circulo" x="240" y="480" width="80" height="80" transform="rotate(90 280.0 520.0)"/><use href="#t-cruz" x="320" y="480" width="80" height="80" transform="rotate(180 360.0 520.0)"/><use href="#t-cuadrifolio" x="400" y="480" width="80" height="80" transform="rotate(270 440.0 520.0)"/><use href="#t-circulo" x="480" y="480" width="80" height="80" transform="rotate(0 520.0 520.0)"/><use href="#t-cruz" x="560" y="480" width="80" height="80" transform="rotate(90 600.0 520.0)"/><use href="#t-cuadrifolio" x="640" y="480" width="80" height="80" transform="rotate(180 680.0 520.0)"/><use href="#t-circulo" x="720" y="480" width="80" height="80" transform="rotate(270 760.0 520.0)"/><use href="#t-cruz" x="800" y="480" width="80" height="80" transform="rotate(0 840.0 520.0)"/><use href="#t-cuadrifolio" x="880" y="480" width="80" height="80" transform="rotate(90 920.0 520.0)"/><use href="#t-circulo" x="960" y="480" width="80" height="80" transform="rotate(180 1000.0 520.0)"/><use href="#t-cruz" x="1040" y="480" width="80" height="80" transform="rotate(270 1080.0 520.0)"/><use href="#t-cuadrifolio" x="1120" y="480" width="80" height="80" transform="rotate(0 1160.0 520.0)"/><use href="#t-circulo" x="1200" y="480" width="80" height="80" transform="rotate(90 1240.0 520.0)"/><use href="#t-cruz" x="1280" y="480" width="80" height="80" transform="rotate(180 1320.0 520.0)"/><use href="#t-cuadrifolio" x="1360" y="480" width="80" height="80" transform="rotate(270 1400.0 520.0)"/><use href="#t-circulo" x="1440" y="480" width="80" height="80" transform="rotate(0 1480.0 520.0)"/><use href="#t-cruz" x="1520" y="480" width="80" height="80" transform="rotate(90 1560.0 520.0)"/><use href="#t-arcos" x="0" y="560" width="80" height="80" transform="rotate(270 40.0 600.0)"/><use href="#t-estrella" x="80" y="560" width="80" height="80" transform="rotate(0 120.0 600.0)"/><use href="#t-triangulos" x="160" y="560" width="80" height="80" transform="rotate(90 200.0 600.0)"/><use href="#t-arcos" x="240" y="560" width="80" height="80" transform="rotate(180 280.0 600.0)"/><use href="#t-estrella" x="320" y="560" width="80" height="80" transform="rotate(270 360.0 600.0)"/><use href="#t-triangulos" x="400" y="560" width="80" height="80" transform="rotate(0 440.0 600.0)"/><use href="#t-arcos" x="480" y="560" width="80" height="80" transform="rotate(90 520.0 600.0)"/><use href="#t-estrella" x="560" y="560" width="80" height="80" transform="rotate(180 600.0 600.0)"/><use href="#t-triangulos" x="640" y="560" width="80" height="80" transform="rotate(270 680.0 600.0)"/><use href="#t-arcos" x="720" y="560" width="80" height="80" transform="rotate(0 760.0 600.0)"/><use href="#t-estrella" x="800" y="560" width="80" height="80" transform="rotate(90 840.0 600.0)"/><use href="#t-triangulos" x="880" y="560" width="80" height="80" transform="rotate(180 920.0 600.0)"/><use href="#t-arcos" x="960" y="560" width="80" height="80" transform="rotate(270 1000.0 600.0)"/><use href="#t-estrella" x="1040" y="560" width="80" height="80" transform="rotate(0 1080.0 600.0)"/><use href="#t-triangulos" x="1120" y="560" width="80" height="80" transform="rotate(90 1160.0 600.0)"/><use href="#t-arcos" x="1200" y="560" width="80" height="80" transform="rotate(180 1240.0 600.0)"/><use href="#t-estrella" x="1280" y="560" width="80" height="80" transform="rotate(270 1320.0 600.0)"/><use href="#t-triangulos" x="1360" y="560" width="80" height="80" transform="rotate(0 1400.0 600.0)"/><use href="#t-arcos" x="1440" y="560" width="80" height="80" transform="rotate(90 1480.0 600.0)"/><use href="#t-estrella" x="1520" y="560" width="80" height="80" transform="rotate(180 1560.0 600.0)"/></svg>
   <div class="wrap">
     <div class="gcard">
-    <a class="back" href="#inicio">← Volver a la invitación</a>
-    <span class="kicker">Guía para los de afuera</span>
-    <h1 class="h2 gtitle">Jaén <span class="it">para</span> los de afuera</h1>
-    <p class="lead">Todo lo práctico para venir a la boda desde fuera de Jaén, o de España.</p>
-    <nav class="toc" aria-label="Secciones de la guía">
-      <a class="pill" href="#guia-llegar">Cómo llegar</a>
-      <a class="pill" href="#guia-dormir">Dónde dormir</a>
-      <a class="pill" href="#guia-moverse">Moverse</a>
-      <a class="pill" href="#guia-pedir">Qué pedir</a>
-      <a class="pill" href="#guia-tapas">De tapas</a>
+    <a data-i18n="k71" class="back" href="#inicio">← Volver a la invitación</a>
+    <span data-i18n="k72" class="kicker">Guía para los de afuera</span>
+    <h1 data-i18n="k73" class="h2 gtitle">Jaén <span class="it">para</span> los de afuera</h1>
+    <p data-i18n="k74" class="lead">Todo lo práctico para venir a la boda desde fuera de Jaén, o de España.</p>
+    <nav class="toc" aria-label="Secciones de la guía" data-i18n-attr="aria-label:tocLabel">
+      <a data-i18n="k75" class="pill" href="#guia-llegar">Cómo llegar</a>
+      <a data-i18n="k76" class="pill" href="#guia-dormir">Dónde dormir</a>
+      <a data-i18n="k77" class="pill" href="#guia-moverse">Moverse</a>
+      <a data-i18n="k78" class="pill" href="#guia-pedir">Qué pedir</a>
+      <a data-i18n="k79" class="pill" href="#guia-tapas">De tapas</a>
     </nav>
     </div>
   </div>
@@ -736,21 +770,21 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <section class="dato" id="guia-jaen">
   <div class="wrap dato-in">
     <svg class="branch big" aria-hidden="true"><use href="#olive-branch"/></svg>
-    <span class="kicker">Bienvenidos a Jaén</span>
-    <h2 class="h2">Casi 70 millones <span class="it">de</span> olivos</h2>
-    <p class="lead">La provincia de Jaén produce más aceite de oliva que toda Italia: alrededor de uno de cada cinco litros que se hacen en el mundo. Por eso a su paisaje le llaman el mar de olivos.</p>
+    <span data-i18n="k80" class="kicker">Bienvenidos a Jaén</span>
+    <h2 data-i18n="k81" class="h2">Casi 70 millones <span class="it">de</span> olivos</h2>
+    <p data-i18n="k82" class="lead">La provincia de Jaén produce más aceite de oliva que toda Italia: alrededor de uno de cada cinco litros que se hacen en el mundo. Por eso a su paisaje le llaman el mar de olivos.</p>
     <div class="donde">
-      <h3 class="gh3">¿Dónde está Jaén?</h3>
-      <p>Jaén es una ciudad y una provincia de Andalucía, la comunidad autónoma del sur de España. Andalucía es famosa por sus playas, el sol, el flamenco, las tapas y monumentos como la Alhambra de Granada o la Mezquita de Córdoba. Tiene ocho provincias:</p>
+      <h3 data-i18n="k83" class="gh3">¿Dónde está Jaén?</h3>
+      <p data-i18n="k84">Jaén es una ciudad y una provincia de Andalucía, la comunidad autónoma del sur de España. Andalucía es famosa por sus playas, el sol, el flamenco, las tapas y monumentos como la Alhambra de Granada o la Mezquita de Córdoba. Tiene ocho provincias:</p>
       <ul class="provs">
       <li class="prov">Almería</li>
       <li class="prov">Cádiz</li>
       <li class="prov">Córdoba</li>
       <li class="prov">Granada</li>
       <li class="prov">Huelva</li>
-      <li class="prov here">Jaén <span>· aquí</span></li>
+      <li data-i18n="k90" class="prov here">Jaén <span>· aquí</span></li>
       <li class="prov">Málaga</li>
-      <li class="prov">Sevilla</li>
+      <li data-i18n="k92" class="prov">Sevilla</li>
       </ul>
     </div>
   </div>
@@ -769,121 +803,121 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <section class="gsec" id="guia-llegar">
   <div class="wrap gsplit">
     <div>
-      <span class="kicker">Cómo llegar</span>
-      <h2 class="h2">A Jaén <span class="it">desde</span> lejos</h2>
-      <p class="lead">Los aeropuertos más cómodos son Madrid y Málaga. Desde ahí, a Jaén:</p>
+      <span data-i18n="k93" class="kicker">Cómo llegar</span>
+      <h2 data-i18n="k94" class="h2">A Jaén <span class="it">desde</span> lejos</h2>
+      <p data-i18n="k95" class="lead">Los aeropuertos más cómodos son Madrid y Málaga. Desde ahí, a Jaén:</p>
     </div>
     <div>
       <div class="routes">
           <div class="rcard">
-            <span class="from">Desde Madrid</span>
+            <span data-i18n="k96" class="from">Desde Madrid</span>
             <span class="time">5 h</span>
-            <span class="how">aprox. en tren directo desde Madrid hasta Jaén.</span>
+            <span data-i18n="k98" class="how">aprox. en tren directo desde Madrid hasta Jaén.</span>
           </div>
           <div class="rcard">
-            <span class="from">Desde Málaga</span>
+            <span data-i18n="k99" class="from">Desde Málaga</span>
             <span class="time">3 h</span>
-            <span class="how">aprox. en bus, con salidas desde el mismo aeropuerto.</span>
+            <span data-i18n="k101" class="how">aprox. en bus, con salidas desde el mismo aeropuerto.</span>
           </div>
         </div>
-      <p class="small-note">Buscad un tren directo: con transbordo se puede tardar bastante más.</p>
+      <p data-i18n="k102" class="small-note">Buscad un tren directo: con transbordo se puede tardar bastante más.</p>
     </div>
   </div>
 </section>
 
 <section class="gsec rose" id="guia-dormir">
   <div class="wrap">
-    <span class="kicker">Dónde dormir</span>
-    <h2 class="h2">Cerca <span class="it">de la</span> Catedral</h2>
-    <p class="lead">Os recomendamos el centro. Es la zona más bonita, se recorre todo andando y está llena de bares.</p>
+    <span data-i18n="k103" class="kicker">Dónde dormir</span>
+    <h2 data-i18n="k104" class="h2">Cerca <span class="it">de la</span> Catedral</h2>
+    <p data-i18n="k105" class="lead">Os recomendamos el centro. Es la zona más bonita, se recorre todo andando y está llena de bares.</p>
       <div class="hotel-grid">
         <div class="hcard fav">
-          <span class="badge">★ Más recomendado</span>
+          <span data-i18n="k106" class="badge">★ Más recomendado</span>
           <span class="hname">Hotel Europa</span>
           <span class="hwhere">Plaza de Belén</span>
-          <span class="hextra">Terraza con vistas a la Catedral, que queda a unos 7 minutos andando.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Europa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k109" class="hextra">Terraza con vistas a la Catedral, que queda a unos 7 minutos andando.</span>
+          <a data-i18n="k110" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Europa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Condestable Iranzo</span>
           <span class="hwhere">Paseo de la Estación</span>
-          <span class="hextra">Un clásico de Jaén, en la avenida principal y con piscina. A unos 10 minutos andando de la estación de tren.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Condestable+Iranzo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k113" class="hextra">Un clásico de Jaén, en la avenida principal y con piscina. A unos 10 minutos andando de la estación de tren.</span>
+          <a data-i18n="k114" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Condestable+Iranzo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Hotel Xauen</span>
-          <span class="hwhere">Casco antiguo</span>
-          <span class="hextra">A unos 100 metros de la Catedral, con terraza en la azotea.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Xauen+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k116" class="hwhere">Casco antiguo</span>
+          <span data-i18n="k117" class="hextra">A unos 100 metros de la Catedral, con terraza en la azotea.</span>
+          <a data-i18n="k118" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Xauen+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
       </div>
-    <div class="btns"><a class="btn solid-r small" href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Ja%C3%A9n" target="_blank" rel="noopener">La Catedral en Google Maps →</a>
-      <a class="btn outline-r small" href="https://www.airbnb.es/s/Ja%C3%A9n--Espa%C3%B1a/homes?checkin=2027-09-03&amp;checkout=2027-09-05&amp;adults=2" target="_blank" rel="noopener">Buscar en Airbnb →</a></div>
+    <div class="btns"><a data-i18n="k119" class="btn solid-r small" href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Ja%C3%A9n" target="_blank" rel="noopener">La Catedral en Google Maps →</a>
+      <a data-i18n="k120" class="btn outline-r small" href="https://www.airbnb.es/s/Ja%C3%A9n--Espa%C3%B1a/homes?checkin=2027-09-03&amp;checkout=2027-09-05&amp;adults=2" target="_blank" rel="noopener">Buscar en Airbnb →</a></div>
   </div>
 </section>
 
 <section class="gsec" id="guia-moverse">
   <div class="wrap gsplit">
     <div>
-      <span class="kicker">Moverse</span>
-      <h2 class="h2">Por <span class="it">el</span> centro</h2>
+      <span data-i18n="k121" class="kicker">Moverse</span>
+      <h2 data-i18n="k122" class="h2">Por <span class="it">el</span> centro</h2>
         <ul class="tips">
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg></span>
-            <span><b>Andando</b>El centro es pequeño. Desde la Catedral llegáis a casi todo a pie.</span>
+            <span data-i18n="k123"><b>Andando</b>El centro es pequeño. Desde la Catedral llegáis a casi todo a pie.</span>
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 11h18" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="19" r="1.8" fill="currentColor"/><circle cx="16" cy="19" r="1.8" fill="currentColor"/></svg></span>
-            <span><b>Estación de autobuses</b>Está en pleno centro, a unos 10 minutos andando de la Catedral.</span>
+            <span data-i18n="k124"><b>Estación de autobuses</b>Está en pleno centro, a unos 10 minutos andando de la Catedral.</span>
           </li>
           <li>
             <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 10h14" stroke="currentColor" stroke-width="2"/><path d="M8 21l2-4M16 21l-2-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
-            <span><b>Estación de tren</b>Está a 1,5 km del centro: unos 20 minutos andando o un taxi corto.</span>
+            <span data-i18n="k125"><b>Estación de tren</b>Está a 1,5 km del centro: unos 20 minutos andando o un taxi corto.</span>
           </li>
         </ul>
     </div>
     <div class="taxi">
-      <span class="kicker">Ojo: en Jaén no hay Uber</span>
+      <span data-i18n="k126" class="kicker">Ojo: en Jaén no hay Uber</span>
       <div class="cab">
         <p class="taxi-name">Radio Taxi Jaén</p>
         <a class="taxi-num" href="tel:+34953222222">+34 953 22 22 22</a>
         <div class="apps">
-          <a class="pill" href="https://apps.apple.com/es/app/radio-taxi-jaen/id1477038645" target="_blank" rel="noopener">App para iPhone</a>
-          <a class="pill" href="https://play.google.com/store/search?q=Radio%20Taxi%20Jaen&amp;c=apps" target="_blank" rel="noopener">App para Android</a>
+          <a data-i18n="k129" class="pill" href="https://apps.apple.com/es/app/radio-taxi-jaen/id1477038645" target="_blank" rel="noopener">App para iPhone</a>
+          <a data-i18n="k130" class="pill" href="https://play.google.com/store/search?q=Radio%20Taxi%20Jaen&amp;c=apps" target="_blank" rel="noopener">App para Android</a>
         </div>
       </div>
       <div class="cab">
         <p class="taxi-name">Tele Taxi Jaén</p>
         <a class="taxi-num" href="tel:+34953271010">+34 953 27 10 10</a>
       </div>
-      <p class="taxi-sub">Para la boda no hace falta: <a href="#lugar">hay bus desde el centro</a>.</p>
+      <p data-i18n="k133" class="taxi-sub">Para la boda no hace falta: <a href="#lugar">hay bus desde el centro</a>.</p>
     </div>
   </div>
 </section>
 
 <section class="gsec rose" id="guia-pedir">
   <div class="wrap">
-    <span class="kicker">Qué pedir</span>
-    <h2 class="h2">Comer <span class="it">como</span> en Jaén</h2>
-    <h3 class="gh3">Lo típico de aquí</h3>
+    <span data-i18n="k134" class="kicker">Qué pedir</span>
+    <h2 data-i18n="k135" class="h2">Comer <span class="it">como</span> en Jaén</h2>
+    <h3 data-i18n="k136" class="gh3">Lo típico de aquí</h3>
     <div class="dishes">
-      <div class="dish"><span class="dname">Pipirrana</span><span class="dtext">Ensalada fresquita de tomate, pimiento y ajo con buen aceite, muchas veces con huevo duro y atún. La reina del verano.</span></div>
-      <div class="dish"><span class="dname">Arroz meloso</span><span class="dtext">Arroz jugoso, a medio camino entre una paella y un caldo. En muchos bares sale como tapa.</span></div>
-      <div class="dish"><span class="dname">Migas</span><span class="dtext">Pan troceado y frito con ajo, chorizo y panceta. Contundente y riquísimo.</span></div>
-      <div class="dish"><span class="dname">Tostadas gratinadas</span><span class="dtext">El desayuno de Jaén: tostada con jamón u otros ingredientes y queso gratinado por encima.</span></div>
-      <div class="dish"><span class="dname">Rosca</span><span class="dtext">Pan redondo en forma de rosca, relleno como un bocadillo grande: de lomo, de jamón, de lo que pidas. Perfecta para compartir.</span></div>
-      <div class="dish"><span class="dname">Churros</span><span class="dtext">Recién hechos y con chocolate espeso para mojar.</span></div>
+      <div class="dish"><span class="dname">Pipirrana</span><span data-i18n="k138" class="dtext">Ensalada fresquita de tomate, pimiento y ajo con buen aceite, muchas veces con huevo duro y atún. La reina del verano.</span></div>
+      <div class="dish"><span class="dname">Arroz meloso</span><span data-i18n="k140" class="dtext">Arroz jugoso, a medio camino entre una paella y un caldo. En muchos bares sale como tapa.</span></div>
+      <div class="dish"><span class="dname">Migas</span><span data-i18n="k142" class="dtext">Pan troceado y frito con ajo, chorizo y panceta. Contundente y riquísimo.</span></div>
+      <div class="dish"><span class="dname">Tostadas gratinadas</span><span data-i18n="k144" class="dtext">El desayuno de Jaén: tostada con jamón u otros ingredientes y queso gratinado por encima.</span></div>
+      <div class="dish"><span class="dname">Rosca</span><span data-i18n="k146" class="dtext">Pan redondo en forma de rosca, relleno como un bocadillo grande: de lomo, de jamón, de lo que pidas. Perfecta para compartir.</span></div>
+      <div class="dish"><span class="dname">Churros</span><span data-i18n="k148" class="dtext">Recién hechos y con chocolate espeso para mojar.</span></div>
     </div>
-    <h3 class="gh3">Y los clásicos españoles</h3>
+    <h3 data-i18n="k149" class="gh3">Y los clásicos españoles</h3>
     <ul class="classics">
-        <li><b>Flamenquín</b>Lomo enrollado con jamón, empanado y frito.</li>
-        <li><b>Tortilla de patatas</b>Con o sin cebolla: el eterno debate.</li>
-        <li><b>Croquetas</b>De jamón, de bacalao, de lo que haya ese día.</li>
-        <li><b>Calamares</b>Fritos, en ración o en bocadillo.</li>
-        <li><b>Pincho moruno</b>Brocheta de carne adobada con especias.</li>
-        <li><b>Papas al alioli</b>Patatas con salsa de ajo y aceite.</li>
-        <li><b>Solomillo</b>De cerdo, a la plancha o en salsa.</li>
-        <li><b>Pan con tomate y jamón</b>Tostada con tomate rallado, aceite de Jaén y jamón.</li>
+        <li data-i18n="k150"><b>Flamenquín</b>Lomo enrollado con jamón, empanado y frito.</li>
+        <li data-i18n="k151"><b>Tortilla de patatas</b>Con o sin cebolla: el eterno debate.</li>
+        <li data-i18n="k152"><b>Croquetas</b>De jamón, de bacalao, de lo que haya ese día.</li>
+        <li data-i18n="k153"><b>Calamares</b>Fritos, en ración o en bocadillo.</li>
+        <li data-i18n="k154"><b>Pincho moruno</b>Brocheta de carne adobada con especias.</li>
+        <li data-i18n="k155"><b>Papas al alioli</b>Patatas con salsa de ajo y aceite.</li>
+        <li data-i18n="k156"><b>Solomillo</b>De cerdo, a la plancha o en salsa.</li>
+        <li data-i18n="k157"><b>Pan con tomate y jamón</b>Tostada con tomate rallado, aceite de Jaén y jamón.</li>
     </ul>
   </div>
 </section>
@@ -891,98 +925,98 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <svg class="tileband" viewBox="0 0 1920 56" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#t-triangulos" x="0" y="0" width="56" height="56" transform="rotate(0 28.0 28.0)"/><use href="#t-arcos" x="56" y="0" width="56" height="56" transform="rotate(90 84.0 28.0)"/><use href="#t-estrella" x="112" y="0" width="56" height="56" transform="rotate(180 140.0 28.0)"/><use href="#t-triangulos" x="168" y="0" width="56" height="56" transform="rotate(270 196.0 28.0)"/><use href="#t-arcos" x="224" y="0" width="56" height="56" transform="rotate(0 252.0 28.0)"/><use href="#t-estrella" x="280" y="0" width="56" height="56" transform="rotate(90 308.0 28.0)"/><use href="#t-triangulos" x="336" y="0" width="56" height="56" transform="rotate(180 364.0 28.0)"/><use href="#t-arcos" x="392" y="0" width="56" height="56" transform="rotate(270 420.0 28.0)"/><use href="#t-estrella" x="448" y="0" width="56" height="56" transform="rotate(0 476.0 28.0)"/><use href="#t-triangulos" x="504" y="0" width="56" height="56" transform="rotate(90 532.0 28.0)"/><use href="#t-arcos" x="560" y="0" width="56" height="56" transform="rotate(180 588.0 28.0)"/><use href="#t-estrella" x="616" y="0" width="56" height="56" transform="rotate(270 644.0 28.0)"/><use href="#t-triangulos" x="672" y="0" width="56" height="56" transform="rotate(0 700.0 28.0)"/><use href="#t-arcos" x="728" y="0" width="56" height="56" transform="rotate(90 756.0 28.0)"/><use href="#t-estrella" x="784" y="0" width="56" height="56" transform="rotate(180 812.0 28.0)"/><use href="#t-triangulos" x="840" y="0" width="56" height="56" transform="rotate(270 868.0 28.0)"/><use href="#t-arcos" x="896" y="0" width="56" height="56" transform="rotate(0 924.0 28.0)"/><use href="#t-estrella" x="952" y="0" width="56" height="56" transform="rotate(90 980.0 28.0)"/><use href="#t-triangulos" x="1008" y="0" width="56" height="56" transform="rotate(180 1036.0 28.0)"/><use href="#t-arcos" x="1064" y="0" width="56" height="56" transform="rotate(270 1092.0 28.0)"/><use href="#t-estrella" x="1120" y="0" width="56" height="56" transform="rotate(0 1148.0 28.0)"/><use href="#t-triangulos" x="1176" y="0" width="56" height="56" transform="rotate(90 1204.0 28.0)"/><use href="#t-arcos" x="1232" y="0" width="56" height="56" transform="rotate(180 1260.0 28.0)"/><use href="#t-estrella" x="1288" y="0" width="56" height="56" transform="rotate(270 1316.0 28.0)"/><use href="#t-triangulos" x="1344" y="0" width="56" height="56" transform="rotate(0 1372.0 28.0)"/><use href="#t-arcos" x="1400" y="0" width="56" height="56" transform="rotate(90 1428.0 28.0)"/><use href="#t-estrella" x="1456" y="0" width="56" height="56" transform="rotate(180 1484.0 28.0)"/><use href="#t-triangulos" x="1512" y="0" width="56" height="56" transform="rotate(270 1540.0 28.0)"/><use href="#t-arcos" x="1568" y="0" width="56" height="56" transform="rotate(0 1596.0 28.0)"/><use href="#t-estrella" x="1624" y="0" width="56" height="56" transform="rotate(90 1652.0 28.0)"/><use href="#t-triangulos" x="1680" y="0" width="56" height="56" transform="rotate(180 1708.0 28.0)"/><use href="#t-arcos" x="1736" y="0" width="56" height="56" transform="rotate(270 1764.0 28.0)"/><use href="#t-estrella" x="1792" y="0" width="56" height="56" transform="rotate(0 1820.0 28.0)"/><use href="#t-triangulos" x="1848" y="0" width="56" height="56" transform="rotate(90 1876.0 28.0)"/><use href="#t-arcos" x="1904" y="0" width="56" height="56" transform="rotate(180 1932.0 28.0)"/></svg>
 <section class="gsec blush" id="guia-tapas">
   <div class="wrap">
-    <span class="kicker">De tapas</span>
-    <h2 class="h2">La tapa <span class="it">va</span> gratis</h2>
-    <p class="lead">En Jaén, con cada bebida te ponen una tapa. La mejor zona es alrededor de la Catedral, sobre todo la calle Arco del Consuelo. Y para desayunar, como aquí: tostada con aceite de Jaén.</p>
-    <h3 class="gh3">Para ir de tapas</h3>
+    <span data-i18n="k158" class="kicker">De tapas</span>
+    <h2 data-i18n="k159" class="h2">La tapa <span class="it">va</span> gratis</h2>
+    <p data-i18n="k160" class="lead">En Jaén, con cada bebida te ponen una tapa. La mejor zona es alrededor de la Catedral, sobre todo la calle Arco del Consuelo. Y para desayunar, como aquí: tostada con aceite de Jaén.</p>
+    <h3 data-i18n="k161" class="gh3">Para ir de tapas</h3>
     <div class="hotel-grid">
         <div class="hcard">
           <span class="hname">Casa Gorrión</span>
           <span class="hwhere">Arco del Consuelo</span>
-          <span class="hextra">Taberna de toda la vida junto a la Catedral, con la cuenta apuntada en tiza. Pedid el paté de perdiz o la pipirrana.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Gorri%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k164" class="hextra">Taberna de toda la vida junto a la Catedral, con la cuenta apuntada en tiza. Pedid el paté de perdiz o la pipirrana.</span>
+          <a data-i18n="k165" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Gorri%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Taberna Alcocer</span>
           <span class="hwhere">Arco del Consuelo</span>
-          <span class="hextra">Tasca clásica en la misma calle que el Gorrión. Perfecta para ir encadenando.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+Alcocer+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k168" class="hextra">Tasca clásica en la misma calle que el Gorrión. Perfecta para ir encadenando.</span>
+          <a data-i18n="k169" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+Alcocer+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Manchega</span>
           <span class="hwhere">Calle Bernardo López</span>
-          <span class="hextra">Abierta desde 1886. Es la tasca más mítica de Jaén.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Manchega+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k172" class="hextra">Abierta desde 1886. Es la tasca más mítica de Jaén.</span>
+          <a data-i18n="k173" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Manchega+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Barra</span>
           <span class="hwhere">Calle Cerón</span>
-          <span class="hextra">Un clásico del casco antiguo. La especialidad de la casa son las migas.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Barra+Cer%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k176" class="hextra">Un clásico del casco antiguo. La especialidad de la casa son las migas.</span>
+          <a data-i18n="k177" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Barra+Cer%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Fígaro</span>
           <span class="hwhere">Plaza del Pósito</span>
-          <span class="hextra">Bar familiar desde 1972, con terraza en la plaza. Siempre está lleno.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+F%C3%ADgaro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k180" class="hextra">Bar familiar desde 1972, con terraza en la plaza. Siempre está lleno.</span>
+          <a data-i18n="k181" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+F%C3%ADgaro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">El Pato Rojo</span>
-          <span class="hwhere">Frente a la Catedral</span>
-          <span class="hextra">La marisquería de referencia de Jaén desde 1974.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=El+Pato+Rojo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k183" class="hwhere">Frente a la Catedral</span>
+          <span data-i18n="k184" class="hextra">La marisquería de referencia de Jaén desde 1974.</span>
+          <a data-i18n="k185" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=El+Pato+Rojo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
     </div>
-    <h3 class="gh3">Para sentarse a comer (y a desayunar)</h3>
+    <h3 data-i18n="k186" class="gh3">Para sentarse a comer (y a desayunar)</h3>
     <div class="note horario">
       <span aria-hidden="true">🕑</span>
-      <p><b>Ojo con los horarios:</b> en España se almuerza sobre las 14:00 y muchos restaurantes no abren la cocina hasta esa hora. La cena, a partir de las 21:00.</p>
+      <p data-i18n="k188"><b>Ojo con los horarios:</b> en España se almuerza sobre las 14:00 y muchos restaurantes no abren la cocina hasta esa hora. La cena, a partir de las 21:00.</p>
     </div>
     <div class="hotel-grid four">
         <div class="hcard">
           <span class="hname">La Espadaña Centro</span>
-          <span class="hwhere">Cerca de la Catedral</span>
-          <span class="hextra">Comida tradicional en un edificio antiguo precioso, con columnas y azulejos. Raciones generosas; suele llenarse, mejor reservar.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Espada%C3%B1a+Centro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k190" class="hwhere">Cerca de la Catedral</span>
+          <span data-i18n="k191" class="hextra">Comida tradicional en un edificio antiguo precioso, con columnas y azulejos. Raciones generosas; suele llenarse, mejor reservar.</span>
+          <a data-i18n="k192" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Espada%C3%B1a+Centro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Taberna 4 Esquinas</span>
-          <span class="hwhere">Barrio de San Ildefonso</span>
-          <span class="hextra">Desde 1948 y conocida como «el bar de las migas». Ya sabéis qué pedir.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+4+Esquinas+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k194" class="hwhere">Barrio de San Ildefonso</span>
+          <span data-i18n="k195" class="hextra">Desde 1948 y conocida como «el bar de las migas». Ya sabéis qué pedir.</span>
+          <a data-i18n="k196" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+4+Esquinas+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Charca</span>
-          <span class="hwhere">Con vistas al castillo</span>
-          <span class="hextra">Bar de toda la vida, con buenos precios y raciones generosas. Probad la berenjena con miel de caña.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Bar+La+Charca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k198" class="hwhere">Con vistas al castillo</span>
+          <span data-i18n="k199" class="hextra">Bar de toda la vida, con buenos precios y raciones generosas. Probad la berenjena con miel de caña.</span>
+          <a data-i18n="k200" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Bar+La+Charca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Mella</span>
-          <span class="hwhere">Para almorzar</span>
-          <span class="hextra">Algo más lejos del centro, con terraza y vistas a la sierra. Id a mediodía: de noche no se ve nada y no merece la pena. Pedid la rosca o los mejillones tigre.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+La+Mella+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k202" class="hwhere">Para almorzar</span>
+          <span data-i18n="k203" class="hextra">Algo más lejos del centro, con terraza y vistas a la sierra. Id a mediodía: de noche no se ve nada y no merece la pena. Pedid la rosca o los mejillones tigre.</span>
+          <a data-i18n="k204" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+La+Mella+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Marquetería</span>
-          <span class="hwhere">Desayunos</span>
-          <span class="hextra">Para empezar el día con tostadas gratinadas y buen café.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Marqueter%C3%ADa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k206" class="hwhere">Desayunos</span>
+          <span data-i18n="k207" class="hextra">Para empezar el día con tostadas gratinadas y buen café.</span>
+          <a data-i18n="k208" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Marqueter%C3%ADa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">La Rosca</span>
-          <span class="hwhere">Churrería</span>
-          <span class="hextra">Churros con chocolate para desayunar o merendar.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafeter%C3%ADa+Churrer%C3%ADa+La+Rosca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k210" class="hwhere">Churrería</span>
+          <span data-i18n="k211" class="hextra">Churros con chocolate para desayunar o merendar.</span>
+          <a data-i18n="k212" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafeter%C3%ADa+Churrer%C3%ADa+La+Rosca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
         <div class="hcard">
           <span class="hname">Bagá</span>
-          <span class="hwhere">Alta cocina</span>
-          <span class="hextra">Para darse un homenaje: restaurante pequeñito reconocido por la Guía Michelin. Hay que reservar con mucha antelación.</span>
-          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante+Bag%C3%A1+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+          <span data-i18n="k214" class="hwhere">Alta cocina</span>
+          <span data-i18n="k215" class="hextra">Para darse un homenaje: restaurante pequeñito reconocido por la Guía Michelin. Hay que reservar con mucha antelación.</span>
+          <a data-i18n="k216" class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante+Bag%C3%A1+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
         </div>
     </div>
-    <div class="btns" style="margin-top:44px"><a class="btn outline-r" href="#inicio">← Volver a la invitación</a></div>
+    <div class="btns" style="margin-top:44px"><a data-i18n="k217" class="btn outline-r" href="#inicio">← Volver a la invitación</a></div>
   </div>
 </section>
 <svg class="tileband" viewBox="0 0 1920 56" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#t-arcos" x="0" y="0" width="56" height="56" transform="rotate(0 28.0 28.0)"/><use href="#t-estrella" x="56" y="0" width="56" height="56" transform="rotate(90 84.0 28.0)"/><use href="#t-triangulos" x="112" y="0" width="56" height="56" transform="rotate(180 140.0 28.0)"/><use href="#t-arcos" x="168" y="0" width="56" height="56" transform="rotate(270 196.0 28.0)"/><use href="#t-estrella" x="224" y="0" width="56" height="56" transform="rotate(0 252.0 28.0)"/><use href="#t-triangulos" x="280" y="0" width="56" height="56" transform="rotate(90 308.0 28.0)"/><use href="#t-arcos" x="336" y="0" width="56" height="56" transform="rotate(180 364.0 28.0)"/><use href="#t-estrella" x="392" y="0" width="56" height="56" transform="rotate(270 420.0 28.0)"/><use href="#t-triangulos" x="448" y="0" width="56" height="56" transform="rotate(0 476.0 28.0)"/><use href="#t-arcos" x="504" y="0" width="56" height="56" transform="rotate(90 532.0 28.0)"/><use href="#t-estrella" x="560" y="0" width="56" height="56" transform="rotate(180 588.0 28.0)"/><use href="#t-triangulos" x="616" y="0" width="56" height="56" transform="rotate(270 644.0 28.0)"/><use href="#t-arcos" x="672" y="0" width="56" height="56" transform="rotate(0 700.0 28.0)"/><use href="#t-estrella" x="728" y="0" width="56" height="56" transform="rotate(90 756.0 28.0)"/><use href="#t-triangulos" x="784" y="0" width="56" height="56" transform="rotate(180 812.0 28.0)"/><use href="#t-arcos" x="840" y="0" width="56" height="56" transform="rotate(270 868.0 28.0)"/><use href="#t-estrella" x="896" y="0" width="56" height="56" transform="rotate(0 924.0 28.0)"/><use href="#t-triangulos" x="952" y="0" width="56" height="56" transform="rotate(90 980.0 28.0)"/><use href="#t-arcos" x="1008" y="0" width="56" height="56" transform="rotate(180 1036.0 28.0)"/><use href="#t-estrella" x="1064" y="0" width="56" height="56" transform="rotate(270 1092.0 28.0)"/><use href="#t-triangulos" x="1120" y="0" width="56" height="56" transform="rotate(0 1148.0 28.0)"/><use href="#t-arcos" x="1176" y="0" width="56" height="56" transform="rotate(90 1204.0 28.0)"/><use href="#t-estrella" x="1232" y="0" width="56" height="56" transform="rotate(180 1260.0 28.0)"/><use href="#t-triangulos" x="1288" y="0" width="56" height="56" transform="rotate(270 1316.0 28.0)"/><use href="#t-arcos" x="1344" y="0" width="56" height="56" transform="rotate(0 1372.0 28.0)"/><use href="#t-estrella" x="1400" y="0" width="56" height="56" transform="rotate(90 1428.0 28.0)"/><use href="#t-triangulos" x="1456" y="0" width="56" height="56" transform="rotate(180 1484.0 28.0)"/><use href="#t-arcos" x="1512" y="0" width="56" height="56" transform="rotate(270 1540.0 28.0)"/><use href="#t-estrella" x="1568" y="0" width="56" height="56" transform="rotate(0 1596.0 28.0)"/><use href="#t-triangulos" x="1624" y="0" width="56" height="56" transform="rotate(90 1652.0 28.0)"/><use href="#t-arcos" x="1680" y="0" width="56" height="56" transform="rotate(180 1708.0 28.0)"/><use href="#t-estrella" x="1736" y="0" width="56" height="56" transform="rotate(270 1764.0 28.0)"/><use href="#t-triangulos" x="1792" y="0" width="56" height="56" transform="rotate(0 1820.0 28.0)"/><use href="#t-arcos" x="1848" y="0" width="56" height="56" transform="rotate(90 1876.0 28.0)"/><use href="#t-estrella" x="1904" y="0" width="56" height="56" transform="rotate(180 1932.0 28.0)"/></svg>
@@ -991,12 +1025,45 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
 <footer>
   <div class="wrap">
     <div class="big">Nuria &amp; Amina</div>
-    <p>04.09.2027 · Las Aguas del Arbuniel · Jaén, España</p>
+    <p data-i18n="k219">04.09.2027 · Las Aguas del Arbuniel · Jaén, España</p>
   </div>
 </footer>
 
 <script>
 (function () {
+  // ---------- Idioma (español / inglés) ----------
+  var I18N_EN = {"k2": "Dress code", "k3": "The venue", "k4": "Travel guide", "k5": "RSVP", "k6": "Gift", "k7": "Questions", "k8": "Wedding time! ♥ Wedding time! ♥ ", "k12": "We're getting married and we'd love you to be there. Just bring your party mood, we'll take care of the rest.", "k14": "Saturday", "k16": "Jaén, Spain", "k17": "Save the date", "k18": "A party <span class=\"it\">in</span> Jaén", "k19": "A Saturday to bring all our people together, from everywhere.", "k20": "Add to Google Calendar", "k22": "days", "k23": "until 4 September 2027", "k27": "Red <span class=\"it\">and</span> white", "k28": "Red and white are our colours for the day. Come in whatever you like… but those two are taken 😉", "k29": "The venue", "k31": "<strong>Las Aguas del Arbuniel</strong>\n          Ctra. Arbuniel–Cambil, km 1<br>\n          23193 Arbuniel (Cambil), Jaén, Spain", "k32": "Open in Google Maps →", "k33": "From Jaén to the venue", "k34": "<b>There's a bus</b> there and back", "k35": "From Jaén city centre to the venue, and back again when the party's over.", "k36": "Jaén centre", "k39": "We'll send you the exact pick-up point and bus times closer to the date. <b>When you RSVP, let us know if you'll use it</b> so we can save you a seat.", "k40": "Coming from abroad", "k41": "Coming <span class=\"it\">from</span> far away?", "k42": "We've put together a guide with everything practical for getting to Jaén.", "k43": "See the guide →", "k44": "RSVP", "k45": "Are you coming? <span class=\"it\">Say yes</span>", "k46": "Full name", "k47": "If there are several of you, add everyone's names.", "k48": "Are you coming?", "k49": "Yes, I'll be there", "k50": "Can't make it", "k51": "Do you need the bus that Saturday?", "k52": "Yes", "k54": "There and back from Jaén city centre.", "k55": "Send", "k56": "Send another reply", "k57": "Gift", "k58": "Your presence <span class=\"it\">is</span> the present", "k59": "Having you there is what makes us happy. And if you'd also like to give us something, we'll leave the envelope here.", "k60": "For whatever comes next", "k61": "Account holders", "k66": "Open the envelope", "k67": "Copy IBAN", "k68": "Sample IBAN", "k69": "Any questions?", "k70": "You know where to find us.", "k71": "← Back to the invitation", "k72": "Guide for out-of-towners", "k73": "Jaén <span class=\"it\">for</span> visitors", "k74": "Everything practical for coming to the wedding from outside Jaén, or from outside Spain.", "k75": "Getting there", "k76": "Where to stay", "k77": "Getting around", "k78": "What to order", "k79": "Tapas", "k80": "Welcome to Jaén", "k81": "Almost 70 million <span class=\"it\">olive</span> trees", "k82": "The province of Jaén produces more olive oil than the whole of Italy: around one in every five litres made in the world. That's why its landscape is known as the sea of olive trees.", "k83": "Where is Jaén?", "k84": "Jaén is a city and a province in Andalusia, the autonomous region in the south of Spain. Andalusia is famous for its beaches, sunshine, flamenco, tapas and landmarks such as the Alhambra in Granada and the Mezquita in Córdoba. It has eight provinces:", "k90": "Jaén <span>· you're here</span>", "k92": "Seville", "k93": "Getting there", "k94": "To Jaén <span class=\"it\">from</span> afar", "k95": "The most convenient airports are Madrid and Málaga. From there to Jaén:", "k96": "From Madrid", "k98": "approx. by direct train from Madrid to Jaén.", "k99": "From Málaga", "k101": "approx. by coach, leaving from the airport itself.", "k102": "Look for a direct train: with a change it can take a lot longer.", "k103": "Where to stay", "k104": "Close <span class=\"it\">to the</span> Cathedral", "k105": "We recommend staying in the centre. It's the prettiest area, you can walk everywhere and it's full of bars.", "k106": "★ Our top pick", "k109": "Terrace with views of the Cathedral, about a 7-minute walk away.", "k110": "See on Google Maps →", "k113": "A Jaén classic on the main avenue, with a pool. About a 10-minute walk from the train station.", "k114": "See on Google Maps →", "k116": "Old town", "k117": "About 100 metres from the Cathedral, with a rooftop terrace.", "k118": "See on Google Maps →", "k119": "The Cathedral on Google Maps →", "k120": "Search on Airbnb →", "k121": "Getting around", "k122": "Around <span class=\"it\">the</span> centre", "k123": "<b>On foot</b>The centre is small. From the Cathedral you can walk almost everywhere.", "k124": "<b>Bus station</b>Right in the centre, about a 10-minute walk from the Cathedral.", "k125": "<b>Train station</b>1.5 km from the centre: about a 20-minute walk or a short taxi ride.", "k126": "Heads up: there's no Uber in Jaén", "k129": "iPhone app", "k130": "Android app", "k133": "You won't need one for the wedding: <a href=\"#lugar\">there's a bus from the centre</a>.", "k134": "What to order", "k135": "Eat <span class=\"it\">like</span> a local", "k136": "Local specialities", "k138": "A fresh salad of tomato, pepper and garlic with good olive oil, often with boiled egg and tuna. The queen of summer.", "k140": "Juicy rice, halfway between a paella and a soup. Many bars serve it as a tapa.", "k142": "Fried breadcrumbs with garlic, chorizo and pancetta. Hearty and delicious.", "k144": "Jaén's breakfast: toast with ham or other toppings and cheese grilled on top.", "k146": "A round, ring-shaped loaf filled like a big sandwich: pork loin, ham, whatever you fancy. Perfect for sharing.", "k148": "Freshly made, with thick hot chocolate for dipping.", "k149": "And the Spanish classics", "k150": "<b>Flamenquín</b>Pork loin rolled with ham, breaded and fried.", "k151": "<b>Tortilla de patatas</b>Spanish omelette, with or without onion: the eternal debate.", "k152": "<b>Croquetas</b>Ham, salt cod, or whatever they've made that day.", "k153": "<b>Calamares</b>Fried squid, as a portion or in a sandwich.", "k154": "<b>Pincho moruno</b>A skewer of spiced, marinated meat.", "k155": "<b>Papas al alioli</b>Potatoes in garlic mayonnaise.", "k156": "<b>Solomillo</b>Pork tenderloin, grilled or in a sauce.", "k157": "<b>Pan con tomate y jamón</b>Toast with grated tomato, Jaén olive oil and ham.", "k158": "Tapas", "k159": "The tapa <span class=\"it\">is</span> free", "k160": "In Jaén, every drink comes with a free tapa. The best area is around the Cathedral, especially Calle Arco del Consuelo. And for breakfast, do as the locals do: toast with Jaén olive oil.", "k161": "For tapas", "k164": "An old-school tavern next to the Cathedral, with your bill chalked up as you go. Order the partridge pâté or the pipirrana.", "k165": "See on Google Maps →", "k168": "A classic tavern on the same street as the Gorrión. Perfect for hopping from one to the next.", "k169": "See on Google Maps →", "k172": "Open since 1886. Jaén's most legendary tavern.", "k173": "See on Google Maps →", "k176": "An old-town classic. The house speciality is migas.", "k177": "See on Google Maps →", "k180": "A family-run bar since 1972, with a terrace on the square. Always packed.", "k181": "See on Google Maps →", "k183": "Opposite the Cathedral", "k184": "Jaén's go-to seafood bar since 1974.", "k185": "See on Google Maps →", "k186": "For a sit-down meal (and breakfast)", "k188": "<b>Mind the times:</b> in Spain lunch is around 2pm and many restaurants don't open their kitchens until then. Dinner is from 9pm.", "k190": "Near the Cathedral", "k191": "Traditional food in a beautiful old building with columns and tiles. Generous portions; it fills up, so book ahead.", "k192": "See on Google Maps →", "k194": "San Ildefonso neighbourhood", "k195": "Open since 1948 and known as «the migas bar». You know what to order.", "k196": "See on Google Maps →", "k198": "With views of the castle", "k199": "An old-school bar with good prices and generous portions. Try the aubergine with cane honey.", "k200": "See on Google Maps →", "k202": "For lunch", "k203": "A bit further from the centre, with a terrace and views of the mountains. Go at lunchtime: at night you can't see a thing and it's not worth it. Order the rosca or the mejillones tigre (breaded stuffed mussels).", "k204": "See on Google Maps →", "k206": "Breakfast", "k207": "Start the day with tostadas gratinadas and a good coffee.", "k208": "See on Google Maps →", "k210": "Churros", "k211": "Churros and hot chocolate for breakfast or an afternoon treat.", "k212": "See on Google Maps →", "k214": "Fine dining", "k215": "For a treat: a tiny restaurant recognised by the Michelin Guide. Book well in advance.", "k216": "See on Google Maps →", "k217": "← Back to the invitation", "k219": "04.09.2027 · Las Aguas del Arbuniel · Jaén, Spain"};
+  var I18N_JS = {"es": {"navLabel": "Secciones", "countLabel": "Cuenta atrás", "tocLabel": "Secciones de la guía", "namePh": "Ej.: Ana López y Pablo Ruiz", "errName": "Escribe tu nombre, por favor.", "errAttend": "Cuéntanos si vienes o no.", "errBus": "Cuéntanos si necesitas el bus.", "preview": "Vista previa: el formulario todavía no está conectado.", "sending": "Enviando…", "send": "Enviar", "thanksYes": "Qué ilusión, ", "thanksNo": "Te echaremos de menos, ", "and": " y ", "seeYou": "Nos vemos el 4 de septiembre en Las Aguas del Arbuniel.", "busSaved": " Te guardamos sitio en el bus.", "thanksNote": "Gracias por avisarnos.", "sendErr": "No se ha podido enviar. Revisa tu conexión y vuelve a intentarlo.", "today": "¡Hoy!", "openEnv": "Abrir el sobre", "closeEnv": "Cerrar el sobre", "copied": "¡Copiado!", "copyManual": "Cópialo a mano: "}, "en": {"navLabel": "Sections", "countLabel": "Countdown", "tocLabel": "Guide sections", "namePh": "E.g. Ana López and Pablo Ruiz", "errName": "Please write your name.", "errAttend": "Let us know if you're coming.", "errBus": "Let us know if you need the bus.", "preview": "Preview: the form isn't connected yet.", "sending": "Sending…", "send": "Send", "thanksYes": "We can't wait, ", "thanksNo": "We'll miss you, ", "and": " and ", "seeYou": "See you on 4 September at Las Aguas del Arbuniel.", "busSaved": " We'll save you a seat on the bus.", "thanksNote": "Thanks for letting us know.", "sendErr": "We couldn't send it. Check your connection and try again.", "today": "Today!", "openEnv": "Open the envelope", "closeEnv": "Close the envelope", "copied": "Copied!", "copyManual": "Copy it manually: "}};
+  var I18N_ES = {};
+  var i18nEls = document.querySelectorAll('[data-i18n]');
+  for (var i = 0; i < i18nEls.length; i++) I18N_ES[i18nEls[i].getAttribute('data-i18n')] = i18nEls[i].innerHTML;
+  var lang = window.__lang === 'en' ? 'en' : 'es';
+  var langHooks = [];
+  function t(k) { return (I18N_JS[lang] && I18N_JS[lang][k] != null) ? I18N_JS[lang][k] : I18N_JS.es[k]; }
+  function setLang(l, save) {
+    lang = l === 'en' ? 'en' : 'es';
+    for (var i = 0; i < i18nEls.length; i++) {
+      var k = i18nEls[i].getAttribute('data-i18n');
+      var html = lang === 'en' && I18N_EN[k] != null ? I18N_EN[k] : I18N_ES[k];
+      if (i18nEls[i].innerHTML !== html) i18nEls[i].innerHTML = html;
+    }
+    var attrEls = document.querySelectorAll('[data-i18n-attr]');
+    for (var j = 0; j < attrEls.length; j++) {
+      attrEls[j].getAttribute('data-i18n-attr').split(';').forEach(function (pair) {
+        var bits = pair.split(':'); attrEls[j].setAttribute(bits[0], t(bits[1]));
+      });
+    }
+    document.documentElement.lang = lang;
+    var flags = document.querySelectorAll('.flag');
+    for (var f = 0; f < flags.length; f++) flags[f].setAttribute('aria-pressed', String(flags[f].getAttribute('data-lang') === lang));
+    if (save) { try { localStorage.setItem('lang', lang); } catch (e) {} }
+    langHooks.forEach(function (fn) { fn(); });
+    document.documentElement.classList.remove('i18n-pending');
+  }
+  document.querySelector('.langs').addEventListener('click', function (e) {
+    var b = e.target.closest('.flag'); if (b) setLang(b.getAttribute('data-lang'), true);
+  });
+
   var home = document.getElementById('view-home');
   var guia = document.getElementById('view-guia');
   function currentHash() {
@@ -1044,27 +1111,27 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
     e.preventDefault();
     var nombre = document.getElementById('f-nombre').value.trim();
     var elegido = form.querySelector('input[name="asiste"]:checked');
-    if (!nombre) { fmsg.textContent = 'Escribe tu nombre, por favor.'; document.getElementById('f-nombre').focus(); return; }
-    if (!elegido) { fmsg.textContent = 'Cuéntanos si vienes o no.'; return; }
+    if (!nombre) { fmsg.textContent = t('errName'); document.getElementById('f-nombre').focus(); return; }
+    if (!elegido) { fmsg.textContent = t('errAttend'); return; }
     var asiste = elegido.value;
     var busElegido = form.querySelector('input[name="bus"]:checked');
-    if (asiste === 'si' && !busElegido) { fmsg.textContent = 'Cuéntanos si necesitas el bus.'; return; }
+    if (asiste === 'si' && !busElegido) { fmsg.textContent = t('errBus'); return; }
     var bus = asiste === 'si' && busElegido.value === 'si';
-    if (!SCRIPT_URL) { fmsg.textContent = 'Vista previa: el formulario todavía no está conectado.'; return; }
+    if (!SCRIPT_URL) { fmsg.textContent = t('preview'); return; }
     var body = new URLSearchParams({ nombre: nombre, asiste: asiste, bus: bus ? 'si' : 'no', website: document.getElementById('f-website').value });
-    send.disabled = true; send.textContent = 'Enviando…'; fmsg.textContent = '';
+    send.disabled = true; send.textContent = t('sending'); fmsg.textContent = '';
     fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body })
       .then(function () {
-        var nombres = nombre.split(/\s*,\s*|\s+y\s+|\s+e\s+/).filter(Boolean).map(function (x) { return x.split(/\s+/)[0]; });
-        var nom = nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0];
-        document.getElementById('thanksTitle').textContent = asiste === 'si' ? 'Qué ilusión, ' + nom : 'Te echaremos de menos, ' + nom;
+        var nombres = nombre.split(/\s*,\s*|\s*&\s*|\s+y\s+|\s+e\s+|\s+and\s+/i).filter(Boolean).map(function (x) { return x.split(/\s+/)[0]; });
+        var nom = nombres.length > 1 ? nombres.slice(0, -1).join(', ') + t('and') + nombres[nombres.length - 1] : nombres[0];
+        document.getElementById('thanksTitle').textContent = asiste === 'si' ? t('thanksYes') + nom : t('thanksNo') + nom;
         document.getElementById('thanksText').textContent = asiste === 'si'
-          ? 'Nos vemos el 4 de septiembre en Las Aguas del Arbuniel.' + (bus ? ' Te guardamos sitio en el bus.' : '')
-          : 'Gracias por avisarnos.';
+          ? t('seeYou') + (bus ? t('busSaved') : '')
+          : t('thanksNote');
         form.hidden = true; thanks.hidden = false;
       })
-      .catch(function () { fmsg.textContent = 'No se ha podido enviar. Revisa tu conexión y vuelve a intentarlo.'; })
-      .then(function () { send.disabled = false; send.textContent = 'Enviar'; });
+      .catch(function () { fmsg.textContent = t('sendErr'); })
+      .then(function () { send.disabled = false; send.textContent = t('send'); });
   });
   document.getElementById('again').addEventListener('click', function () {
     form.reset(); busRow.hidden = true; thanks.hidden = true; form.hidden = false; fmsg.textContent = '';
@@ -1075,16 +1142,18 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
   var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
   var d = Math.round((target - today) / 86400000);
   var el = document.getElementById('days');
-  if (el) el.textContent = d > 0 ? d : '¡Hoy!';
+  function updateCount() { if (el) el.textContent = d > 0 ? d : t('today'); }
+  langHooks.push(updateCount);
 
   var env = document.getElementById('envelope');
   var toggle = document.getElementById('toggleEnv');
   function setOpen(open) {
     env.classList.toggle('open', open);
     env.setAttribute('aria-expanded', String(open));
-    env.setAttribute('aria-label', open ? 'Cerrar el sobre' : 'Abrir el sobre');
-    toggle.textContent = open ? 'Cerrar el sobre' : 'Abrir el sobre';
+    env.setAttribute('aria-label', open ? t('closeEnv') : t('openEnv'));
+    toggle.textContent = open ? t('closeEnv') : t('openEnv');
   }
+  langHooks.push(function () { setOpen(env.classList.contains('open')); });
   env.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
   toggle.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
 
@@ -1092,10 +1161,12 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
   var msg = document.getElementById('copied');
   document.getElementById('copyIban').addEventListener('click', function () {
     var text = iban.textContent.replace(/\s+/g, '');
-    var done = function () { msg.textContent = '¡Copiado!'; setTimeout(function () { msg.textContent = ''; }, 2000); };
-    var fail = function () { msg.textContent = 'Cópialo a mano: ' + iban.textContent; };
+    var done = function () { msg.textContent = t('copied'); setTimeout(function () { msg.textContent = ''; }, 2000); };
+    var fail = function () { msg.textContent = t('copyManual') + iban.textContent; };
     try { navigator.clipboard.writeText(text).then(done, fail); } catch (e) { fail(); }
   });
+
+  setLang(lang, false);
 })();
 </script>
 </body>
