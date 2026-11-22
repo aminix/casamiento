@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nuria & Amina · 04.09.2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wdth,wght@12..96,75..100,300..800&family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Rojo (Nuria) y blanco (Amina). El rojo fuerte solo en detalles: "&", acentos, botones, bus, sello.
+     Fondos en blanco y rosas suaves; texto en tinta granate oscura. */
+  --red: #E3161E;
+  --red-deep: #9E0D12;
+  --red-mid: #C51219;
+  --white: #FFFFFF;
+  --blush: #FFF5F3;
+  --rose: #F9E3DF;
+  --petal: #F2CFC9;
+  --ink: #2A0A0B;
+  --display: "Bricolage Grotesque", "Arial Narrow", system-ui, sans-serif;
+  --serif: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --body: "Bricolage Grotesque", system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--white);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 18px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+h1, h2, h3 { text-wrap: balance; margin: 0; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; border-radius: 4px; }
+.wrap { width: min(1120px, 100% - 40px); margin-inline: auto; }
+.it { font-family: var(--serif); font-style: italic; font-weight: 500; text-transform: none; letter-spacing: 0; }
+
+/* ---------- NAV ---------- */
+.nav {
+  position: sticky; top: 0; z-index: 20;
+  background: rgba(255,255,255,.94);
+  backdrop-filter: blur(6px);
+  color: var(--red);
+  border-bottom: 1px solid rgba(227,22,30,.25);
+}
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 12px; }
+.mono { font-family: var(--serif); font-style: italic; font-weight: 600; font-size: 26px; text-decoration: none; line-height: 1; }
+.nav ul { color: var(--ink); list-style: none; display: flex; flex-wrap: wrap; gap: 4px 24px; margin: 0; padding: 0; font-weight: 600; font-size: 15px; }
+.nav ul a { text-decoration: none; padding: 4px 0; border-bottom: 2px solid transparent; }
+.nav ul a:hover { border-color: var(--red); }
+@media (max-width: 720px) { .nav ul { display: none; } }
+
+/* ---------- HERO (tarjeta de invitación) ---------- */
+.hero { background: var(--blush); padding: clamp(20px, 3vw, 36px) 0; }
+.card {
+  position: relative;
+  background: var(--white);
+  color: var(--red);
+  text-align: center;
+  padding: clamp(40px, 6vh, 64px) clamp(20px, 5vw, 64px) clamp(36px, 5vh, 56px);
+  border: 2px solid var(--red);
+  outline: 1px solid var(--red);
+  outline-offset: -12px;
+  box-shadow: 0 30px 60px -30px rgba(158,13,18,.35);
+}
+.hero .eyebrow {
+  font-weight: 700; text-transform: uppercase; letter-spacing: .3em; font-size: 13px;
+}
+.names {
+  color: var(--ink);
+  font-family: var(--serif);
+  font-weight: 400;
+  font-variation-settings: "opsz" 144;
+  font-size: clamp(52px, min(8vw, 11vh), 112px);
+  line-height: .92;
+  letter-spacing: -.02em;
+  margin: 0 0 18px;
+}
+.names span { display: block; }
+.names .amp {
+  font-style: italic; font-weight: 300;
+  color: var(--red);
+  font-size: .6em; line-height: 1;
+  margin: .02em 0 .04em;
+}
+.hero .invite { font-size: clamp(18px, 2vw, 21px); color: var(--ink); max-width: 40ch; margin: 0 auto; text-wrap: balance; }
+.hero .when {
+  display: inline-flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 20px;
+  margin-top: 22px; padding-top: 18px; border-top: 1px solid rgba(227,22,30,.35);
+  font-weight: 700; letter-spacing: .14em; text-transform: uppercase; font-size: 14px;
+}
+.hero .when .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--red); }
+@media (max-width: 640px) { .hero .when { flex-direction: column; gap: 6px; } .hero .when .dot { display: none; } }
+.date-num {
+  display: block; color: var(--ink); font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 75;
+  font-size: clamp(30px, 4vw, 44px); letter-spacing: .02em; margin-top: 16px; line-height: 1;
+}
+
+.sticker {
+  position: absolute;
+  right: clamp(-14px, -1vw, -6px);
+  top: clamp(-30px, -2vw, -18px);
+  width: clamp(104px, 12vw, 140px);
+  aspect-ratio: 1;
+  transform: rotate(8deg);
+}
+.sticker .ring { animation: spin 24s linear infinite; transform-origin: 50% 50%; }
+.sticker text { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: 3px; fill: var(--white); text-transform: uppercase; }
+@keyframes spin { to { transform: rotate(360deg); } }
+@media (max-width: 640px) { .sticker { width: 86px; right: -4px; top: -26px; } }
+
+/* ---------- MARQUEE ---------- */
+.marquee {
+  background: var(--white); color: var(--red);
+  border-block: 2px solid var(--red);
+  overflow: hidden; white-space: nowrap;
+  font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 48, "wdth" 80;
+  font-size: clamp(20px, 2.6vw, 28px); text-transform: uppercase;
+  padding: 10px 0;
+}
+.marquee .track { display: inline-flex; animation: slide 34s linear infinite; }
+.marquee .track span { padding-right: 1.1em; }
+.marquee .track span::after { content: "♥"; margin-left: 1.1em; font-family: var(--body); }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* ---------- SECTIONS ---------- */
+section { padding: clamp(64px, 9vw, 112px) 0; }
+.kicker {
+  display: inline-block; font-weight: 700; text-transform: uppercase; letter-spacing: .16em; font-size: 13px;
+  color: var(--red); margin-bottom: 14px;
+}
+.h2 {
+  font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 78;
+  font-size: clamp(44px, 7vw, 92px); line-height: .92; letter-spacing: -.03em; text-transform: uppercase;
+}
+.h2 .it { font-size: .86em; color: var(--red); font-weight: 400; }
+.lead { font-size: clamp(19px, 2vw, 22px); max-width: 52ch; margin: 22px 0 0; }
+
+/* Intro + countdown */
+.intro .wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
+.count {
+  background: var(--white); color: var(--ink);
+  border: 2px solid var(--red);
+  border-radius: 28px; padding: 30px 30px 26px;
+  transform: rotate(2.5deg);
+  box-shadow: 10px 10px 0 var(--petal);
+  text-align: center;
+}
+.count .n {
+  font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 75;
+  font-size: clamp(96px, 13vw, 156px); line-height: .85; letter-spacing: -.04em; font-variant-numeric: tabular-nums;
+  display: block;
+}
+.count .lbl { font-size: 34px; display: block; margin-top: 6px; color: var(--red); }
+.count .sub { font-size: 15px; opacity: .75; display: block; margin-top: 8px; }
+@media (max-width: 760px) { .intro .wrap { grid-template-columns: 1fr; } .count { max-width: 340px; } }
+
+/* Dress code */
+.colores { background: var(--blush); }
+.colores .wrap { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.dresses { display: flex; justify-content: center; align-items: flex-end; gap: clamp(12px, 3vw, 32px); }
+.dress { display: grid; justify-items: center; gap: 10px; margin: 0; }
+.dress svg { width: clamp(120px, 16vw, 190px); height: auto; overflow: visible; }
+.dress:first-child svg { transform: rotate(-6deg); }
+.dress:last-child svg { transform: rotate(5deg); }
+.dress figcaption { font-size: 28px; color: var(--red); }
+@media (max-width: 760px) { .colores .wrap { grid-template-columns: 1fr; } .colores .text { order: -1; } }
+
+/* El sitio + bus */
+.lugar { background: var(--rose); color: var(--ink); }
+.lugar .kicker, .lugar .h2 .it { color: var(--red); }
+.lugar-grid { display: grid; grid-template-columns: 1.1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.address {
+  margin-top: 28px; font-size: 20px; line-height: 1.45;
+  border-left: 3px solid var(--red); padding-left: 18px;
+}
+.address strong { font-size: 24px; display: block; }
+.btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font-family: var(--body); font-weight: 700; font-size: 17px; text-decoration: none;
+  padding: 14px 22px; border-radius: 999px; border: 2px solid currentColor; cursor: pointer;
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+.btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 var(--ink); }
+.btn.solid-w { background: var(--white); color: var(--red); border-color: var(--white); }
+.btn.ghost-w { color: var(--white); background: transparent; }
+.btn.solid-r { background: var(--red); color: var(--white); border-color: var(--red); }
+.btn.outline-r { color: var(--red); background: var(--white); }
+.btn.small { padding: 10px 18px; font-size: 15px; }
+
+.bus-title { font-size: clamp(30px, 3.6vw, 44px); line-height: 1.05; color: var(--red); margin: 0; }
+.bus-title b { font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 78; text-transform: uppercase; font-style: normal; letter-spacing: -.02em; color: var(--ink); }
+.bus-sub { margin: 12px 0 0; font-size: 19px; max-width: 40ch; }
+.routes { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 20px; }
+.rcard { background: var(--white); border: 1px solid var(--petal); border-radius: 20px; padding: 20px 20px 18px; display: grid; gap: 6px; align-content: start; }
+.rcard .from { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.rcard .time { font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 78; font-size: clamp(40px, 5vw, 56px); line-height: 1; letter-spacing: -.02em; }
+.rcard .how { font-size: 16px; line-height: 1.4; }
+@media (max-width: 480px) { .routes { grid-template-columns: 1fr; } }
+
+.road { position: relative; height: 120px; margin: 28px 0 36px; }
+.road::before {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 18px; height: 4px;
+  background: repeating-linear-gradient(90deg, var(--red) 0 22px, transparent 22px 38px);
+}
+.road .stop {
+  position: absolute; bottom: 0; font-weight: 700; font-size: 14px; letter-spacing: .1em; text-transform: uppercase;
+  color: var(--red-deep); transform: translateY(100%); padding-top: 10px;
+}
+.road .stop.l { left: 0; } .road .stop.r { right: 0; text-align: right; }
+.road .pin { position: absolute; bottom: 10px; width: 20px; height: 20px; border-radius: 50%; background: var(--red); border: 4px solid var(--rose); box-shadow: 0 0 0 3px var(--red); }
+.road .pin.l { left: 0; } .road .pin.r { right: 0; }
+.busmove { position: absolute; bottom: 24px; left: 0; width: 132px; animation: drive 9s ease-in-out infinite; }
+.busmove svg { width: 100%; height: auto; display: block; }
+@keyframes drive {
+  0%   { left: 4%; transform: scaleX(1); }
+  44%  { left: calc(96% - 132px); transform: scaleX(1); }
+  50%  { left: calc(96% - 132px); transform: scaleX(-1); }
+  94%  { left: 4%; transform: scaleX(-1); }
+  100% { left: 4%; transform: scaleX(1); }
+}
+.note {
+  margin-top: 40px; display: flex; gap: 14px; align-items: flex-start;
+  background: var(--white); border: 1px solid var(--petal);
+  border-radius: 14px; padding: 12px 16px; max-width: none;
+  font-size: 15px; line-height: 1.45; gap: 10px; margin-top: 28px;
+}
+.note p { margin: 0; }
+@media (max-width: 860px) { .lugar-grid { grid-template-columns: 1fr; align-items: start; } }
+
+/* Para los de afuera */
+.afuera-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 64px); align-items: start; margin-top: clamp(28px, 4vw, 44px); }
+.stay { background: var(--blush); border: 1px solid var(--petal); border-radius: 26px; padding: clamp(22px, 3vw, 32px); }
+.stay h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 32px; color: var(--red); line-height: 1.1; }
+.stay > p { margin: 10px 0 0; font-size: 18px; }
+.tips { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 16px; }
+.tips li { display: grid; grid-template-columns: 38px 1fr; gap: 14px; align-items: start; font-size: 16px; line-height: 1.45; }
+.tips b { display: block; font-size: 17px; }
+.tips .tel { color: var(--red); font-weight: 700; white-space: nowrap; text-decoration: none; }
+.tips .tel:hover { text-decoration: underline; }
+.tips .ic { width: 38px; height: 38px; border-radius: 50%; background: var(--white); border: 1.5px solid var(--petal); display: grid; place-items: center; }
+.tips .ic svg { width: 20px; height: 20px; }
+.tips .ic { color: var(--red); }
+.stay .btns { margin-top: 24px; }
+@media (max-width: 860px) { .afuera-grid { grid-template-columns: 1fr; } }
+
+.hotels { margin-top: clamp(44px, 6vw, 72px); }
+.hotels h3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 32px; color: var(--red); line-height: 1.1; }
+.hotel-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 20px; }
+.hcard { background: var(--white); border: 1px solid var(--petal); border-radius: 20px; padding: 22px; display: grid; gap: 6px; align-content: start; }
+.hname { font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 48, "wdth" 85; font-size: 24px; line-height: 1.1; text-transform: uppercase; letter-spacing: -.01em; }
+.hwhere { font-size: 13px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; color: var(--red); }
+.hextra { font-size: 16px; line-height: 1.45; }
+.hlink { margin-top: 8px; font-weight: 700; font-size: 15px; color: var(--red); text-decoration: none; }
+.hlink:hover { text-decoration: underline; }
+@media (max-width: 860px) { .hotel-grid { grid-template-columns: 1fr; } }
+
+
+[hidden] { display: none !important; }
+section[id], header[id] { scroll-margin-top: 60px; }
+/* Teaser en la home */
+.afuera-teaser { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: flex-end; gap: 28px 48px; }
+
+/* Guía */
+.ghero { background: var(--blush); padding: clamp(36px, 5vw, 56px) 0 clamp(48px, 6vw, 72px); border-bottom: 1px solid var(--petal); }
+.back { display: block; width: fit-content; margin-bottom: 28px; font-weight: 700; font-size: 15px; color: var(--red); text-decoration: none; }
+.back:hover { text-decoration: underline; }
+.gtitle { font-size: clamp(48px, 8vw, 104px); }
+.toc { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.pill { padding: 8px 16px; border-radius: 999px; border: 1.5px solid var(--red); color: var(--red); font-weight: 700; font-size: 15px; text-decoration: none; background: var(--white); }
+.pill:hover { background: var(--red); color: var(--white); }
+.gsec.rose { background: var(--rose); }
+.gsec.blush { background: var(--blush); }
+.gsplit { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 72px); align-items: start; }
+.gsec .routes { margin-top: 0; }
+.small-note { font-size: 15px; color: var(--red-deep); margin: 14px 0 0; }
+.gh3 { font-family: var(--serif); font-style: italic; font-weight: 500; font-size: 30px; color: var(--red); margin: 40px 0 0; }
+.gsec .hotel-grid { margin-top: 20px; }
+.hotel-grid.four { grid-template-columns: repeat(4, 1fr); }
+.gsec .btns { margin-top: 28px; }
+.taxi { background: var(--white); border: 2px solid var(--red); border-radius: 26px; padding: clamp(24px, 3vw, 36px); box-shadow: 10px 10px 0 var(--petal); }
+.taxi-name { font-family: var(--serif); font-style: italic; font-size: 28px; color: var(--ink); margin: 0; }
+.taxi-num { display: block; font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 96, "wdth" 78; font-size: clamp(30px, 8vw, 46px); line-height: 1.05; color: var(--red); text-decoration: none; margin: 4px 0 10px; white-space: nowrap; }
+.taxi-sub { margin: 20px 0 0; font-size: 16px; }
+.cab { padding: 16px 0; border-bottom: 1px solid var(--petal); }
+.cab:first-of-type { padding-top: 6px; }
+.apps { display: flex; flex-wrap: wrap; gap: 8px; }
+.apps .pill { font-size: 14px; padding: 6px 14px; }
+.taxi-sub a { color: var(--red); font-weight: 700; }
+@media (max-width: 1000px) { .hotel-grid.four { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 860px) { .gsplit { grid-template-columns: 1fr; } }
+@media (max-width: 560px) { .hotel-grid.four { grid-template-columns: 1fr; } }
+
+
+/* Olivos y azulejo */
+.branch { position: absolute; width: clamp(96px, 13vw, 168px); aspect-ratio: 230 / 100; pointer-events: none; }
+.branch.tl { top: clamp(22px, 3vw, 30px); left: clamp(18px, 3vw, 34px); transform: rotate(-8deg); }
+.branch.br { bottom: clamp(22px, 3vw, 30px); right: clamp(18px, 3vw, 34px); transform: rotate(172deg); }
+@media (max-width: 640px) { .branch.tl, .branch.br { width: 78px; } .branch.tl { top: 18px; left: 16px; } .branch.br { bottom: 18px; right: 16px; } }
+.dato { background: var(--white); text-align: center; padding-bottom: 0; }
+.dato-in { display: grid; justify-items: center; }
+.dato .branch.big { position: static; width: clamp(150px, 20vw, 220px); margin-bottom: 10px; }
+.dato .lead { margin-inline: auto; }
+.olivar { display: block; width: 100%; height: clamp(110px, 15vw, 260px); margin-top: clamp(32px, 5vw, 56px); color: var(--rose); }
+.olivar.on-white { color: var(--white); }
+.lugar { padding-bottom: 0; }
+.afuera { background: var(--white); }
+.ghero { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23E3161E%22%20stroke-opacity%3D%22.05%22%20stroke-width%3D%221.5%22%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%2228%22%20height%3D%2228%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%2228%22%20height%3D%2228%22%20transform%3D%22rotate%2845%2032%2032%29%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%226%22/%3E%3Cpath%20d%3D%22M0%2010A10%2010%200%200%200%2010%200M54%200A10%2010%200%200%200%2064%2010M64%2054A10%2010%200%200%200%2054%2064M10%2064A10%2010%200%200%200%200%2054%22/%3E%3Cpath%20d%3D%22M32%200V8M32%2056V64M0%2032H8M56%2032H64%22/%3E%3C/g%3E%3C/svg%3E"); }
+section.rsvp { background-image: url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%2264%22%20height%3D%2264%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23FFFFFF%22%20stroke-opacity%3D%22.07%22%20stroke-width%3D%221.5%22%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%2228%22%20height%3D%2228%22/%3E%3Crect%20x%3D%2218%22%20y%3D%2218%22%20width%3D%2228%22%20height%3D%2228%22%20transform%3D%22rotate%2845%2032%2032%29%22/%3E%3Ccircle%20cx%3D%2232%22%20cy%3D%2232%22%20r%3D%226%22/%3E%3Cpath%20d%3D%22M0%2010A10%2010%200%200%200%2010%200M54%200A10%2010%200%200%200%2064%2010M64%2054A10%2010%200%200%200%2054%2064M10%2064A10%2010%200%200%200%200%2054%22/%3E%3Cpath%20d%3D%22M32%200V8M32%2056V64M0%2032H8M56%2032H64%22/%3E%3C/g%3E%3C/svg%3E"); }
+
+
+
+/* Baldosas hidráulicas y paleta andaluza (solo guía) */
+:root { --h1: #F4DCD6; --h2: #F0CEC6; --h3: #EBC2B9; --sun: transparent;
+        --tb: #F7F1E6; --t1: #2F5A92; --t2: #8FB4DA; --t3: #E08A4C; --t4: #EADFCB; --orange: #D2723A; }
+body.in-guia { --red: #2F5A92; --red-deep: #1F3F6E; --blush: #F7F1E6; --rose: #EFE4D2; --petal: #DCCDB4; --ink: #1F2633;
+               --h1: #EFE4D2; --h2: #E6D5B8; --h3: #DCC5A2; --sun: #E08A4C; }
+body.in-guia .h2 .it, body.in-guia .gh3 { color: var(--orange); }
+body.in-guia .taxi { box-shadow: 10px 10px 0 var(--t2); }
+body.in-guia .mono { color: var(--orange); }
+.tileband { display: block; width: 100%; height: 56px; }
+.tilebg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.ghero { position: relative; overflow: hidden; background: var(--tb) !important; background-image: none !important; padding: clamp(40px, 7vw, 96px) 0; border-bottom: 0; }
+.gcard { position: relative; max-width: 880px; background: var(--blush); border-radius: 28px; padding: clamp(26px, 4vw, 52px); box-shadow: 0 24px 60px -24px rgba(31,38,51,.45); }
+
+
+/* Hotel favorito, platos típicos */
+.hcard.fav { border: 2px solid var(--red); }
+.badge { justify-self: start; background: var(--orange); color: var(--white); font-size: 12px; font-weight: 700; letter-spacing: .04em; padding: 4px 10px; border-radius: 999px; margin-bottom: 4px; }
+.dishes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
+.dish { background: var(--white); border-radius: 18px; padding: 18px; border-top: 5px solid var(--orange); display: grid; gap: 6px; align-content: start; }
+.dname { font-family: var(--display); font-weight: 800; font-variation-settings: "opsz" 48, "wdth" 85; font-size: 20px; text-transform: uppercase; line-height: 1.1; }
+.dtext { font-size: 15px; line-height: 1.45; }
+.classics { list-style: none; padding: 0; margin: 18px 0 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px 14px; }
+.classics li { background: var(--white); border: 1px solid var(--petal); border-radius: 14px; padding: 12px 14px; font-size: 14px; line-height: 1.4; }
+.classics b { display: block; font-size: 16px; color: var(--red); margin-bottom: 2px; }
+@media (max-width: 1100px) { .classics { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 640px) { .dishes { grid-template-columns: 1fr 1fr; } }
+@media (max-width: 420px) { .dishes, .classics { grid-template-columns: 1fr; } }
+
+.note.horario { margin-top: 16px; max-width: none; }
+.note.horario b { color: var(--red); }
+
+.donde { margin-top: clamp(32px, 5vw, 48px); }
+.donde .gh3 { margin-top: 0; }
+.donde p { font-size: 17px; margin: 10px auto 0; max-width: 720px; }
+.provs { list-style: none; padding: 0; margin: 18px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.prov { padding: 7px 14px; border-radius: 999px; border: 1.5px solid var(--petal); background: var(--blush); font-weight: 600; font-size: 15px; }
+.prov.here { background: var(--orange); border-color: var(--orange); color: var(--white); }
+.prov.here span { font-weight: 400; opacity: .9; }
+
+/* RSVP placeholder */
+.rsvp { background: var(--ink); color: var(--white); }
+.rsvp .wrap { display: grid; grid-template-columns: 1.3fr 1fr; gap: 40px; align-items: center; }
+.rsvp .kicker { color: #FF8A8E; }
+.rsvp .h2 .it { color: #FF8A8E; }
+.rsvp-card { background: var(--white); color: var(--ink); border-radius: 26px; padding: clamp(22px, 3vw, 34px); box-shadow: 0 24px 60px -24px rgba(0,0,0,.5); }
+.rsvp-form { display: grid; gap: 20px; }
+.field { display: grid; gap: 8px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.fl { font-size: 13px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); padding: 0; }
+.rsvp-form input[type="text"] { font: inherit; font-size: 17px; padding: 13px 16px; border-radius: 14px; border: 1.5px solid var(--petal); background: var(--blush); color: var(--ink); width: 100%; }
+.rsvp-form input[type="text"]:focus { outline: none; border-color: var(--red); background: var(--white); }
+.hint { font-size: 14px; color: #7a4a4b; }
+.opts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.opt { position: relative; cursor: pointer; }
+.opt input { position: absolute; opacity: 0; pointer-events: none; }
+.opt span { display: block; text-align: center; font-weight: 700; padding: 13px 10px; border-radius: 999px; border: 2px solid var(--red); color: var(--red); background: var(--white); transition: background .15s ease, color .15s ease; }
+.opt input:checked + span { background: var(--red); color: var(--white); }
+.opt input:focus-visible + span { outline: 3px solid var(--ink); outline-offset: 2px; }
+.check { display: flex; gap: 12px; align-items: center; font-size: 17px; cursor: pointer; }
+.check input { width: 22px; height: 22px; accent-color: var(--red); flex: none; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.rsvp-form .btn { justify-self: start; }
+.rsvp-form .btn[disabled] { opacity: .6; cursor: wait; }
+.fmsg { margin: 0; font-size: 15px; min-height: 1.2em; color: var(--red-deep); }
+.thanks b { display: block; font-size: 34px; color: var(--red); line-height: 1.1; }
+.thanks p { font-size: 18px; margin: 12px 0 0; }
+.again { margin-top: 18px; background: none; border: 0; padding: 0; font: inherit; font-size: 15px; font-weight: 700; color: var(--red); text-decoration: underline; cursor: pointer; }
+@media (max-width: 420px) { .opts { grid-template-columns: 1fr; } }
+@media (max-width: 760px) { .rsvp .wrap { grid-template-columns: 1fr; } }
+
+/* Regalo: sobre */
+.regalo .wrap { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(32px, 6vw, 72px); align-items: center; }
+.env-zone { display: grid; justify-items: center; gap: 22px; padding-top: 150px; }
+.envelope {
+  position: relative; width: min(440px, 100%); aspect-ratio: 3 / 2;
+  cursor: pointer; perspective: 1200px; border: 0; filter: drop-shadow(0 14px 22px rgba(158,13,18,.16)); padding: 0; background: none; font: inherit; color: inherit;
+}
+.env-back { position: absolute; inset: 0; background: #E9B9B2; border-radius: 10px; }
+.env-card {
+  position: absolute; left: 6%; right: 6%; top: 5%; height: 90%;
+  background: var(--white); border-radius: 8px; z-index: 2;
+  padding: 20px 22px; text-align: left; color: var(--ink);
+  box-shadow: 0 4px 18px rgba(0,0,0,.18);
+  transition: transform .7s cubic-bezier(.2,.8,.2,1) .25s;
+}
+.env-card .for { font-family: var(--serif); font-style: italic; font-size: 22px; color: var(--red); line-height: 1.1; }
+.env-card dl { margin: 12px 0 0; display: grid; gap: 8px; }
+.env-card dt { font-size: 12px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--red); }
+.env-card dd { margin: 0; font-size: clamp(15px, 2.6vw, 18px); font-weight: 600; font-variant-numeric: tabular-nums; }
+.env-front { position: absolute; inset: 0; z-index: 3; pointer-events: none; }
+.env-front svg { width: 100%; height: 100%; display: block; }
+.env-label {
+  position: absolute; left: 0; right: 0; bottom: 12%; z-index: 4; pointer-events: none;
+  font-family: var(--serif); font-style: italic; color: var(--red-deep); font-size: clamp(18px, 3vw, 24px); text-align: center;
+}
+.env-flap {
+  position: absolute; left: 0; right: 0; top: 0; height: 58%; z-index: 5; pointer-events: none;
+  transform-origin: top center;
+  transition: transform .5s ease, z-index 0s linear .25s;
+}
+.env-flap svg { width: 100%; height: 100%; display: block; overflow: visible; }
+.envelope.open .env-flap { transform: rotateX(180deg); z-index: 1; transition: transform .5s ease, z-index 0s linear .25s; }
+.envelope.open .env-card { transform: translateY(-58%); }
+.envelope:not(.open) .env-card { transition-delay: 0s; }
+.envelope:not(.open) .env-flap { transition-delay: .45s, .7s; }
+.env-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: center; }
+.copied { font-weight: 700; color: var(--red); font-size: 15px; min-height: 1.2em; }
+.placeholder-tag { font-size: 13px; color: #7a4a4b; }
+@media (max-width: 760px) { .regalo .wrap { grid-template-columns: 1fr; } .env-zone { padding-top: 130px; } }
+
+/* Dudas */
+.contacto { background: var(--blush); text-align: center; }
+.contacto .h2 { font-size: clamp(48px, 8vw, 104px); }
+.contacto .where { font-family: var(--serif); font-style: italic; font-size: clamp(26px, 3.4vw, 40px); color: var(--red); margin: 14px 0 0; }
+
+footer { background: var(--rose); color: var(--ink); padding: 56px 0 40px; border-top: 1px solid var(--petal); }
+footer .wrap { display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; align-items: end; }
+footer .big { color: var(--red); font-family: var(--serif); font-style: italic; font-size: clamp(44px, 7vw, 80px); line-height: 1; }
+footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; font-size: 14px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .sticker .ring, .busmove { animation: none; }
+  .busmove { left: calc(50% - 66px); }
+  .env-card, .env-flap { transition: none !important; }
+  html { scroll-behavior: auto; }
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="olive-branch" viewBox="0 0 230 100"><path d="M8 72 C60 64 118 50 212 18" fill="none" stroke="#5E6A33" stroke-width="2.4" stroke-linecap="round"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(27.0 68.8) rotate(-48.1) scale(0.80)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#93A05C" transform="translate(40.2 66.4) rotate(26.9) scale(1.01)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(57.2 62.9) rotate(-50.3) scale(1.03)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#93A05C" transform="translate(71.5 59.6) rotate(24.8) scale(0.84)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(90.3 55.0) rotate(-52.3) scale(0.61)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#93A05C" transform="translate(106.3 50.8) rotate(22.8) scale(0.56)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(127.4 44.9) rotate(-54.2) scale(0.73)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#93A05C" transform="translate(145.5 39.5) rotate(21.1) scale(0.96)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(169.5 32.0) rotate(-55.7) scale(1.05)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#93A05C" transform="translate(192.8 24.5) rotate(19.7) scale(0.90)"/><path d="M0 0 C7 -6 24 -6.5 34 0 C24 6.5 7 6 0 0Z" fill="#7A8746" transform="translate(211 18) rotate(-22) scale(.85)"/><path d="M48.6 64.7 L46.4 75.5" stroke="#5E6A33" stroke-width="1.4"/><ellipse cx="45.2" cy="81.3" rx="5.4" ry="7.4" fill="#3B2A36" transform="rotate(78.3 45.2 81.3)"/><path d="M98.2 53.0 L101.0 42.3" stroke="#5E6A33" stroke-width="1.4"/><ellipse cx="102.5" cy="36.5" rx="5.4" ry="7.4" fill="#4A3542" transform="rotate(75.2 102.5 36.5)"/><path d="M159.7 35.1 L156.4 45.6" stroke="#5E6A33" stroke-width="1.4"/><ellipse cx="154.6" cy="51.4" rx="5.4" ry="7.4" fill="#6B7A35" transform="rotate(72.6 154.6 51.4)"/></symbol>
+    <pattern id="oliv-far" width="15" height="9" patternUnits="userSpaceOnUse" patternTransform="rotate(-4)"><ellipse cx="7.5" cy="5" rx="3.4" ry="2.6" fill="#AAB47A"/></pattern>
+    <pattern id="oliv-mid" width="21" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(5)"><ellipse cx="10.5" cy="6.5" rx="4.8" ry="3.6" fill="#8E9B58"/></pattern>
+    <pattern id="oliv-near" width="30" height="17" patternUnits="userSpaceOnUse" patternTransform="rotate(-3)"><ellipse cx="15" cy="10" rx="7" ry="5.2" fill="#76843F"/><ellipse cx="15" cy="13.5" rx="6" ry="1.6" fill="#5E6A33" opacity=".35"/></pattern>
+    <symbol id="t-estrella" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><path d="M40 5L75 40L40 75L5 40Z" style="fill:var(--t2)"/><circle cx="40" cy="40" r="19" style="fill:var(--tb)"/><ellipse cx="40" cy="40" rx="5.5" ry="16" style="fill:var(--t1)" transform="rotate(0 40 40)"/><ellipse cx="40" cy="40" rx="5.5" ry="16" style="fill:var(--t1)" transform="rotate(90 40 40)"/><ellipse cx="40" cy="40" rx="4" ry="12" style="fill:var(--t3)" transform="rotate(45 40 40)"/><ellipse cx="40" cy="40" rx="4" ry="12" style="fill:var(--t3)" transform="rotate(135 40 40)"/><circle cx="40" cy="40" r="4" style="fill:var(--tb)"/><circle cx="0" cy="0" r="13" style="fill:var(--t3)"/><circle cx="80" cy="0" r="13" style="fill:var(--t3)"/><circle cx="0" cy="80" r="13" style="fill:var(--t3)"/><circle cx="80" cy="80" r="13" style="fill:var(--t3)"/></symbol>
+<symbol id="t-circulo" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><circle cx="40" cy="40" r="30" style="fill:none;stroke:var(--t1);stroke-width:4"/><circle cx="0" cy="0" r="20" style="fill:none;stroke:var(--t1);stroke-width:4"/><circle cx="80" cy="0" r="20" style="fill:none;stroke:var(--t1);stroke-width:4"/><circle cx="0" cy="80" r="20" style="fill:none;stroke:var(--t1);stroke-width:4"/><circle cx="80" cy="80" r="20" style="fill:none;stroke:var(--t1);stroke-width:4"/><ellipse cx="40" cy="40" rx="6.5" ry="20" style="fill:var(--t3)" transform="rotate(0 40 40)"/><ellipse cx="40" cy="40" rx="6.5" ry="20" style="fill:var(--t3)" transform="rotate(90 40 40)"/><ellipse cx="40" cy="40" rx="4.5" ry="15" style="fill:var(--t2)" transform="rotate(45 40 40)"/><ellipse cx="40" cy="40" rx="4.5" ry="15" style="fill:var(--t2)" transform="rotate(135 40 40)"/><circle cx="40" cy="40" r="5" style="fill:var(--t1)"/></symbol>
+<symbol id="t-triangulos" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><path d="M0 0L20 0L0 20Z" style="fill:var(--t2)"/><path d="M20 20L20 40L0 40Z" style="fill:var(--t4)"/><path d="M0 40L20 40L0 60Z" style="fill:var(--t2)"/><path d="M20 60L20 80L0 80Z" style="fill:var(--t4)"/><path d="M40 0L40 20L20 20Z" style="fill:var(--t4)"/><path d="M20 20L40 20L20 40Z" style="fill:var(--t2)"/><path d="M40 40L40 60L20 60Z" style="fill:var(--t4)"/><path d="M20 60L40 60L20 80Z" style="fill:var(--t2)"/><path d="M40 0L60 0L40 20Z" style="fill:var(--t2)"/><path d="M60 20L60 40L40 40Z" style="fill:var(--t4)"/><path d="M40 40L60 40L40 60Z" style="fill:var(--t2)"/><path d="M60 60L60 80L40 80Z" style="fill:var(--t4)"/><path d="M80 0L80 20L60 20Z" style="fill:var(--t4)"/><path d="M60 20L80 20L60 40Z" style="fill:var(--t2)"/><path d="M80 40L80 60L60 60Z" style="fill:var(--t4)"/><path d="M60 60L80 60L60 80Z" style="fill:var(--t2)"/><path d="M40 22L58 40L40 58L22 40Z" style="fill:var(--t1)"/><path d="M40 31L49 40L40 49L31 40Z" style="fill:var(--tb)"/></symbol>
+<symbol id="t-cruz" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><path d="M30 0H50V20H60V30H80V50H60V60H50V80H30V60H20V50H0V30H20V20H30Z" style="fill:var(--t3)"/><circle cx="40" cy="40" r="10" style="fill:var(--tb)"/><circle cx="40" cy="40" r="5" style="fill:var(--t2)"/><circle cx="12" cy="12" r="6" style="fill:var(--t1)"/><circle cx="68" cy="12" r="6" style="fill:var(--t1)"/><circle cx="12" cy="68" r="6" style="fill:var(--t1)"/><circle cx="68" cy="68" r="6" style="fill:var(--t1)"/></symbol>
+<symbol id="t-arcos" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><circle cx="0" cy="0" r="34" style="fill:var(--t4)"/><circle cx="0" cy="0" r="34" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="0" cy="0" r="22" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="80" cy="0" r="34" style="fill:var(--t4)"/><circle cx="80" cy="0" r="34" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="80" cy="0" r="22" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="0" cy="80" r="34" style="fill:var(--t4)"/><circle cx="0" cy="80" r="34" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="0" cy="80" r="22" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="80" cy="80" r="34" style="fill:var(--t4)"/><circle cx="80" cy="80" r="34" style="fill:none;stroke:var(--t2);stroke-width:3"/><circle cx="80" cy="80" r="22" style="fill:none;stroke:var(--t2);stroke-width:3"/><path d="M40 8Q44 36 72 40Q44 44 40 72Q36 44 8 40Q36 36 40 8Z" style="fill:var(--t1)"/><circle cx="40" cy="40" r="7" style="fill:var(--tb)"/><circle cx="40" cy="40" r="3.5" style="fill:var(--t2)"/></symbol>
+<symbol id="t-cuadrifolio" viewBox="0 0 80 80"><rect width="80" height="80" style="fill:var(--tb)"/><path d="M30 14C30 4 50 4 50 14C50 20 44 22 40 26C36 22 30 20 30 14Z" style="fill:var(--t1)" transform="rotate(0 40 40)"/><path d="M6 6Q20 10 22 22" style="fill:none;stroke:var(--t2);stroke-width:4" transform="rotate(0 40 40)"/><path d="M30 14C30 4 50 4 50 14C50 20 44 22 40 26C36 22 30 20 30 14Z" style="fill:var(--t1)" transform="rotate(90 40 40)"/><path d="M6 6Q20 10 22 22" style="fill:none;stroke:var(--t2);stroke-width:4" transform="rotate(90 40 40)"/><path d="M30 14C30 4 50 4 50 14C50 20 44 22 40 26C36 22 30 20 30 14Z" style="fill:var(--t1)" transform="rotate(180 40 40)"/><path d="M6 6Q20 10 22 22" style="fill:none;stroke:var(--t2);stroke-width:4" transform="rotate(180 40 40)"/><path d="M30 14C30 4 50 4 50 14C50 20 44 22 40 26C36 22 30 20 30 14Z" style="fill:var(--t1)" transform="rotate(270 40 40)"/><path d="M6 6Q20 10 22 22" style="fill:none;stroke:var(--t2);stroke-width:4" transform="rotate(270 40 40)"/><path d="M40 28L52 40L40 52L28 40Z" style="fill:var(--t3)"/><circle cx="40" cy="40" r="4" style="fill:var(--tb)"/></symbol>
+  </defs>
+</svg>
+
+<nav class="nav" aria-label="Secciones">
+  <div class="wrap">
+    <a class="mono" href="#inicio">N &amp; A</a>
+    <ul>
+      <li><a href="#colores">Dress code</a></li>
+      <li><a href="#lugar">El sitio</a></li>
+      <li><a href="#guia">Los de afuera</a></li>
+      <li><a href="#rsvp">Confirmar</a></li>
+      <li><a href="#regalo">Regalo</a></li>
+      <li><a href="#contacto">Dudas</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div id="view-home">
+<header class="hero" id="inicio">
+  <div class="wrap">
+    <div class="card">
+      <svg class="sticker" viewBox="0 0 200 200" aria-hidden="true">
+        <circle cx="100" cy="100" r="98" fill="#E3161E"/>
+        <g class="ring">
+          <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
+          <text><textPath href="#circ">¡Nos casamos! ♥ ¡Nos casamos! ♥ </textPath></text>
+        </g>
+        <path transform="translate(100 104)" d="M0 22 C -30 0, -34 -22, -17 -28 C -6 -32, 0 -22, 0 -16 C 0 -22, 6 -32, 17 -28 C 34 -22, 30 0, 0 22 Z" fill="#FFFFFF"/>
+      </svg>
+
+      <svg class="branch tl" aria-hidden="true"><use href="#olive-branch"/></svg>
+      <svg class="branch br" aria-hidden="true"><use href="#olive-branch"/></svg>
+      <h1 class="names">
+        <span>Nuria</span>
+        <span class="amp">&amp;</span>
+        <span>Amina</span>
+      </h1>
+      <p class="invite">Nos casamos y queremos que estés. Trae ganas de disfrutar y nosotras ponemos el resto.</p>
+      <span class="date-num">04 · 09 · 2027</span>
+      <div class="when">
+        <span>Sábado</span><span class="dot"></span><span>Las Aguas del Arbuniel</span><span class="dot"></span><span>Jaén, España</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="intro">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Guarda la fecha</span>
+      <h2 class="h2">Una fiesta <span class="it">en</span> Jaén</h2>
+      <p class="lead">Un sábado para juntar a nuestra gente de todos lados.</p>
+      <div class="btns">
+        <a class="btn solid-r" href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Boda%20de%20Nuria%20%26%20Amina&amp;dates=20270904%2F20270905&amp;location=Las%20Aguas%20del%20Arbuniel%2C%20Ctra.%20Arbuniel-Cambil%20km%201%2C%2023193%20Arbuniel%2C%20Ja%C3%A9n" target="_blank" rel="noopener">Añadir a Google Calendar</a>
+      </div>
+    </div>
+    <div class="count" role="group" aria-label="Cuenta atrás">
+      <span class="n" id="days">308</span>
+      <span class="lbl it">días</span>
+      <span class="sub">para el 4 de septiembre de 2027</span>
+    </div>
+  </div>
+</section>
+
+<section class="colores" id="colores">
+  <div class="wrap">
+    <div class="dresses" aria-hidden="true">
+      <figure class="dress">
+        <svg viewBox="0 0 160 260">
+          <path d="M60 14 Q80 26 100 14 L106 70 Q104 84 112 96 L152 244 Q80 262 8 244 L48 96 Q56 84 54 70 Z" fill="#E3161E"/>
+          <path d="M60 14 L54 4 M100 14 L106 4" stroke="#E3161E" stroke-width="5" stroke-linecap="round"/>
+          <path d="M50 96 Q80 108 110 96" stroke="#9E0D12" stroke-width="4" fill="none"/>
+        </svg>
+        <figcaption class="it">Nuria</figcaption>
+      </figure>
+      <figure class="dress">
+        <svg viewBox="0 0 160 260">
+          <path d="M60 14 Q80 26 100 14 L106 70 Q104 84 112 96 L152 244 Q80 262 8 244 L48 96 Q56 84 54 70 Z" fill="#FFFFFF" stroke="#E3161E" stroke-width="4" stroke-linejoin="round"/>
+          <path d="M60 14 L54 4 M100 14 L106 4" stroke="#E3161E" stroke-width="5" stroke-linecap="round"/>
+          <path d="M50 96 Q80 108 110 96" stroke="#E3161E" stroke-width="3" fill="none" stroke-dasharray="6 6"/>
+        </svg>
+        <figcaption class="it">Amina</figcaption>
+      </figure>
+    </div>
+    <div class="text">
+      <span class="kicker">Dress code</span>
+      <h2 class="h2">Rojo <span class="it">y</span> blanco</h2>
+      <p class="lead">Rojo y blanco son nuestros colores de ese día. Tú ven como más te guste… pero esos dos ya están pillados 😉</p>
+    </div>
+  </div>
+</section>
+
+<section class="lugar" id="lugar">
+  <div class="wrap">
+    <div class="lugar-grid">
+      <div>
+        <span class="kicker">El sitio</span>
+        <h2 class="h2">Las Aguas <span class="it">del</span> Arbuniel</h2>
+        <div class="address">
+          <strong>Las Aguas del Arbuniel</strong>
+          Ctra. Arbuniel–Cambil, km 1<br>
+          23193 Arbuniel (Cambil), Jaén, España
+        </div>
+        <div class="btns">
+          <a class="btn solid-r" href="https://www.google.com/maps/search/?api=1&amp;query=Las+Aguas+del+Arbuniel%2C+Arbuniel%2C+Ja%C3%A9n" target="_blank" rel="noopener">Abrir en Google Maps →</a>
+        </div>
+      </div>
+      <div>
+        <span class="kicker">De Jaén a la finca</span>
+        <p class="bus-title it"><b>Hay bus</b> de ida y vuelta</p>
+        <p class="bus-sub">Desde el centro de Jaén hasta la finca, y de vuelta al final de la fiesta.</p>
+        <div class="road" aria-hidden="true">
+          <span class="pin l"></span><span class="pin r"></span>
+          <div class="busmove">
+            <svg viewBox="0 0 132 70">
+              <rect x="2" y="4" width="128" height="52" rx="14" fill="#E3161E"/>
+              <rect x="12" y="13" width="20" height="18" rx="4" fill="#FFFFFF"/>
+              <rect x="38" y="13" width="20" height="18" rx="4" fill="#FFFFFF"/>
+              <rect x="64" y="13" width="20" height="18" rx="4" fill="#FFFFFF"/>
+              <rect x="92" y="13" width="28" height="30" rx="5" fill="#FFFFFF"/>
+              <rect x="2" y="38" width="88" height="5" fill="#FFFFFF" opacity=".9"/>
+              <path d="M74 19 c-4 -6 -11 -2 -6 4 l6 5 l6 -5 c5 -6 -2 -10 -6 -4z" fill="#E3161E"/>
+              <circle cx="30" cy="58" r="10" fill="#2A0A0B"/><circle cx="30" cy="58" r="4" fill="#FFFFFF"/>
+              <circle cx="102" cy="58" r="10" fill="#2A0A0B"/><circle cx="102" cy="58" r="4" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <span class="stop l">Jaén centro</span>
+          <span class="stop r">Las Aguas del Arbuniel</span>
+        </div>
+
+        <div class="note">
+          <span aria-hidden="true">📍</span>
+          <p>El punto exacto de salida y los horarios del bus os los mandaremos más cerca de la fecha. <b>Cuando confirméis, decidnos si vais a usarlo</b> para reservar plazas.</p>
+        </div>
+      </div>
+    </div>
+
+
+  </div>
+  <svg class="olivar on-white" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="1010" cy="82" r="22" style="fill:var(--sun)"/>
+      <path d="M0 120 C200 72 380 62 600 96 S1000 70 1200 102 L1200 220 L0 220Z" style="fill:var(--h1)"/>
+      <path d="M0 120 C200 72 380 62 600 96 S1000 70 1200 102 L1200 220 L0 220Z" fill="url(#oliv-far)"/>
+      <path d="M0 162 C250 112 450 122 700 152 S1050 122 1200 142 L1200 220 L0 220Z" style="fill:var(--h2)"/>
+      <path d="M0 162 C250 112 450 122 700 152 S1050 122 1200 142 L1200 220 L0 220Z" fill="url(#oliv-mid)"/>
+      <path d="M0 206 C300 170 600 178 900 198 S1150 188 1200 192 L1200 220 L0 220Z" style="fill:var(--h3)"/>
+      <path d="M0 206 C300 170 600 178 900 198 S1150 188 1200 192 L1200 220 L0 220Z" fill="url(#oliv-near)"/>
+      <rect y="214" width="1200" height="6" fill="currentColor"/>
+    </svg>
+</section>
+
+<section class="afuera" id="afuera">
+  <div class="wrap afuera-teaser">
+    <div>
+      <span class="kicker">Para los de afuera</span>
+      <h2 class="h2">¿Vienes <span class="it">de</span> lejos?</h2>
+      <p class="lead">Os hemos preparado una guía con todo lo práctico para venir a Jaén.</p>
+    </div>
+    <a class="btn solid-r" href="#guia">Ver la guía →</a>
+  </div>
+</section>
+
+<section class="rsvp" id="rsvp">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Confirmación</span>
+      <h2 class="h2">¿Vienes? <span class="it">Di que sí</span></h2>
+    </div>
+    <div class="rsvp-card">
+      <form class="rsvp-form" id="rsvpForm" novalidate>
+        <div class="field">
+          <label class="fl" for="f-nombre">Nombre y apellido</label>
+          <input id="f-nombre" name="nombre" type="text" autocomplete="name" maxlength="200" placeholder="Ej.: Ana López y Pablo Ruiz">
+          <span class="hint">Si venís varios, poned todos los nombres.</span>
+        </div>
+        <fieldset class="field choice">
+          <legend class="fl">¿Vienes?</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="asiste" value="si" id="f-si"><span>Sí, allí estaré</span></label>
+            <label class="opt"><input type="radio" name="asiste" value="no" id="f-no"><span>No puedo</span></label>
+          </div>
+        </fieldset>
+        <fieldset class="field choice" id="busRow" hidden>
+          <legend class="fl">¿Necesitas bus ese sábado?</legend>
+          <div class="opts">
+            <label class="opt"><input type="radio" name="bus" value="si" id="f-bus-si"><span>Sí</span></label>
+            <label class="opt"><input type="radio" name="bus" value="no" id="f-bus-no"><span>No</span></label>
+          </div>
+          <span class="hint">Ida y vuelta desde el centro de Jaén.</span>
+        </fieldset>
+        <input class="hp" type="text" name="website" id="f-website" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn solid-r" type="submit" id="f-send">Enviar</button>
+        <p class="fmsg" id="f-msg" role="status"></p>
+      </form>
+      <div class="thanks" id="thanks" hidden>
+        <b class="it" id="thanksTitle"></b>
+        <p id="thanksText"></p>
+        <button type="button" class="again" id="again">Enviar otra respuesta</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="regalo" id="regalo">
+  <div class="wrap">
+    <div>
+      <span class="kicker">Regalo</span>
+      <h2 class="h2">Tu regalo <span class="it">es</span> venir</h2>
+      <p class="lead">Con que vengas ya nos haces felices. Y si además te apetece tener un detalle con nosotras, te dejamos el sobre por aquí.</p>
+    </div>
+    <div class="env-zone">
+      <button class="envelope" id="envelope" type="button" aria-expanded="false" aria-controls="envCard" aria-label="Abrir el sobre">
+        <span class="env-back"></span>
+        <span class="env-card" id="envCard">
+          <span class="for">Para lo que venga</span>
+          <dl>
+            <div><dt>Titulares</dt><dd>Nuria · Amina</dd></div>
+            <div><dt>IBAN</dt><dd id="iban">ES00 0000 0000 0000 0000 0000</dd></div>
+          </dl>
+        </span>
+        <span class="env-front">
+          <svg viewBox="0 0 300 200" preserveAspectRatio="none">
+            <polygon points="0,0 150,112 0,200" fill="#F2CFC9"/>
+            <polygon points="300,0 150,112 300,200" fill="#F2CFC9"/>
+            <polygon points="0,200 150,98 300,200" fill="#F7DDD9"/>
+          </svg>
+        </span>
+        <span class="env-label">Nuria &amp; Amina</span>
+        <span class="env-flap">
+          <svg viewBox="0 0 300 116" preserveAspectRatio="none">
+            <polygon points="0,0 300,0 150,116" fill="#F5D6D1" stroke="#E4AAA2" stroke-width="1.5" stroke-linejoin="round"/>
+            <circle cx="150" cy="104" r="18" fill="#E3161E"/>
+            <path transform="translate(150 106) scale(.42)" d="M0 22 C -30 0, -34 -22, -17 -28 C -6 -32, 0 -22, 0 -16 C 0 -22, 6 -32, 17 -28 C 34 -22, 30 0, 0 22 Z" fill="#FFFFFF"/>
+          </svg>
+        </span>
+      </button>
+      <div class="env-actions">
+        <button class="btn small solid-r" id="toggleEnv" type="button">Abrir el sobre</button>
+        <button class="btn small outline-r" id="copyIban" type="button">Copiar IBAN</button>
+        <span class="copied" id="copied" role="status"></span>
+      </div>
+      <span class="placeholder-tag">IBAN de ejemplo</span>
+    </div>
+  </div>
+</section>
+
+<section class="contacto" id="contacto">
+  <div class="wrap">
+    <h2 class="h2">¿Alguna duda?</h2>
+    <p class="where">Ya sabes dónde encontrarnos.</p>
+  </div>
+</section>
+
+</div>
+
+<div id="view-guia" hidden>
+<header class="ghero">
+  <svg class="tilebg" viewBox="0 0 1600 640" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><use href="#t-circulo" x="0" y="0" width="80" height="80" transform="rotate(0 40.0 40.0)"/><use href="#t-cruz" x="80" y="0" width="80" height="80" transform="rotate(90 120.0 40.0)"/><use href="#t-cuadrifolio" x="160" y="0" width="80" height="80" transform="rotate(180 200.0 40.0)"/><use href="#t-circulo" x="240" y="0" width="80" height="80" transform="rotate(270 280.0 40.0)"/><use href="#t-cruz" x="320" y="0" width="80" height="80" transform="rotate(0 360.0 40.0)"/><use href="#t-cuadrifolio" x="400" y="0" width="80" height="80" transform="rotate(90 440.0 40.0)"/><use href="#t-circulo" x="480" y="0" width="80" height="80" transform="rotate(180 520.0 40.0)"/><use href="#t-cruz" x="560" y="0" width="80" height="80" transform="rotate(270 600.0 40.0)"/><use href="#t-cuadrifolio" x="640" y="0" width="80" height="80" transform="rotate(0 680.0 40.0)"/><use href="#t-circulo" x="720" y="0" width="80" height="80" transform="rotate(90 760.0 40.0)"/><use href="#t-cruz" x="800" y="0" width="80" height="80" transform="rotate(180 840.0 40.0)"/><use href="#t-cuadrifolio" x="880" y="0" width="80" height="80" transform="rotate(270 920.0 40.0)"/><use href="#t-circulo" x="960" y="0" width="80" height="80" transform="rotate(0 1000.0 40.0)"/><use href="#t-cruz" x="1040" y="0" width="80" height="80" transform="rotate(90 1080.0 40.0)"/><use href="#t-cuadrifolio" x="1120" y="0" width="80" height="80" transform="rotate(180 1160.0 40.0)"/><use href="#t-circulo" x="1200" y="0" width="80" height="80" transform="rotate(270 1240.0 40.0)"/><use href="#t-cruz" x="1280" y="0" width="80" height="80" transform="rotate(0 1320.0 40.0)"/><use href="#t-cuadrifolio" x="1360" y="0" width="80" height="80" transform="rotate(90 1400.0 40.0)"/><use href="#t-circulo" x="1440" y="0" width="80" height="80" transform="rotate(180 1480.0 40.0)"/><use href="#t-cruz" x="1520" y="0" width="80" height="80" transform="rotate(270 1560.0 40.0)"/><use href="#t-arcos" x="0" y="80" width="80" height="80" transform="rotate(90 40.0 120.0)"/><use href="#t-estrella" x="80" y="80" width="80" height="80" transform="rotate(180 120.0 120.0)"/><use href="#t-triangulos" x="160" y="80" width="80" height="80" transform="rotate(270 200.0 120.0)"/><use href="#t-arcos" x="240" y="80" width="80" height="80" transform="rotate(0 280.0 120.0)"/><use href="#t-estrella" x="320" y="80" width="80" height="80" transform="rotate(90 360.0 120.0)"/><use href="#t-triangulos" x="400" y="80" width="80" height="80" transform="rotate(180 440.0 120.0)"/><use href="#t-arcos" x="480" y="80" width="80" height="80" transform="rotate(270 520.0 120.0)"/><use href="#t-estrella" x="560" y="80" width="80" height="80" transform="rotate(0 600.0 120.0)"/><use href="#t-triangulos" x="640" y="80" width="80" height="80" transform="rotate(90 680.0 120.0)"/><use href="#t-arcos" x="720" y="80" width="80" height="80" transform="rotate(180 760.0 120.0)"/><use href="#t-estrella" x="800" y="80" width="80" height="80" transform="rotate(270 840.0 120.0)"/><use href="#t-triangulos" x="880" y="80" width="80" height="80" transform="rotate(0 920.0 120.0)"/><use href="#t-arcos" x="960" y="80" width="80" height="80" transform="rotate(90 1000.0 120.0)"/><use href="#t-estrella" x="1040" y="80" width="80" height="80" transform="rotate(180 1080.0 120.0)"/><use href="#t-triangulos" x="1120" y="80" width="80" height="80" transform="rotate(270 1160.0 120.0)"/><use href="#t-arcos" x="1200" y="80" width="80" height="80" transform="rotate(0 1240.0 120.0)"/><use href="#t-estrella" x="1280" y="80" width="80" height="80" transform="rotate(90 1320.0 120.0)"/><use href="#t-triangulos" x="1360" y="80" width="80" height="80" transform="rotate(180 1400.0 120.0)"/><use href="#t-arcos" x="1440" y="80" width="80" height="80" transform="rotate(270 1480.0 120.0)"/><use href="#t-estrella" x="1520" y="80" width="80" height="80" transform="rotate(0 1560.0 120.0)"/><use href="#t-circulo" x="0" y="160" width="80" height="80" transform="rotate(180 40.0 200.0)"/><use href="#t-cruz" x="80" y="160" width="80" height="80" transform="rotate(270 120.0 200.0)"/><use href="#t-cuadrifolio" x="160" y="160" width="80" height="80" transform="rotate(0 200.0 200.0)"/><use href="#t-circulo" x="240" y="160" width="80" height="80" transform="rotate(90 280.0 200.0)"/><use href="#t-cruz" x="320" y="160" width="80" height="80" transform="rotate(180 360.0 200.0)"/><use href="#t-cuadrifolio" x="400" y="160" width="80" height="80" transform="rotate(270 440.0 200.0)"/><use href="#t-circulo" x="480" y="160" width="80" height="80" transform="rotate(0 520.0 200.0)"/><use href="#t-cruz" x="560" y="160" width="80" height="80" transform="rotate(90 600.0 200.0)"/><use href="#t-cuadrifolio" x="640" y="160" width="80" height="80" transform="rotate(180 680.0 200.0)"/><use href="#t-circulo" x="720" y="160" width="80" height="80" transform="rotate(270 760.0 200.0)"/><use href="#t-cruz" x="800" y="160" width="80" height="80" transform="rotate(0 840.0 200.0)"/><use href="#t-cuadrifolio" x="880" y="160" width="80" height="80" transform="rotate(90 920.0 200.0)"/><use href="#t-circulo" x="960" y="160" width="80" height="80" transform="rotate(180 1000.0 200.0)"/><use href="#t-cruz" x="1040" y="160" width="80" height="80" transform="rotate(270 1080.0 200.0)"/><use href="#t-cuadrifolio" x="1120" y="160" width="80" height="80" transform="rotate(0 1160.0 200.0)"/><use href="#t-circulo" x="1200" y="160" width="80" height="80" transform="rotate(90 1240.0 200.0)"/><use href="#t-cruz" x="1280" y="160" width="80" height="80" transform="rotate(180 1320.0 200.0)"/><use href="#t-cuadrifolio" x="1360" y="160" width="80" height="80" transform="rotate(270 1400.0 200.0)"/><use href="#t-circulo" x="1440" y="160" width="80" height="80" transform="rotate(0 1480.0 200.0)"/><use href="#t-cruz" x="1520" y="160" width="80" height="80" transform="rotate(90 1560.0 200.0)"/><use href="#t-arcos" x="0" y="240" width="80" height="80" transform="rotate(270 40.0 280.0)"/><use href="#t-estrella" x="80" y="240" width="80" height="80" transform="rotate(0 120.0 280.0)"/><use href="#t-triangulos" x="160" y="240" width="80" height="80" transform="rotate(90 200.0 280.0)"/><use href="#t-arcos" x="240" y="240" width="80" height="80" transform="rotate(180 280.0 280.0)"/><use href="#t-estrella" x="320" y="240" width="80" height="80" transform="rotate(270 360.0 280.0)"/><use href="#t-triangulos" x="400" y="240" width="80" height="80" transform="rotate(0 440.0 280.0)"/><use href="#t-arcos" x="480" y="240" width="80" height="80" transform="rotate(90 520.0 280.0)"/><use href="#t-estrella" x="560" y="240" width="80" height="80" transform="rotate(180 600.0 280.0)"/><use href="#t-triangulos" x="640" y="240" width="80" height="80" transform="rotate(270 680.0 280.0)"/><use href="#t-arcos" x="720" y="240" width="80" height="80" transform="rotate(0 760.0 280.0)"/><use href="#t-estrella" x="800" y="240" width="80" height="80" transform="rotate(90 840.0 280.0)"/><use href="#t-triangulos" x="880" y="240" width="80" height="80" transform="rotate(180 920.0 280.0)"/><use href="#t-arcos" x="960" y="240" width="80" height="80" transform="rotate(270 1000.0 280.0)"/><use href="#t-estrella" x="1040" y="240" width="80" height="80" transform="rotate(0 1080.0 280.0)"/><use href="#t-triangulos" x="1120" y="240" width="80" height="80" transform="rotate(90 1160.0 280.0)"/><use href="#t-arcos" x="1200" y="240" width="80" height="80" transform="rotate(180 1240.0 280.0)"/><use href="#t-estrella" x="1280" y="240" width="80" height="80" transform="rotate(270 1320.0 280.0)"/><use href="#t-triangulos" x="1360" y="240" width="80" height="80" transform="rotate(0 1400.0 280.0)"/><use href="#t-arcos" x="1440" y="240" width="80" height="80" transform="rotate(90 1480.0 280.0)"/><use href="#t-estrella" x="1520" y="240" width="80" height="80" transform="rotate(180 1560.0 280.0)"/><use href="#t-circulo" x="0" y="320" width="80" height="80" transform="rotate(0 40.0 360.0)"/><use href="#t-cruz" x="80" y="320" width="80" height="80" transform="rotate(90 120.0 360.0)"/><use href="#t-cuadrifolio" x="160" y="320" width="80" height="80" transform="rotate(180 200.0 360.0)"/><use href="#t-circulo" x="240" y="320" width="80" height="80" transform="rotate(270 280.0 360.0)"/><use href="#t-cruz" x="320" y="320" width="80" height="80" transform="rotate(0 360.0 360.0)"/><use href="#t-cuadrifolio" x="400" y="320" width="80" height="80" transform="rotate(90 440.0 360.0)"/><use href="#t-circulo" x="480" y="320" width="80" height="80" transform="rotate(180 520.0 360.0)"/><use href="#t-cruz" x="560" y="320" width="80" height="80" transform="rotate(270 600.0 360.0)"/><use href="#t-cuadrifolio" x="640" y="320" width="80" height="80" transform="rotate(0 680.0 360.0)"/><use href="#t-circulo" x="720" y="320" width="80" height="80" transform="rotate(90 760.0 360.0)"/><use href="#t-cruz" x="800" y="320" width="80" height="80" transform="rotate(180 840.0 360.0)"/><use href="#t-cuadrifolio" x="880" y="320" width="80" height="80" transform="rotate(270 920.0 360.0)"/><use href="#t-circulo" x="960" y="320" width="80" height="80" transform="rotate(0 1000.0 360.0)"/><use href="#t-cruz" x="1040" y="320" width="80" height="80" transform="rotate(90 1080.0 360.0)"/><use href="#t-cuadrifolio" x="1120" y="320" width="80" height="80" transform="rotate(180 1160.0 360.0)"/><use href="#t-circulo" x="1200" y="320" width="80" height="80" transform="rotate(270 1240.0 360.0)"/><use href="#t-cruz" x="1280" y="320" width="80" height="80" transform="rotate(0 1320.0 360.0)"/><use href="#t-cuadrifolio" x="1360" y="320" width="80" height="80" transform="rotate(90 1400.0 360.0)"/><use href="#t-circulo" x="1440" y="320" width="80" height="80" transform="rotate(180 1480.0 360.0)"/><use href="#t-cruz" x="1520" y="320" width="80" height="80" transform="rotate(270 1560.0 360.0)"/><use href="#t-arcos" x="0" y="400" width="80" height="80" transform="rotate(90 40.0 440.0)"/><use href="#t-estrella" x="80" y="400" width="80" height="80" transform="rotate(180 120.0 440.0)"/><use href="#t-triangulos" x="160" y="400" width="80" height="80" transform="rotate(270 200.0 440.0)"/><use href="#t-arcos" x="240" y="400" width="80" height="80" transform="rotate(0 280.0 440.0)"/><use href="#t-estrella" x="320" y="400" width="80" height="80" transform="rotate(90 360.0 440.0)"/><use href="#t-triangulos" x="400" y="400" width="80" height="80" transform="rotate(180 440.0 440.0)"/><use href="#t-arcos" x="480" y="400" width="80" height="80" transform="rotate(270 520.0 440.0)"/><use href="#t-estrella" x="560" y="400" width="80" height="80" transform="rotate(0 600.0 440.0)"/><use href="#t-triangulos" x="640" y="400" width="80" height="80" transform="rotate(90 680.0 440.0)"/><use href="#t-arcos" x="720" y="400" width="80" height="80" transform="rotate(180 760.0 440.0)"/><use href="#t-estrella" x="800" y="400" width="80" height="80" transform="rotate(270 840.0 440.0)"/><use href="#t-triangulos" x="880" y="400" width="80" height="80" transform="rotate(0 920.0 440.0)"/><use href="#t-arcos" x="960" y="400" width="80" height="80" transform="rotate(90 1000.0 440.0)"/><use href="#t-estrella" x="1040" y="400" width="80" height="80" transform="rotate(180 1080.0 440.0)"/><use href="#t-triangulos" x="1120" y="400" width="80" height="80" transform="rotate(270 1160.0 440.0)"/><use href="#t-arcos" x="1200" y="400" width="80" height="80" transform="rotate(0 1240.0 440.0)"/><use href="#t-estrella" x="1280" y="400" width="80" height="80" transform="rotate(90 1320.0 440.0)"/><use href="#t-triangulos" x="1360" y="400" width="80" height="80" transform="rotate(180 1400.0 440.0)"/><use href="#t-arcos" x="1440" y="400" width="80" height="80" transform="rotate(270 1480.0 440.0)"/><use href="#t-estrella" x="1520" y="400" width="80" height="80" transform="rotate(0 1560.0 440.0)"/><use href="#t-circulo" x="0" y="480" width="80" height="80" transform="rotate(180 40.0 520.0)"/><use href="#t-cruz" x="80" y="480" width="80" height="80" transform="rotate(270 120.0 520.0)"/><use href="#t-cuadrifolio" x="160" y="480" width="80" height="80" transform="rotate(0 200.0 520.0)"/><use href="#t-circulo" x="240" y="480" width="80" height="80" transform="rotate(90 280.0 520.0)"/><use href="#t-cruz" x="320" y="480" width="80" height="80" transform="rotate(180 360.0 520.0)"/><use href="#t-cuadrifolio" x="400" y="480" width="80" height="80" transform="rotate(270 440.0 520.0)"/><use href="#t-circulo" x="480" y="480" width="80" height="80" transform="rotate(0 520.0 520.0)"/><use href="#t-cruz" x="560" y="480" width="80" height="80" transform="rotate(90 600.0 520.0)"/><use href="#t-cuadrifolio" x="640" y="480" width="80" height="80" transform="rotate(180 680.0 520.0)"/><use href="#t-circulo" x="720" y="480" width="80" height="80" transform="rotate(270 760.0 520.0)"/><use href="#t-cruz" x="800" y="480" width="80" height="80" transform="rotate(0 840.0 520.0)"/><use href="#t-cuadrifolio" x="880" y="480" width="80" height="80" transform="rotate(90 920.0 520.0)"/><use href="#t-circulo" x="960" y="480" width="80" height="80" transform="rotate(180 1000.0 520.0)"/><use href="#t-cruz" x="1040" y="480" width="80" height="80" transform="rotate(270 1080.0 520.0)"/><use href="#t-cuadrifolio" x="1120" y="480" width="80" height="80" transform="rotate(0 1160.0 520.0)"/><use href="#t-circulo" x="1200" y="480" width="80" height="80" transform="rotate(90 1240.0 520.0)"/><use href="#t-cruz" x="1280" y="480" width="80" height="80" transform="rotate(180 1320.0 520.0)"/><use href="#t-cuadrifolio" x="1360" y="480" width="80" height="80" transform="rotate(270 1400.0 520.0)"/><use href="#t-circulo" x="1440" y="480" width="80" height="80" transform="rotate(0 1480.0 520.0)"/><use href="#t-cruz" x="1520" y="480" width="80" height="80" transform="rotate(90 1560.0 520.0)"/><use href="#t-arcos" x="0" y="560" width="80" height="80" transform="rotate(270 40.0 600.0)"/><use href="#t-estrella" x="80" y="560" width="80" height="80" transform="rotate(0 120.0 600.0)"/><use href="#t-triangulos" x="160" y="560" width="80" height="80" transform="rotate(90 200.0 600.0)"/><use href="#t-arcos" x="240" y="560" width="80" height="80" transform="rotate(180 280.0 600.0)"/><use href="#t-estrella" x="320" y="560" width="80" height="80" transform="rotate(270 360.0 600.0)"/><use href="#t-triangulos" x="400" y="560" width="80" height="80" transform="rotate(0 440.0 600.0)"/><use href="#t-arcos" x="480" y="560" width="80" height="80" transform="rotate(90 520.0 600.0)"/><use href="#t-estrella" x="560" y="560" width="80" height="80" transform="rotate(180 600.0 600.0)"/><use href="#t-triangulos" x="640" y="560" width="80" height="80" transform="rotate(270 680.0 600.0)"/><use href="#t-arcos" x="720" y="560" width="80" height="80" transform="rotate(0 760.0 600.0)"/><use href="#t-estrella" x="800" y="560" width="80" height="80" transform="rotate(90 840.0 600.0)"/><use href="#t-triangulos" x="880" y="560" width="80" height="80" transform="rotate(180 920.0 600.0)"/><use href="#t-arcos" x="960" y="560" width="80" height="80" transform="rotate(270 1000.0 600.0)"/><use href="#t-estrella" x="1040" y="560" width="80" height="80" transform="rotate(0 1080.0 600.0)"/><use href="#t-triangulos" x="1120" y="560" width="80" height="80" transform="rotate(90 1160.0 600.0)"/><use href="#t-arcos" x="1200" y="560" width="80" height="80" transform="rotate(180 1240.0 600.0)"/><use href="#t-estrella" x="1280" y="560" width="80" height="80" transform="rotate(270 1320.0 600.0)"/><use href="#t-triangulos" x="1360" y="560" width="80" height="80" transform="rotate(0 1400.0 600.0)"/><use href="#t-arcos" x="1440" y="560" width="80" height="80" transform="rotate(90 1480.0 600.0)"/><use href="#t-estrella" x="1520" y="560" width="80" height="80" transform="rotate(180 1560.0 600.0)"/></svg>
+  <div class="wrap">
+    <div class="gcard">
+    <a class="back" href="#inicio">← Volver a la invitación</a>
+    <span class="kicker">Guía para los de afuera</span>
+    <h1 class="h2 gtitle">Jaén <span class="it">para</span> los de afuera</h1>
+    <p class="lead">Todo lo práctico para venir a la boda desde fuera de Jaén, o de España.</p>
+    <nav class="toc" aria-label="Secciones de la guía">
+      <a class="pill" href="#guia-llegar">Cómo llegar</a>
+      <a class="pill" href="#guia-dormir">Dónde dormir</a>
+      <a class="pill" href="#guia-moverse">Moverse</a>
+      <a class="pill" href="#guia-pedir">Qué pedir</a>
+      <a class="pill" href="#guia-tapas">De tapas</a>
+    </nav>
+    </div>
+  </div>
+</header>
+
+<section class="dato" id="guia-jaen">
+  <div class="wrap dato-in">
+    <svg class="branch big" aria-hidden="true"><use href="#olive-branch"/></svg>
+    <span class="kicker">Bienvenidos a Jaén</span>
+    <h2 class="h2">Casi 70 millones <span class="it">de</span> olivos</h2>
+    <p class="lead">La provincia de Jaén produce más aceite de oliva que toda Italia: alrededor de uno de cada cinco litros que se hacen en el mundo. Por eso a su paisaje le llaman el mar de olivos.</p>
+    <div class="donde">
+      <h3 class="gh3">¿Dónde está Jaén?</h3>
+      <p>Jaén es una ciudad y una provincia de Andalucía, la comunidad autónoma del sur de España. Andalucía es famosa por sus playas, el sol, el flamenco, las tapas y monumentos como la Alhambra de Granada o la Mezquita de Córdoba. Tiene ocho provincias:</p>
+      <ul class="provs">
+      <li class="prov">Almería</li>
+      <li class="prov">Cádiz</li>
+      <li class="prov">Córdoba</li>
+      <li class="prov">Granada</li>
+      <li class="prov">Huelva</li>
+      <li class="prov here">Jaén <span>· aquí</span></li>
+      <li class="prov">Málaga</li>
+      <li class="prov">Sevilla</li>
+      </ul>
+    </div>
+  </div>
+  <svg class="olivar on-white" viewBox="0 0 1200 220" preserveAspectRatio="xMidYMax slice" aria-hidden="true">
+      <circle cx="1010" cy="82" r="22" style="fill:var(--sun)"/>
+      <path d="M0 120 C200 72 380 62 600 96 S1000 70 1200 102 L1200 220 L0 220Z" style="fill:var(--h1)"/>
+      <path d="M0 120 C200 72 380 62 600 96 S1000 70 1200 102 L1200 220 L0 220Z" fill="url(#oliv-far)"/>
+      <path d="M0 162 C250 112 450 122 700 152 S1050 122 1200 142 L1200 220 L0 220Z" style="fill:var(--h2)"/>
+      <path d="M0 162 C250 112 450 122 700 152 S1050 122 1200 142 L1200 220 L0 220Z" fill="url(#oliv-mid)"/>
+      <path d="M0 206 C300 170 600 178 900 198 S1150 188 1200 192 L1200 220 L0 220Z" style="fill:var(--h3)"/>
+      <path d="M0 206 C300 170 600 178 900 198 S1150 188 1200 192 L1200 220 L0 220Z" fill="url(#oliv-near)"/>
+      <rect y="214" width="1200" height="6" fill="currentColor"/>
+    </svg>
+</section>
+
+<section class="gsec" id="guia-llegar">
+  <div class="wrap gsplit">
+    <div>
+      <span class="kicker">Cómo llegar</span>
+      <h2 class="h2">A Jaén <span class="it">desde</span> lejos</h2>
+      <p class="lead">Los aeropuertos más cómodos son Madrid y Málaga. Desde ahí, a Jaén:</p>
+    </div>
+    <div>
+      <div class="routes">
+          <div class="rcard">
+            <span class="from">Desde Madrid</span>
+            <span class="time">5 h</span>
+            <span class="how">aprox. en tren directo desde Madrid hasta Jaén.</span>
+          </div>
+          <div class="rcard">
+            <span class="from">Desde Málaga</span>
+            <span class="time">3 h</span>
+            <span class="how">aprox. en bus, con salidas desde el mismo aeropuerto.</span>
+          </div>
+        </div>
+      <p class="small-note">Buscad un tren directo: con transbordo se puede tardar bastante más.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gsec rose" id="guia-dormir">
+  <div class="wrap">
+    <span class="kicker">Dónde dormir</span>
+    <h2 class="h2">Cerca <span class="it">de la</span> Catedral</h2>
+    <p class="lead">Os recomendamos el centro. Es la zona más bonita, se recorre todo andando y está llena de bares.</p>
+      <div class="hotel-grid">
+        <div class="hcard fav">
+          <span class="badge">★ Más recomendado</span>
+          <span class="hname">Hotel Europa</span>
+          <span class="hwhere">Plaza de Belén</span>
+          <span class="hextra">Terraza con vistas a la Catedral, que queda a unos 7 minutos andando.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Europa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Condestable Iranzo</span>
+          <span class="hwhere">Paseo de la Estación</span>
+          <span class="hextra">Un clásico de Jaén, en la avenida principal y con piscina. A unos 10 minutos andando de la estación de tren.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Condestable+Iranzo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Hotel Xauen</span>
+          <span class="hwhere">Casco antiguo</span>
+          <span class="hextra">A unos 100 metros de la Catedral, con terraza en la azotea.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Hotel+Xauen+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+      </div>
+    <div class="btns"><a class="btn solid-r small" href="https://www.google.com/maps/search/?api=1&amp;query=Catedral+de+Ja%C3%A9n" target="_blank" rel="noopener">La Catedral en Google Maps →</a>
+      <a class="btn outline-r small" href="https://www.airbnb.es/s/Ja%C3%A9n--Espa%C3%B1a/homes?checkin=2027-09-03&amp;checkout=2027-09-05&amp;adults=2" target="_blank" rel="noopener">Buscar en Airbnb →</a></div>
+  </div>
+</section>
+
+<section class="gsec" id="guia-moverse">
+  <div class="wrap gsplit">
+    <div>
+      <span class="kicker">Moverse</span>
+      <h2 class="h2">Por <span class="it">el</span> centro</h2>
+        <ul class="tips">
+          <li>
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="currentColor"/></svg></span>
+            <span><b>Andando</b>El centro es pequeño. Desde la Catedral llegáis a casi todo a pie.</span>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="3" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 11h18" stroke="currentColor" stroke-width="2"/><circle cx="8" cy="19" r="1.8" fill="currentColor"/><circle cx="16" cy="19" r="1.8" fill="currentColor"/></svg></span>
+            <span><b>Estación de autobuses</b>Está en pleno centro, a unos 10 minutos andando de la Catedral.</span>
+          </li>
+          <li>
+            <span class="ic" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="14" rx="4" fill="none" stroke="currentColor" stroke-width="2"/><path d="M5 10h14" stroke="currentColor" stroke-width="2"/><path d="M8 21l2-4M16 21l-2-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></span>
+            <span><b>Estación de tren</b>Está a 1,5 km del centro: unos 20 minutos andando o un taxi corto.</span>
+          </li>
+        </ul>
+    </div>
+    <div class="taxi">
+      <span class="kicker">Ojo: en Jaén no hay Uber</span>
+      <div class="cab">
+        <p class="taxi-name">Radio Taxi Jaén</p>
+        <a class="taxi-num" href="tel:+34953222222">+34 953 22 22 22</a>
+        <div class="apps">
+          <a class="pill" href="https://apps.apple.com/es/app/radio-taxi-jaen/id1477038645" target="_blank" rel="noopener">App para iPhone</a>
+          <a class="pill" href="https://play.google.com/store/search?q=Radio%20Taxi%20Jaen&amp;c=apps" target="_blank" rel="noopener">App para Android</a>
+        </div>
+      </div>
+      <div class="cab">
+        <p class="taxi-name">Tele Taxi Jaén</p>
+        <a class="taxi-num" href="tel:+34953271010">+34 953 27 10 10</a>
+      </div>
+      <p class="taxi-sub">Para la boda no hace falta: <a href="#lugar">hay bus desde el centro</a>.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gsec rose" id="guia-pedir">
+  <div class="wrap">
+    <span class="kicker">Qué pedir</span>
+    <h2 class="h2">Comer <span class="it">como</span> en Jaén</h2>
+    <h3 class="gh3">Lo típico de aquí</h3>
+    <div class="dishes">
+      <div class="dish"><span class="dname">Pipirrana</span><span class="dtext">Ensalada fresquita de tomate, pimiento y ajo con buen aceite, muchas veces con huevo duro y atún. La reina del verano.</span></div>
+      <div class="dish"><span class="dname">Arroz meloso</span><span class="dtext">Arroz jugoso, a medio camino entre una paella y un caldo. En muchos bares sale como tapa.</span></div>
+      <div class="dish"><span class="dname">Migas</span><span class="dtext">Pan troceado y frito con ajo, chorizo y panceta. Contundente y riquísimo.</span></div>
+      <div class="dish"><span class="dname">Tostadas gratinadas</span><span class="dtext">El desayuno de Jaén: tostada con jamón u otros ingredientes y queso gratinado por encima.</span></div>
+      <div class="dish"><span class="dname">Rosca</span><span class="dtext">Pan redondo en forma de rosca, relleno como un bocadillo grande: de lomo, de jamón, de lo que pidas. Perfecta para compartir.</span></div>
+      <div class="dish"><span class="dname">Churros</span><span class="dtext">Recién hechos y con chocolate espeso para mojar.</span></div>
+    </div>
+    <h3 class="gh3">Y los clásicos españoles</h3>
+    <ul class="classics">
+        <li><b>Flamenquín</b>Lomo enrollado con jamón, empanado y frito.</li>
+        <li><b>Tortilla de patatas</b>Con o sin cebolla: el eterno debate.</li>
+        <li><b>Croquetas</b>De jamón, de bacalao, de lo que haya ese día.</li>
+        <li><b>Calamares</b>Fritos, en ración o en bocadillo.</li>
+        <li><b>Pincho moruno</b>Brocheta de carne adobada con especias.</li>
+        <li><b>Papas al alioli</b>Patatas con salsa de ajo y aceite.</li>
+        <li><b>Solomillo</b>De cerdo, a la plancha o en salsa.</li>
+        <li><b>Pan con tomate y jamón</b>Tostada con tomate rallado, aceite de Jaén y jamón.</li>
+    </ul>
+  </div>
+</section>
+
+<svg class="tileband" viewBox="0 0 1920 56" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#t-triangulos" x="0" y="0" width="56" height="56" transform="rotate(0 28.0 28.0)"/><use href="#t-arcos" x="56" y="0" width="56" height="56" transform="rotate(90 84.0 28.0)"/><use href="#t-estrella" x="112" y="0" width="56" height="56" transform="rotate(180 140.0 28.0)"/><use href="#t-triangulos" x="168" y="0" width="56" height="56" transform="rotate(270 196.0 28.0)"/><use href="#t-arcos" x="224" y="0" width="56" height="56" transform="rotate(0 252.0 28.0)"/><use href="#t-estrella" x="280" y="0" width="56" height="56" transform="rotate(90 308.0 28.0)"/><use href="#t-triangulos" x="336" y="0" width="56" height="56" transform="rotate(180 364.0 28.0)"/><use href="#t-arcos" x="392" y="0" width="56" height="56" transform="rotate(270 420.0 28.0)"/><use href="#t-estrella" x="448" y="0" width="56" height="56" transform="rotate(0 476.0 28.0)"/><use href="#t-triangulos" x="504" y="0" width="56" height="56" transform="rotate(90 532.0 28.0)"/><use href="#t-arcos" x="560" y="0" width="56" height="56" transform="rotate(180 588.0 28.0)"/><use href="#t-estrella" x="616" y="0" width="56" height="56" transform="rotate(270 644.0 28.0)"/><use href="#t-triangulos" x="672" y="0" width="56" height="56" transform="rotate(0 700.0 28.0)"/><use href="#t-arcos" x="728" y="0" width="56" height="56" transform="rotate(90 756.0 28.0)"/><use href="#t-estrella" x="784" y="0" width="56" height="56" transform="rotate(180 812.0 28.0)"/><use href="#t-triangulos" x="840" y="0" width="56" height="56" transform="rotate(270 868.0 28.0)"/><use href="#t-arcos" x="896" y="0" width="56" height="56" transform="rotate(0 924.0 28.0)"/><use href="#t-estrella" x="952" y="0" width="56" height="56" transform="rotate(90 980.0 28.0)"/><use href="#t-triangulos" x="1008" y="0" width="56" height="56" transform="rotate(180 1036.0 28.0)"/><use href="#t-arcos" x="1064" y="0" width="56" height="56" transform="rotate(270 1092.0 28.0)"/><use href="#t-estrella" x="1120" y="0" width="56" height="56" transform="rotate(0 1148.0 28.0)"/><use href="#t-triangulos" x="1176" y="0" width="56" height="56" transform="rotate(90 1204.0 28.0)"/><use href="#t-arcos" x="1232" y="0" width="56" height="56" transform="rotate(180 1260.0 28.0)"/><use href="#t-estrella" x="1288" y="0" width="56" height="56" transform="rotate(270 1316.0 28.0)"/><use href="#t-triangulos" x="1344" y="0" width="56" height="56" transform="rotate(0 1372.0 28.0)"/><use href="#t-arcos" x="1400" y="0" width="56" height="56" transform="rotate(90 1428.0 28.0)"/><use href="#t-estrella" x="1456" y="0" width="56" height="56" transform="rotate(180 1484.0 28.0)"/><use href="#t-triangulos" x="1512" y="0" width="56" height="56" transform="rotate(270 1540.0 28.0)"/><use href="#t-arcos" x="1568" y="0" width="56" height="56" transform="rotate(0 1596.0 28.0)"/><use href="#t-estrella" x="1624" y="0" width="56" height="56" transform="rotate(90 1652.0 28.0)"/><use href="#t-triangulos" x="1680" y="0" width="56" height="56" transform="rotate(180 1708.0 28.0)"/><use href="#t-arcos" x="1736" y="0" width="56" height="56" transform="rotate(270 1764.0 28.0)"/><use href="#t-estrella" x="1792" y="0" width="56" height="56" transform="rotate(0 1820.0 28.0)"/><use href="#t-triangulos" x="1848" y="0" width="56" height="56" transform="rotate(90 1876.0 28.0)"/><use href="#t-arcos" x="1904" y="0" width="56" height="56" transform="rotate(180 1932.0 28.0)"/></svg>
+<section class="gsec blush" id="guia-tapas">
+  <div class="wrap">
+    <span class="kicker">De tapas</span>
+    <h2 class="h2">La tapa <span class="it">va</span> gratis</h2>
+    <p class="lead">En Jaén, con cada bebida te ponen una tapa. La mejor zona es alrededor de la Catedral, sobre todo la calle Arco del Consuelo. Y para desayunar, como aquí: tostada con aceite de Jaén.</p>
+    <h3 class="gh3">Para ir de tapas</h3>
+    <div class="hotel-grid">
+        <div class="hcard">
+          <span class="hname">Casa Gorrión</span>
+          <span class="hwhere">Arco del Consuelo</span>
+          <span class="hextra">Taberna de toda la vida junto a la Catedral, con la cuenta apuntada en tiza. Pedid el paté de perdiz o la pipirrana.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Casa+Gorri%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Taberna Alcocer</span>
+          <span class="hwhere">Arco del Consuelo</span>
+          <span class="hextra">Tasca clásica en la misma calle que el Gorrión. Perfecta para ir encadenando.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+Alcocer+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Manchega</span>
+          <span class="hwhere">Calle Bernardo López</span>
+          <span class="hextra">Abierta desde 1886. Es la tasca más mítica de Jaén.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Manchega+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Barra</span>
+          <span class="hwhere">Calle Cerón</span>
+          <span class="hextra">Un clásico del casco antiguo. La especialidad de la casa son las migas.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Barra+Cer%C3%B3n+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Fígaro</span>
+          <span class="hwhere">Plaza del Pósito</span>
+          <span class="hextra">Bar familiar desde 1972, con terraza en la plaza. Siempre está lleno.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+F%C3%ADgaro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">El Pato Rojo</span>
+          <span class="hwhere">Frente a la Catedral</span>
+          <span class="hextra">La marisquería de referencia de Jaén desde 1974.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=El+Pato+Rojo+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+    </div>
+    <h3 class="gh3">Para sentarse a comer (y a desayunar)</h3>
+    <div class="note horario">
+      <span aria-hidden="true">🕑</span>
+      <p><b>Ojo con los horarios:</b> en España se almuerza sobre las 14:00 y muchos restaurantes no abren la cocina hasta esa hora. La cena, a partir de las 21:00.</p>
+    </div>
+    <div class="hotel-grid four">
+        <div class="hcard">
+          <span class="hname">La Espadaña Centro</span>
+          <span class="hwhere">Cerca de la Catedral</span>
+          <span class="hextra">Comida tradicional en un edificio antiguo precioso, con columnas y azulejos. Raciones generosas; suele llenarse, mejor reservar.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Espada%C3%B1a+Centro+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Taberna 4 Esquinas</span>
+          <span class="hwhere">Barrio de San Ildefonso</span>
+          <span class="hextra">Desde 1948 y conocida como «el bar de las migas». Ya sabéis qué pedir.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Taberna+4+Esquinas+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Charca</span>
+          <span class="hwhere">Con vistas al castillo</span>
+          <span class="hextra">Bar de toda la vida, con buenos precios y raciones generosas. Probad la berenjena con miel de caña.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafe+Bar+La+Charca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Mella</span>
+          <span class="hwhere">Para almorzar</span>
+          <span class="hextra">Algo más lejos del centro, con terraza y vistas a la sierra. Id a mediodía: de noche no se ve nada y no merece la pena. Pedid la rosca o los mejillones tigre.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Bar+La+Mella+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Marquetería</span>
+          <span class="hwhere">Desayunos</span>
+          <span class="hextra">Para empezar el día con tostadas gratinadas y buen café.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=La+Marqueter%C3%ADa+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">La Rosca</span>
+          <span class="hwhere">Churrería</span>
+          <span class="hextra">Churros con chocolate para desayunar o merendar.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Cafeter%C3%ADa+Churrer%C3%ADa+La+Rosca+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+        <div class="hcard">
+          <span class="hname">Bagá</span>
+          <span class="hwhere">Alta cocina</span>
+          <span class="hextra">Para darse un homenaje: restaurante pequeñito reconocido por la Guía Michelin. Hay que reservar con mucha antelación.</span>
+          <a class="hlink" href="https://www.google.com/maps/search/?api=1&amp;query=Restaurante+Bag%C3%A1+Ja%C3%A9n" target="_blank" rel="noopener">Ver en Google Maps →</a>
+        </div>
+    </div>
+    <div class="btns" style="margin-top:44px"><a class="btn outline-r" href="#inicio">← Volver a la invitación</a></div>
+  </div>
+</section>
+<svg class="tileband" viewBox="0 0 1920 56" preserveAspectRatio="xMinYMid slice" aria-hidden="true"><use href="#t-arcos" x="0" y="0" width="56" height="56" transform="rotate(0 28.0 28.0)"/><use href="#t-estrella" x="56" y="0" width="56" height="56" transform="rotate(90 84.0 28.0)"/><use href="#t-triangulos" x="112" y="0" width="56" height="56" transform="rotate(180 140.0 28.0)"/><use href="#t-arcos" x="168" y="0" width="56" height="56" transform="rotate(270 196.0 28.0)"/><use href="#t-estrella" x="224" y="0" width="56" height="56" transform="rotate(0 252.0 28.0)"/><use href="#t-triangulos" x="280" y="0" width="56" height="56" transform="rotate(90 308.0 28.0)"/><use href="#t-arcos" x="336" y="0" width="56" height="56" transform="rotate(180 364.0 28.0)"/><use href="#t-estrella" x="392" y="0" width="56" height="56" transform="rotate(270 420.0 28.0)"/><use href="#t-triangulos" x="448" y="0" width="56" height="56" transform="rotate(0 476.0 28.0)"/><use href="#t-arcos" x="504" y="0" width="56" height="56" transform="rotate(90 532.0 28.0)"/><use href="#t-estrella" x="560" y="0" width="56" height="56" transform="rotate(180 588.0 28.0)"/><use href="#t-triangulos" x="616" y="0" width="56" height="56" transform="rotate(270 644.0 28.0)"/><use href="#t-arcos" x="672" y="0" width="56" height="56" transform="rotate(0 700.0 28.0)"/><use href="#t-estrella" x="728" y="0" width="56" height="56" transform="rotate(90 756.0 28.0)"/><use href="#t-triangulos" x="784" y="0" width="56" height="56" transform="rotate(180 812.0 28.0)"/><use href="#t-arcos" x="840" y="0" width="56" height="56" transform="rotate(270 868.0 28.0)"/><use href="#t-estrella" x="896" y="0" width="56" height="56" transform="rotate(0 924.0 28.0)"/><use href="#t-triangulos" x="952" y="0" width="56" height="56" transform="rotate(90 980.0 28.0)"/><use href="#t-arcos" x="1008" y="0" width="56" height="56" transform="rotate(180 1036.0 28.0)"/><use href="#t-estrella" x="1064" y="0" width="56" height="56" transform="rotate(270 1092.0 28.0)"/><use href="#t-triangulos" x="1120" y="0" width="56" height="56" transform="rotate(0 1148.0 28.0)"/><use href="#t-arcos" x="1176" y="0" width="56" height="56" transform="rotate(90 1204.0 28.0)"/><use href="#t-estrella" x="1232" y="0" width="56" height="56" transform="rotate(180 1260.0 28.0)"/><use href="#t-triangulos" x="1288" y="0" width="56" height="56" transform="rotate(270 1316.0 28.0)"/><use href="#t-arcos" x="1344" y="0" width="56" height="56" transform="rotate(0 1372.0 28.0)"/><use href="#t-estrella" x="1400" y="0" width="56" height="56" transform="rotate(90 1428.0 28.0)"/><use href="#t-triangulos" x="1456" y="0" width="56" height="56" transform="rotate(180 1484.0 28.0)"/><use href="#t-arcos" x="1512" y="0" width="56" height="56" transform="rotate(270 1540.0 28.0)"/><use href="#t-estrella" x="1568" y="0" width="56" height="56" transform="rotate(0 1596.0 28.0)"/><use href="#t-triangulos" x="1624" y="0" width="56" height="56" transform="rotate(90 1652.0 28.0)"/><use href="#t-arcos" x="1680" y="0" width="56" height="56" transform="rotate(180 1708.0 28.0)"/><use href="#t-estrella" x="1736" y="0" width="56" height="56" transform="rotate(270 1764.0 28.0)"/><use href="#t-triangulos" x="1792" y="0" width="56" height="56" transform="rotate(0 1820.0 28.0)"/><use href="#t-arcos" x="1848" y="0" width="56" height="56" transform="rotate(90 1876.0 28.0)"/><use href="#t-estrella" x="1904" y="0" width="56" height="56" transform="rotate(180 1932.0 28.0)"/></svg>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="big">Nuria &amp; Amina</div>
+    <p>04.09.2027 · Las Aguas del Arbuniel · Jaén, España</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var home = document.getElementById('view-home');
+  var guia = document.getElementById('view-guia');
+  function currentHash() {
+    try { return (location.hash || '').slice(1); } catch (e) { return ''; }
+  }
+  function show(h) {
+    var inGuide = h === 'guia' || h.indexOf('guia-') === 0;
+    home.hidden = inGuide;
+    guia.hidden = !inGuide;
+    document.body.classList.toggle('in-guia', inGuide);
+    var target = h && h !== 'guia' && h !== 'inicio' ? document.getElementById(h) : null;
+    if (target) { target.scrollIntoView(); }
+    else { window.scrollTo(0, 0); }
+  }
+  // Los enlaces internos se resuelven aquí, sin depender de que el visor deje cambiar la URL
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest ? e.target.closest('a[href^="#"]') : null;
+    if (!a) return;
+    var h = a.getAttribute('href').slice(1);
+    if (!h) return;
+    e.preventDefault();
+    show(h);
+    try { history.pushState(null, '', '#' + h); } catch (err) {}
+  });
+  window.addEventListener('popstate', function () { show(currentHash()); });
+  window.addEventListener('hashchange', function () { show(currentHash()); });
+  show(currentHash());
+
+
+  // ---------- Confirmación de asistencia ----------
+  // Pegad aquí la URL de la aplicación web de Google Apps Script:
+  var SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbw1mWzM4CQLyBarlBu2Ebeo1fqQ2meIVOuBesTDN2jbxuXaDBzB7ENAL6J5sxSeR7K_/exec';
+  var form = document.getElementById('rsvpForm');
+  var busRow = document.getElementById('busRow');
+  var fmsg = document.getElementById('f-msg');
+  var send = document.getElementById('f-send');
+  var thanks = document.getElementById('thanks');
+  form.addEventListener('change', function () {
+    fmsg.textContent = '';
+    var si = document.getElementById('f-si').checked;
+    busRow.hidden = !si;
+    if (!si) { document.getElementById('f-bus-si').checked = false; document.getElementById('f-bus-no').checked = false; }
+  });
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var nombre = document.getElementById('f-nombre').value.trim();
+    var elegido = form.querySelector('input[name="asiste"]:checked');
+    if (!nombre) { fmsg.textContent = 'Escribe tu nombre, por favor.'; document.getElementById('f-nombre').focus(); return; }
+    if (!elegido) { fmsg.textContent = 'Cuéntanos si vienes o no.'; return; }
+    var asiste = elegido.value;
+    var busElegido = form.querySelector('input[name="bus"]:checked');
+    if (asiste === 'si' && !busElegido) { fmsg.textContent = 'Cuéntanos si necesitas el bus.'; return; }
+    var bus = asiste === 'si' && busElegido.value === 'si';
+    if (!SCRIPT_URL) { fmsg.textContent = 'Vista previa: el formulario todavía no está conectado.'; return; }
+    var body = new URLSearchParams({ nombre: nombre, asiste: asiste, bus: bus ? 'si' : 'no', website: document.getElementById('f-website').value });
+    send.disabled = true; send.textContent = 'Enviando…'; fmsg.textContent = '';
+    fetch(SCRIPT_URL, { method: 'POST', mode: 'no-cors', body: body })
+      .then(function () {
+        var nombres = nombre.split(/\s*,\s*|\s+y\s+|\s+e\s+/).filter(Boolean).map(function (x) { return x.split(/\s+/)[0]; });
+        var nom = nombres.length > 1 ? nombres.slice(0, -1).join(', ') + ' y ' + nombres[nombres.length - 1] : nombres[0];
+        document.getElementById('thanksTitle').textContent = asiste === 'si' ? 'Qué ilusión, ' + nom : 'Te echaremos de menos, ' + nom;
+        document.getElementById('thanksText').textContent = asiste === 'si'
+          ? 'Nos vemos el 4 de septiembre en Las Aguas del Arbuniel.' + (bus ? ' Te guardamos sitio en el bus.' : '')
+          : 'Gracias por avisarnos.';
+        form.hidden = true; thanks.hidden = false;
+      })
+      .catch(function () { fmsg.textContent = 'No se ha podido enviar. Revisa tu conexión y vuelve a intentarlo.'; })
+      .then(function () { send.disabled = false; send.textContent = 'Enviar'; });
+  });
+  document.getElementById('again').addEventListener('click', function () {
+    form.reset(); busRow.hidden = true; thanks.hidden = true; form.hidden = false; fmsg.textContent = '';
+  });
+
+  var target = new Date(2027, 8, 4);
+  var now = new Date();
+  var today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+  var d = Math.round((target - today) / 86400000);
+  var el = document.getElementById('days');
+  if (el) el.textContent = d > 0 ? d : '¡Hoy!';
+
+  var env = document.getElementById('envelope');
+  var toggle = document.getElementById('toggleEnv');
+  function setOpen(open) {
+    env.classList.toggle('open', open);
+    env.setAttribute('aria-expanded', String(open));
+    env.setAttribute('aria-label', open ? 'Cerrar el sobre' : 'Abrir el sobre');
+    toggle.textContent = open ? 'Cerrar el sobre' : 'Abrir el sobre';
+  }
+  env.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
+  toggle.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
+
+  var iban = document.getElementById('iban');
+  var msg = document.getElementById('copied');
+  document.getElementById('copyIban').addEventListener('click', function () {
+    var text = iban.textContent.replace(/\s+/g, '');
+    var done = function () { msg.textContent = '¡Copiado!'; setTimeout(function () { msg.textContent = ''; }, 2000); };
+    var fail = function () { msg.textContent = 'Cópialo a mano: ' + iban.textContent; };
+    try { navigator.clipboard.writeText(text).then(done, fail); } catch (e) { fail(); }
+  });
+})();
+</script>
+</body>
+</html>
