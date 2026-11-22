@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Dos copas de champán brindando (Nuria & Amina) -->
+  <defs>
+    <g id="flute">
+      <path d="M-9 -27 H9 L4.6 -2.5 Q0 3 -4.6 -2.5 Z" fill="#E3161E"/>
+      <path d="M-5.2 -23 L-3.2 -8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
+      <path d="M0 0 V13" stroke="#E3161E" stroke-width="4" stroke-linecap="round"/>
+      <path d="M-7 14 H7" stroke="#E3161E" stroke-width="4" stroke-linecap="round"/>
+    </g>
+  </defs>
+  <use href="#flute" transform="translate(15.9 40) rotate(16)"/>
+  <use href="#flute" transform="translate(48.1 40) rotate(-16) scale(-1 1)"/>
+  <!-- chispa del brindis -->
+  <path d="M32 1 L33.8 6.2 L39 8 L33.8 9.8 L32 15 L30.2 9.8 L25 8 L30.2 6.2 Z" fill="#E3161E"/>
+  <circle cx="21.5" cy="5.5" r="2" fill="#E3161E"/>
+  <circle cx="42.5" cy="5.5" r="2" fill="#E3161E"/>
+</svg>
