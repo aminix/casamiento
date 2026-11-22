@@ -25,7 +25,7 @@ El archivo `CNAME` del repo le dice a GitHub qué dominio usar; no lo borres tam
 | `.nojekyll` | Para que GitHub Pages sirva los archivos tal cual. |
 | `CNAME` | El dominio propio de la web (`nuria.aminix.io`). |
 | `og-image.png` | La imagen que sale al compartir el enlace (WhatsApp, iMessage, redes). 1200×630 px. Las etiquetas `og:*` están al principio de `index.html`. |
-| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | El icono de la pestaña (dos copas brindando). El `.svg` es el original; el `.ico` es para navegadores antiguos y el `.png` para cuando alguien guarda la web en la pantalla de inicio del iPhone. |
+| `favicon.svg`, `favicon.ico`, `apple-touch-icon.png` | El icono de la pestaña (un cañón de confeti). El `.svg` es el original; el `.ico` es para navegadores antiguos y el `.png` para cuando alguien guarda la web en la pantalla de inicio del iPhone. |
 | `og/og-image.html` | La fuente editable de esa imagen. Para cambiarla: edita este archivo, ábrelo en el navegador y haz una captura de 1200×630 px. |
 
 ## Cómo funciona la confirmación

@@ -1,17 +1,18 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Dos copas de champán brindando (Nuria & Amina) -->
-  <defs>
-    <g id="flute">
-      <path d="M-9 -27 H9 L4.6 -2.5 Q0 3 -4.6 -2.5 Z" fill="#E3161E"/>
-      <path d="M-5.2 -23 L-3.2 -8" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" opacity=".85"/>
-      <path d="M0 0 V13" stroke="#E3161E" stroke-width="4" stroke-linecap="round"/>
-      <path d="M-7 14 H7" stroke="#E3161E" stroke-width="4" stroke-linecap="round"/>
-    </g>
-  </defs>
-  <use href="#flute" transform="translate(15.9 40) rotate(16)"/>
-  <use href="#flute" transform="translate(48.1 40) rotate(-16) scale(-1 1)"/>
-  <!-- chispa del brindis -->
-  <path d="M32 1 L33.8 6.2 L39 8 L33.8 9.8 L32 15 L30.2 9.8 L25 8 L30.2 6.2 Z" fill="#E3161E"/>
-  <circle cx="21.5" cy="5.5" r="2" fill="#E3161E"/>
-  <circle cx="42.5" cy="5.5" r="2" fill="#E3161E"/>
+
+<!-- confeti y serpentinas saliendo del cono -->
+<path d="M34 27 C36 19 31 15 35 8" fill="none" stroke="#FF8A8E" stroke-width="3.2" stroke-linecap="round"/>
+<path d="M38 31 C45 27 48 33 56 28" fill="none" stroke="#E3161E" stroke-width="3.2" stroke-linecap="round"/>
+<rect x="44" y="9" width="6" height="6" rx="1.2" fill="#E3161E" transform="rotate(25 47 12)"/>
+<rect x="52" y="17" width="5" height="5" rx="1" fill="#2A0A0B" transform="rotate(-20 54.5 19.5)"/>
+<circle cx="24" cy="10" r="3" fill="#2A0A0B"/>
+<circle cx="56" cy="40" r="2.8" fill="#E08A3C"/>
+<path d="M39 15 L43 19" stroke="#E08A3C" stroke-width="3" stroke-linecap="round"/>
+<circle cx="46" cy="47" r="2.2" fill="#FF8A8E"/>
+<circle cx="16" cy="20" r="2.2" fill="#E08A3C"/>
+<!-- el cono -->
+<path d="M7 58 L21.5 23.5 L41 43 Z" fill="#E3161E" stroke-linejoin="round"/>
+<path d="M12.6 44.6 L20.1 52.1" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<path d="M16.6 35.2 L29.5 48.1" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round"/>
+<ellipse cx="31.25" cy="33.25" rx="13.8" ry="4.2" transform="rotate(45 31.25 33.25)" fill="#9E0D12"/>
 </svg>
