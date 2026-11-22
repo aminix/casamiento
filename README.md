@@ -24,6 +24,8 @@ El archivo `CNAME` del repo le dice a GitHub qué dominio usar; no lo borres tam
 | `apps-script/Code.gs` | Copia del Google Apps Script que recibe el formulario y añade una fila en la hoja. |
 | `.nojekyll` | Para que GitHub Pages sirva los archivos tal cual. |
 | `CNAME` | El dominio propio de la web (`nuria.aminix.io`). |
+| `og-image.png` | La imagen que sale al compartir el enlace (WhatsApp, iMessage, redes). 1200×630 px. Las etiquetas `og:*` están al principio de `index.html`. |
+| `og/og-image.html` | La fuente editable de esa imagen. Para cambiarla: edita este archivo, ábrelo en el navegador y haz una captura de 1200×630 px. |
 
 ## Cómo funciona la confirmación
 
