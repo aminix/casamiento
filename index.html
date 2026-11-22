@@ -453,7 +453,9 @@ legend.fl { margin-bottom: 10px; }
 /* Todo el sobre cerrado es un botón para abrirlo */
 .env-hit { position: absolute; inset: 0; z-index: 9; border: 0; padding: 0; background: transparent; cursor: pointer; border-radius: 10px; }
 .env-hit:focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
-.envelope.open .env-hit { display: none; }
+/* Abierto, sigue cubriendo el cuerpo del sobre: tocarlo lo cierra (los datos quedan por encima) */
+.envelope.open .paper[data-pos="0"] { touch-action: pan-y; } /* el dedo en horizontal es nuestro; en vertical, scroll */
+.paper.dragging { transition: none !important; user-select: none; -webkit-user-select: none; }
 /* Las tarjetas: la de delante sale del sobre y las otras asoman detrás */
 .papers { position: absolute; inset: 0; z-index: 3; }
 .paper {
@@ -475,13 +477,20 @@ legend.fl { margin-bottom: 10px; }
 .envelope.shuffling .paper { transition: transform .45s cubic-bezier(.2,.8,.2,1) 0s; }
 /* La de delante sale por la derecha y vuelve al fondo del montón */
 .paper.to-back { animation: to-back .7s cubic-bezier(.45,.05,.35,1) both; }
+.paper.to-back-left { animation: to-back-left .7s cubic-bezier(.45,.05,.35,1) both; }
 @keyframes to-back {
-  0%   { transform: translate(0, var(--r0)) rotate(0); z-index: 6; }
-  45%  { transform: translate(72%, -97%) rotate(9deg); z-index: 6; }
+  0%   { transform: translate(var(--dx, 0px), var(--r0)) rotate(var(--rot, 0deg)); z-index: 6; }
+  45%  { transform: translate(72%, calc(var(--r0) - 9%)) rotate(9deg); z-index: 6; }
   55%  { z-index: 2; }
   100% { transform: translate(-9px, var(--r2)) rotate(-2deg); z-index: 2; }
 }
-@media (prefers-reduced-motion: reduce) { .paper, .env-flap, .env-zone { transition-duration: .01s !important; } .paper.to-back { animation: none; } }
+@keyframes to-back-left {
+  0%   { transform: translate(var(--dx, 0px), var(--r0)) rotate(var(--rot, 0deg)); z-index: 6; }
+  45%  { transform: translate(-72%, calc(var(--r0) - 9%)) rotate(-9deg); z-index: 6; }
+  55%  { z-index: 2; }
+  100% { transform: translate(-9px, var(--r2)) rotate(-2deg); z-index: 2; }
+}
+@media (prefers-reduced-motion: reduce) { .paper, .env-flap, .env-zone { transition-duration: .01s !important; } .paper.to-back, .paper.to-back-left { animation: none; } }
 .paper-head { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
 .paper-title { font-family: var(--serif); font-style: italic; font-size: clamp(18px, 2.4vw, 21px); color: var(--red); line-height: 1.1; }
 .paper-nav { display: flex; align-items: center; gap: 8px; flex: none; }
@@ -1264,7 +1273,7 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
     env.classList.toggle('open', open);
     zone.classList.toggle('is-open', open);
     hit.setAttribute('aria-expanded', String(open));
-    hit.setAttribute('aria-label', t('openEnv'));
+    hit.setAttribute('aria-label', open ? t('closeEnv') : t('openEnv'));
     toggle.textContent = open ? t('closeEnv') : t('openEnv');
     syncInert();
   }
@@ -1273,30 +1282,84 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
     env.querySelectorAll('.paper-next').forEach(function (b) { b.setAttribute('aria-label', t('nextCard')); });
     copies.forEach(function (b) { b.setAttribute('aria-label', t('copyLbl') + ' ' + whatLabel(b)); });
   });
-  hit.addEventListener('click', function () { setOpen(true); });
+  hit.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
   toggle.addEventListener('click', function () { setOpen(!env.classList.contains('open')); });
 
-  // Siguiente tarjeta: la de delante va al fondo y las demás suben un puesto
+  // Siguiente tarjeta: la de delante va al fondo y las demás suben un puesto.
+  // dir: 1 sale por la derecha, -1 por la izquierda; fromDx: dónde estaba al soltar el dedo
   var busy = false;
-  function nextPaper() {
+  function frontPaper() { return papers.filter(function (p) { return p.getAttribute('data-pos') === '0'; })[0]; }
+  function nextPaper(dir, fromDx) {
     if (busy) return;
     busy = true;
-    var front = papers.filter(function (p) { return p.getAttribute('data-pos') === '0'; })[0];
+    dir = dir === -1 ? -1 : 1;
+    var front = frontPaper();
+    var cls = dir === 1 ? 'to-back' : 'to-back-left';
+    front.style.setProperty('--dx', (fromDx || 0) + 'px');
+    front.style.setProperty('--rot', ((fromDx || 0) / 22) + 'deg');
+    front.style.transform = '';
+    front.classList.remove('dragging');
     env.classList.add('shuffling');
-    front.classList.add('to-back');
+    front.classList.add(cls);
     papers.forEach(function (p) {
       var pos = +p.getAttribute('data-pos');
       p.setAttribute('data-pos', String((pos + papers.length - 1) % papers.length));
     });
     syncInert();
-    var finish = function () { front.classList.remove('to-back'); env.classList.remove('shuffling'); busy = false; };
+    var finish = function () {
+      front.classList.remove(cls);
+      front.style.removeProperty('--dx'); front.style.removeProperty('--rot');
+      env.classList.remove('shuffling');
+      busy = false;
+    };
     var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduce) finish(); else setTimeout(finish, 720);
-    var newFront = papers.filter(function (p) { return p.getAttribute('data-pos') === '0'; })[0];
-    var nb = newFront.querySelector('.paper-next');
-    if (nb) nb.focus({ preventScroll: true });
+    var nb = frontPaper().querySelector('.paper-next');
+    if (nb && !fromDx) nb.focus({ preventScroll: true });
   }
-  env.querySelectorAll('.paper-next').forEach(function (b) { b.addEventListener('click', nextPaper); });
+  env.querySelectorAll('.paper-next').forEach(function (b) { b.addEventListener('click', function () { nextPaper(1, 0); }); });
+
+  // Deslizar la tarjeta de delante con el dedo (solo táctil: con ratón se puede seleccionar el texto)
+  var drag = null, swallowUntil = 0;
+  env.addEventListener('pointerdown', function (e) {
+    if (e.pointerType === 'mouse' || busy || !env.classList.contains('open')) return;
+    var paper = e.target.closest && e.target.closest('.paper');
+    if (!paper || paper.getAttribute('data-pos') !== '0') return;
+    drag = { paper: paper, id: e.pointerId, x: e.clientX, y: e.clientY, dx: 0, on: false };
+  });
+  env.addEventListener('pointermove', function (e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var dx = e.clientX - drag.x, dy = e.clientY - drag.y;
+    if (!drag.on) {
+      if (Math.abs(dy) > 10 && Math.abs(dy) > Math.abs(dx)) { drag = null; return; } // es scroll vertical
+      if (Math.abs(dx) < 8) return;
+      drag.on = true;
+      drag.paper.classList.add('dragging');
+      try { drag.paper.setPointerCapture(e.pointerId); } catch (err) {}
+    }
+    drag.dx = dx;
+    drag.paper.style.transform = 'translate(' + dx + 'px, var(--r0)) rotate(' + (dx / 22) + 'deg)';
+  });
+  function endDrag(e) {
+    if (!drag || e.pointerId !== drag.id) return;
+    var d = drag; drag = null;
+    if (!d.on) return;
+    swallowUntil = Date.now() + 400;
+    var limit = Math.max(50, d.paper.offsetWidth * 0.2);
+    if (e.type === 'pointerup' && Math.abs(d.dx) > limit) {
+      nextPaper(d.dx > 0 ? 1 : -1, d.dx);
+    } else {
+      // vuelve a su sitio
+      env.classList.add('shuffling');
+      d.paper.classList.remove('dragging');
+      d.paper.style.transform = '';
+      setTimeout(function () { if (!busy) env.classList.remove('shuffling'); }, 460);
+    }
+  }
+  env.addEventListener('pointerup', endDrag);
+  env.addEventListener('pointercancel', endDrag);
+  // Tras un deslizamiento no cuenta como toque (ni copia ni cierra el sobre)
+  env.addEventListener('click', function (e) { if (Date.now() < swallowUntil) { e.stopPropagation(); e.preventDefault(); } }, true);
 
   // Copiar cada dato
   function fallbackCopy(text) {
