@@ -139,14 +139,14 @@ a { color: inherit; }
   position: absolute;
   right: clamp(-14px, -1vw, -6px);
   top: clamp(-30px, -2vw, -18px);
-  width: clamp(104px, 12vw, 140px);
+  width: clamp(124px, 14vw, 172px);
   aspect-ratio: 1;
   transform: rotate(8deg);
 }
 .sticker .ring { animation: spin 24s linear infinite; transform-origin: 50% 50%; }
 .sticker text { font-family: var(--display); font-weight: 700; font-size: 14px; letter-spacing: 3px; fill: var(--white); text-transform: uppercase; }
 @keyframes spin { to { transform: rotate(360deg); } }
-@media (max-width: 640px) { .sticker { width: 86px; right: -4px; top: -26px; } }
+@media (max-width: 640px) { .sticker { width: 104px; right: -6px; top: -16px; } }
 
 /* ---------- MARQUEE ---------- */
 .marquee {
@@ -617,7 +617,11 @@ footer p { margin: 0; font-weight: 600; letter-spacing: .08em; text-transform: u
           <defs><path id="circ" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0"/></defs>
           <text><textPath data-i18n="k8" href="#circ">¡Nos casamos! ♥ ¡Nos casamos! ♥ </textPath></text>
         </g>
-        <path transform="translate(100 104)" d="M0 22 C -30 0, -34 -22, -17 -28 C -6 -32, 0 -22, 0 -16 C 0 -22, 6 -32, 17 -28 C 34 -22, 30 0, 0 22 Z" fill="#FFFFFF"/>
+        <defs><clipPath id="fotoClip"><circle cx="100" cy="100" r="67"/></clipPath></defs>
+        <g transform="rotate(-8 100 100)">
+          <image href="nosotras.jpg" x="33" y="33" width="134" height="134" preserveAspectRatio="xMidYMid slice" clip-path="url(#fotoClip)"/>
+          <circle cx="100" cy="100" r="67" fill="none" stroke="#FFFFFF" stroke-width="2.5"/>
+        </g>
       </svg>
 
       <svg class="branch tl" aria-hidden="true"><use href="#olive-branch"/></svg>
